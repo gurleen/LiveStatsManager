@@ -1,0 +1,16 @@
+<div class="d-flex @CssClass @OrderCss" style="gap: @Spacing">
+    @ChildContent
+</div>
+
+@code {
+    [Parameter]
+    public string Spacing { get; set; } = "20px";
+
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    [Parameter] public string CssClass { get; set; } = string.Empty;
+    
+    [Parameter] public bool Reverse { get; set; } = false;
+    private string OrderCss => Reverse ? "flex-row-reverse" : string.Empty;
+}

@@ -1,0 +1,35 @@
+﻿@page "/"
+@using NCAALiveStats
+@inject GameState state;
+
+<PageTitle>Home</PageTitle>
+
+<div>
+    <h2>@state.HomeTeam.Detail.TeamName</h2>
+    <h4>@state.HomeTeam.Detail.TeamNickname</h4>
+    <h5>@state.HomeScore</h5>
+</div>
+
+<div>
+    <h2>@state.AwayTeam.Detail.TeamName</h2>
+    <h4>@state.AwayTeam.Detail.TeamNickname</h4>
+    <h5>@state.AwayScore</h5>
+</div>
+
+@code
+{
+    protected override void OnInitialized()
+    {
+        state.OnUpdate += HandleStateChanged;
+    }
+
+    private void HandleStateChanged()
+    {
+        InvokeAsync(StateHasChanged); // Ensure UI thread update
+    }
+
+    public void Dispose()
+    {
+        state.OnUpdate -= HandleStateChanged;
+    }
+}

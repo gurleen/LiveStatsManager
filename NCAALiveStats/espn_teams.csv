@@ -1,0 +1,362 @@
+,team_id,abbreviation,display_name,short_name,mascot,nickname,team,color,alternate_color,group_id,conference_short_name,conference_name,conference_id,logo_name,website
+0,2000,ACU,Abilene Christian Wildcats,Abilene Chrstn,Wildcats,Abilene Chrstn,Abilene Christian,4e2683,ebebeb,30,WAC,Western Athletic Conference,30,ABILENE_CHRISTIAN.PNG,acusports.com
+1,2005,AFA,Air Force Falcons,Air Force,Falcons,Air Force,Air Force,004a7b,ffffff,44,Mountain West,Mountain West Conference,44,AIR_FORCE.PNG,goairforcefalcons.com/
+2,2006,AKR,Akron Zips,Akron,Zips,Akron,Akron,00285e,84754e,14,MAC,Mid-American Conference,14,AKRON.PNG,gozips.com
+3,2010,AAMU,Alabama A&M Bulldogs,Alabama A&M,Bulldogs,Alabama A&M,Alabama A&M,790000,ffffff,26,SWAC,Southwestern Athletic Conference,26,ALABAMA_AM.PNG,aamusports.com
+4,333,ALA,Alabama Crimson Tide,Alabama,Crimson Tide,Alabama,Alabama,690014,f1f2f3,23,SEC,Southeastern Conference,23,ALABAMA.PNG,rolltide.com
+5,2011,ALST,Alabama State Hornets,Alabama St,Hornets,Alabama St,Alabama State,e9a900,0a0a0a,26,SWAC,Southwestern Athletic Conference,26,ALABAMA_ST.PNG,bamastatesports.com
+6,399,ALB,Albany Great Danes,Albany,Great Danes,Albany,Albany,3D2777,ffffff,1,Am. East,America East Conference,1,ALBANY.PNG,ualbanysports.com
+7,2016,ALCN,Alcorn State Braves,Alcorn St,Braves,Alcorn St,Alcorn State,4b0058,46166a,26,SWAC,Southwestern Athletic Conference,26,ALCORN_ST.PNG,alcornsports.com
+8,44,AMER,American University Eagles,American,Eagles,American,American University,c41130,c8102e,22,Patriot,Patriot League,22,AMERICAN.PNG,aueagles.com
+9,2026,APP,Appalachian State Mountaineers,Appalachian St,Mountaineers,Appalachian St,Appalachian State,000000,ffcd00,27,Sun Belt,Sun Belt Conference,27,APPALACHIAN_ST.PNG,appstatesports.com
+10,9,ASU,Arizona State Sun Devils,Arizona St,Sun Devils,Arizona St,Arizona State,942139,f1f2f3,21,Pac-12,Pac-12 Conference,21,ARIZONA_ST.PNG,thesundevils.com
+11,12,ARIZ,Arizona Wildcats,Arizona,Wildcats,Arizona,Arizona,002449,00205b,21,Pac-12,Pac-12 Conference,21,ARIZONA.PNG,arizonawildcats.com
+12,8,ARK,Arkansas Razorbacks,Arkansas,Razorbacks,Arkansas,Arkansas,9c1831,000000,23,SEC,Southeastern Conference,23,ARKANSAS.PNG,astateredwolves.com
+13,2032,ARST,Arkansas State Red Wolves,Arkansas St,Red Wolves,Arkansas St,Arkansas State,e81018,000000,27,Sun Belt,Sun Belt Conference,27,ARKANSAS_ST.PNG,astateredwolves.com
+14,2029,UAPB,Arkansas-Pine Bluff Golden Lions,AR-Pine Bluff,Golden Lions,AR-Pine Bluff,Arkansas-Pine Bluff,e0aa0f,eaaa00,26,SWAC,Southwestern Athletic Conference,26,ARKANSAS_PINE_BLUFF.PNG,uapblionsroar.com/
+15,349,ARMY,Army Black Knights,Army,Black Knights,Army,Army,ce9c00,231f20,22,Patriot,Patriot League,22,ARMY.PNG,goairforcefalcons.com/
+16,2,AUB,Auburn Tigers,Auburn,Tigers,Auburn,Auburn,03244d,f1f2f3,23,SEC,Southeastern Conference,23,AUBURN.PNG,auburntigers.com
+17,2046,APSU,Austin Peay Governors,Austin Peay,Governors,Austin Peay,Austin Peay,8e0b0b,,46,ASUN,ASUN Conference,46,AUSTIN_PEAY.PNG,letsgopeay.com
+18,252,BYU,BYU Cougars,BYU,Cougars,BYU,BYU,001E4C,ffffff,29,WCC,West Coast Conference,29,BYU.PNG,
+19,2050,BALL,Ball State Cardinals,Ball State,Cardinals,Ball State,Ball State,DA0000,ffffff,14,MAC,Mid-American Conference,14,,ballstatesports.com
+20,239,BAY,Baylor Bears,Baylor,Bears,Baylor,Baylor,004834,ffb81c,8,Big 12,Big 12 Conference,8,BAYLOR.PNG,baylorbears.com
+21,91,BELL,Bellarmine Knights,Bellarmine,Knights,Bellarmine,Bellarmine,000000,,46,ASUN,ASUN Conference,46,,athletics.bellarmine.edu
+22,2057,BEL,Belmont Bruins,Belmont,Bruins,Belmont,Belmont,182142,c9262d,18,MVC,Missouri Valley Conference,18,BELMONT.PNG,belmontbruins.com
+23,2065,BCU,Bethune-Cookman Wildcats,Bethune,Wildcats,Bethune,Bethune-Cookman,7b1831,e9aa12,26,SWAC,Southwestern Athletic Conference,26,,bcuathletics.com
+24,2066,BING,Binghamton Bearcats,Binghamton,Bearcats,Binghamton,Binghamton,00614A,f0f0f0,1,Am. East,America East Conference,1,BINGHAMTON.PNG,bubearcats.com
+25,68,BOIS,Boise State Broncos,Boise St,Broncos,Boise St,Boise State,09347A,d8d9da,44,Mountain West,Mountain West Conference,44,BOISE_ST.PNG,broncosports.com
+26,103,BC,Boston College Eagles,Boston College,Eagles,Boston College,Boston College,88001a,a39161,2,ACC,Atlantic Coast Conference,2,BOSTON_COLLEGE.PNG,bceagles.com
+27,104,BU,Boston University Terriers,Boston Univ,Terriers,Boston Univ,Boston University,cc0000,ffffff,22,Patriot,Patriot League,22,BOSTON_UNIVERSITY.PNG,goterriers.com
+28,189,BGSU,Bowling Green Falcons,Bowling Green,Falcons,Bowling Green,Bowling Green,2b1000,492000,14,MAC,Mid-American Conference,14,BOWLING_GREEN.PNG,bgsufalcons.com
+29,71,BRAD,Bradley Braves,Bradley,Braves,Bradley,Bradley,b70002,c0c0c0,18,MVC,Missouri Valley Conference,18,BRADLEY.PNG,bradleybraves.com
+30,225,BRWN,Brown Bears,Brown,Bears,Brown,Brown,411e09,949300,12,Ivy,Ivy League,12,BROWN.PNG,brownbears.com
+31,2803,BRY,Bryant Bulldogs,Bryant,Bulldogs,Bryant,Bryant,000000,9f8343,1,Am. East,America East Conference,1,BRYANT.PNG,bryantbulldogs.com
+32,2083,BUCK,Bucknell Bison,Bucknell,Bison,Bucknell,Bucknell,000060,00316e,22,Patriot,Patriot League,22,BUCKNELL.PNG,bucknellbison.com
+33,2084,BUFF,Buffalo Bulls,Buffalo,Bulls,Buffalo,Buffalo,041A9B,ebebeb,14,MAC,Mid-American Conference,14,BUFFALO.PNG,baylorbears.com
+34,2086,BUT,Butler Bulldogs,Butler,Bulldogs,Butler,Butler,0d1361,00a3e0,4,Big East,Big East Conference,4,BUTLER.PNG,butlersports.com
+35,13,CP,Cal Poly Mustangs,Cal Poly,Mustangs,Cal Poly,Cal Poly,1E4D2B,eed897,9,Big West,Big West Conference,9,CAL_POLY.PNG,goccusports.com
+36,2934,CSUB,Cal State Bakersfield Roadrunners,Bakersfield,Roadrunners,Bakersfield,Cal State Bakersfield,003BAB,,9,Big West,Big West Conference,9,CAL_ST_BAKERSFIELD.PNG,gorunners.com
+37,2239,CSUF,Cal State Fullerton Titans,Fullerton,Titans,Fullerton,Cal State Fullerton,003767,ff8300,9,Big West,Big West Conference,9,CAL_ST_FULLERTON.PNG,fullertontitans.com
+38,2463,CSUN,Cal State Northridge Matadors,CSU Northridge,Matadors,CSU Northridge,Cal State Northridge,b50000,,9,Big West,Big West Conference,9,CAL_ST_NORTHRIDGE.PNG,GoMatadors.com
+39,2856,CBU,California Baptist Lancers,CA Baptist,Lancers,CA Baptist,California Baptist,000080,,30,WAC,Western Athletic Conference,30,,cbulancers.com
+40,25,CAL,California Golden Bears,California,Golden Bears,California,California,031522,ffc423,21,Pac-12,Pac-12 Conference,21,CALIFORNIA.PNG,cbulancers.com
+41,2097,CAMP,Campbell Fighting Camels,Campbell,Fighting Camels,Campbell,Campbell,F58025,231F20,6,Big South,Big South Conference,6,CAMPBELL.PNG,gocamels.com
+42,2099,CAN,Canisius Golden Griffins,Canisius,Golden Griffins,Canisius,Canisius,004a81,dda50f,13,MAAC,Metro Atlantic Athletic Conference,13,CANISIUS.PNG,gogriffs.com
+43,2110,CARK,Central Arkansas Bears,C Arkansas,Bears,C Arkansas,Central Arkansas,a7a9ac,8e959a,46,ASUN,ASUN Conference,46,ARKANSAS.PNG,ucasports.com
+44,2115,CCSU,Central Connecticut Blue Devils,C Connecticut,Blue Devils,C Connecticut,Central Connecticut,1B49A2,d1d5d8,19,NEC,Northeast Conference,19,CONNECTICUT.PNG,ccsubluedevils.com
+45,2117,CMU,Central Michigan Chippewas,C Michigan,Chippewas,C Michigan,Central Michigan,6a0032,ffffff,14,MAC,Mid-American Conference,14,MICHIGAN.PNG,cmuchippewas.com
+46,232,COFC,Charleston Cougars,Charleston,Cougars,Charleston,Charleston,9c8456,e4e2dd,10,CAA,Colonial Athletic Association,10,COLLEGE_OF_CHARLESTON.PNG,cofcsports.com/
+47,2127,CHSO,Charleston Southern Buccaneers,Charleston So,Buccaneers,Charleston So,Charleston Southern,2e3192,ded090,6,Big South,Big South Conference,6,CHARLESTON_SOUTHERN.PNG,csusports.com/
+48,2429,CHAR,Charlotte 49ers,Charlotte,49ers,Charlotte,Charlotte,ffffff,cfab7a,11,C-USA,Conference USA,11,CHARLOTTE.PNG,queensathletics.com
+49,236,UTC,Chattanooga Mocs,Chattanooga,Mocs,Chattanooga,Chattanooga,00386b,dca71d,24,Southern,Southern Conference,24,CHATTANOOGA.PNG,gojaspers.com
+50,2130,CHST,Chicago State Cougars,Chicago St,Cougars,Chicago St,Chicago State,006700,,43,Indep.,Division I Independents,43,CHICAGO_ST.PNG,gocsucougars.com
+51,2132,CIN,Cincinnati Bearcats,Cincinnati,Bearcats,Cincinnati,Cincinnati,000000,717073,62,American,American Athletic Conference,62,CINCINNATI.PNG,gobearcats.com/
+52,228,CLEM,Clemson Tigers,Clemson,Tigers,Clemson,Clemson,F66733,522d80,2,ACC,Atlantic Coast Conference,2,CLEMSON.PNG,clemsontigers.com
+53,325,CLEV,Cleveland State Vikings,Cleveland St,Vikings,Cleveland St,Cleveland State,006633,231f20,45,Horizon,Horizon League,45,CLEVELAND_ST.PNG,csuvikings.com
+54,324,CCU,Coastal Carolina Chanticleers,Coast Car,Chanticleers,Coast Car,Coastal Carolina,007073,876447,27,Sun Belt,Sun Belt Conference,27,,goccusports.com
+55,2142,COLG,Colgate Raiders,Colgate,Raiders,Colgate,Colgate,8B011D,231f20,22,Patriot,Patriot League,22,COLGATE.PNG,gocolgateraiders.com
+56,38,COLO,Colorado Buffaloes,Colorado,Buffaloes,Colorado,Colorado,d1c57e,ffd200,21,Pac-12,Pac-12 Conference,21,COLORADO.PNG,csurams.com
+57,36,CSU,Colorado State Rams,Colorado St,Rams,Colorado St,Colorado State,004537,ffc425,44,Mountain West,Mountain West Conference,44,COLORADO_ST.PNG,csurams.com
+58,171,COLU,Columbia Lions,Columbia,Lions,Columbia,Columbia,174785,004b85,12,Ivy,Ivy League,12,COLUMBIA.PNG,mutigers.com
+59,2154,COPP,Coppin State Eagles,Coppin St,Eagles,Coppin St,Coppin State,2e3192,ffd204,16,MEAC,Mid-Eastern Athletic Conference,16,COPPIN_ST.PNG,coppinstatesports.com
+60,172,COR,Cornell Big Red,Cornell,Big Red,Cornell,Cornell,d60027,101010,12,Ivy,Ivy League,12,CORNELL.PNG,cornellbigred.com
+61,156,CREI,Creighton Bluejays,Creighton,Bluejays,Creighton,Creighton,13299e,00235d,4,Big East,Big East Conference,4,,gocreighton.com/
+62,159,DART,Dartmouth Big Green,Dartmouth,Big Green,Dartmouth,Dartmouth,005730,000000,12,Ivy,Ivy League,12,DARTMOUTH.PNG,dartmouthsports.com
+63,2166,DAV,Davidson Wildcats,Davidson,Wildcats,Davidson,Davidson,000000,e51837,3,A 10,Atlantic 10 Conference,3,DAVIDSON.PNG,davidsonwildcats.com
+64,2168,DAY,Dayton Flyers,Dayton,Flyers,Dayton,Dayton,004B8D,ffffff,3,A 10,Atlantic 10 Conference,3,DAYTON.PNG,daytonflyers.com
+65,305,DEP,DePaul Blue Demons,DePaul,Blue Demons,DePaul,DePaul,2d649c,ce1125,4,Big East,Big East Conference,4,DEPAUL.PNG,depaulbluedemons.com
+66,48,DEL,Delaware Blue Hens,Delaware,Blue Hens,Delaware,Delaware,033594,e8ce31,10,CAA,Colonial Athletic Association,10,DELAWARE.PNG,bluehens.com
+67,2169,DSU,Delaware State Hornets,Delaware St,Hornets,Delaware St,Delaware State,FF3630,009cdd,16,MEAC,Mid-Eastern Athletic Conference,16,DELAWARE_ST.PNG,dsuhornets.com/
+68,2172,DEN,Denver Pioneers,Denver,Pioneers,Denver,Denver,9c143d,d6ba74,49,Summit,Summit League,49,DENVER.PNG,goduke.com
+69,2174,DETM,Detroit Mercy Titans,Detroit Mercy,Titans,Detroit Mercy,Detroit Mercy,165b9e,d31733,45,Horizon,Horizon League,45,DETROIT_MERCY.PNG,detroittitans.com
+70,2181,DRKE,Drake Bulldogs,Drake,Bulldogs,Drake,Drake,004477,c0c0c0,18,MVC,Missouri Valley Conference,18,DRAKE.PNG,godrakebulldogs.com/
+71,2182,DREX,Drexel Dragons,Drexel,Dragons,Drexel,Drexel,07294D,FFC600,10,CAA,Colonial Athletic Association,10,DREXEL.PNG,drexeldragons.com
+72,150,DUKE,Duke Blue Devils,Duke,Blue Devils,Duke,Duke,001A57,f1f2f3,2,ACC,Atlantic Coast Conference,2,DUKE.PNG,goduke.com
+73,2184,DUQ,Duquesne Dukes,Duquesne,Dukes,Duquesne,Duquesne,002D62,b90b2e,3,A 10,Atlantic 10 Conference,3,DUQUESNE.PNG,GoDuquesne.com
+74,151,ECU,East Carolina Pirates,East Carolina,Pirates,East Carolina,East Carolina,4b1869,f0907b,62,American,American Athletic Conference,62,EAST_CAROLINA.PNG,ecupirates.com
+75,2193,ETSU,East Tennessee State Buccaneers,ETSU,Buccaneers,ETSU,East Tennessee State,002d61,ffc423,24,Southern,Southern Conference,24,,etsubucs.com
+76,2197,EIU,Eastern Illinois Panthers,E Illinois,Panthers,E Illinois,Eastern Illinois,000000,bebab9,20,OVC,Ohio Valley Conference,20,ILLINOIS.PNG,eiupanthers.com
+77,2198,EKU,Eastern Kentucky Colonels,E Kentucky,Colonels,E Kentucky,Eastern Kentucky,660819,f0f0f0,46,ASUN,ASUN Conference,46,KENTUCKY.PNG,ekusports.com
+78,2199,EMU,Eastern Michigan Eagles,E Michigan,Eagles,E Michigan,Eastern Michigan,00331b,f0f0f0,14,MAC,Mid-American Conference,14,MICHIGAN.PNG,emueagles.com
+79,331,EWU,Eastern Washington Eagles,E Washington,Eagles,E Washington,Eastern Washington,a10022,abb4bc,5,Big Sky,Big Sky Conference,5,WASHINGTON.PNG,goeags.com
+80,2210,ELON,Elon Phoenix,Elon,Phoenix,Elon,Elon,020303,b59a57,10,CAA,Colonial Athletic Association,10,ELON.PNG,elonphoenix.com
+81,339,EVAN,Evansville Purple Aces,Evansville,Purple Aces,Evansville,Evansville,663399,ef6f00,18,MVC,Missouri Valley Conference,18,EVANSVILLE.PNG,gopurpleaces.com
+82,2217,FAIR,Fairfield Stags,Fairfield,Stags,Fairfield,Fairfield,000000,ebebeb,13,MAAC,Metro Atlantic Athletic Conference,13,FAIRFIELD.PNG,fairfieldstags.com
+83,161,FDU,Fairleigh Dickinson Knights,Fair Dickinson,Knights,Fair Dickinson,Fairleigh Dickinson,28334a,ffffff,19,NEC,Northeast Conference,19,FAIRLEIGH_DICKINSON.PNG,fduknights.com
+84,50,FAMU,Florida A&M Rattlers,FAMU,Rattlers,FAMU,Florida A&M,F89728,00843d,26,SWAC,Southwestern Athletic Conference,26,,famuathletics.com/
+85,2226,FAU,Florida Atlantic Owls,FAU,Owls,FAU,Florida Atlantic,004B85,bb2f4c,11,C-USA,Conference USA,11,,fausports.com
+86,57,FLA,Florida Gators,Florida,Gators,Florida,Florida,0021A5,0021a5,23,SEC,Southeastern Conference,23,FLORIDA.PNG,floridagators.com
+87,526,FGCU,Florida Gulf Coast Eagles,FGCU,Eagles,FGCU,Florida Gulf Coast,00885a,076c3b,46,ASUN,ASUN Conference,46,,fgcuathletics.com/
+88,2229,FIU,Florida International Panthers,FIU,Panthers,FIU,Florida International,091731,c5960c,11,C-USA,Conference USA,11,,fiusports.com
+89,52,FSU,Florida State Seminoles,Florida St,Seminoles,Florida St,Florida State,782F40,ceb888,2,ACC,Atlantic Coast Conference,2,FLORIDA_ST.PNG,seminoles.com
+90,2230,FOR,Fordham Rams,Fordham,Rams,Fordham,Fordham,830032,909090,3,A 10,Atlantic 10 Conference,3,FORDHAM.PNG,fordhamsports.com
+91,278,FRES,Fresno State Bulldogs,Fresno St,Bulldogs,Fresno St,Fresno State,c41230,231f20,44,Mountain West,Mountain West Conference,44,FRESNO_ST.PNG,osubeavers.com/
+92,231,FUR,Furman Paladins,Furman,Paladins,Furman,Furman,4A2184,909090,24,Southern,Southern Conference,24,FURMAN.PNG,furmanpaladins.com
+93,2241,WEBB,Gardner-Webb Runnin' Bulldogs,Gardner-Webb,Runnin' Bulldogs,Gardner-Webb,Gardner-Webb,c12535,909090,6,Big South,Big South Conference,6,GARDNER_WEBB.PNG,gwusports.com/
+94,2244,GMU,George Mason Patriots,George Mason,Patriots,George Mason,George Mason,016600,ecb010,3,A 10,Atlantic 10 Conference,3,GEORGE_MASON.PNG,gomason.com
+95,45,GW,George Washington Colonials,G Washington,Colonials,G Washington,George Washington,002843,e8d2a1,3,A 10,Atlantic 10 Conference,3,WASHINGTON.PNG,gwsports.com/index.html
+96,46,GTWN,Georgetown Hoyas,Georgetown,Hoyas,Georgetown,Georgetown,110E42,001c58,4,Big East,Big East Conference,4,GEORGETOWN.PNG,guhoyas.com
+97,61,UGA,Georgia Bulldogs,Georgia,Bulldogs,Georgia,Georgia,CC0000,000000,23,SEC,Southeastern Conference,23,GEORGIA.PNG,georgiadogs.com
+98,290,GASO,Georgia Southern Eagles,Georgia So,Eagles,Georgia So,Georgia Southern,003775,f0f0f0,27,Sun Belt,Sun Belt Conference,27,GEORGIA_ST.PNG,gseagles.com
+99,2247,GAST,Georgia State Panthers,Georgia St,Panthers,Georgia St,Georgia State,1e539a,ebebeb,27,Sun Belt,Sun Belt Conference,27,GEORGIA_ST.PNG,georgiastatesports.com
+100,59,GT,Georgia Tech Yellow Jackets,Georgia Tech,Yellow Jackets,Georgia Tech,Georgia Tech,00223e,002c56,2,ACC,Atlantic Coast Conference,2,GEORGIA_TECH.PNG,ramblinwreck.com
+101,2250,GONZ,Gonzaga Bulldogs,Gonzaga,Bulldogs,Gonzaga,Gonzaga,002967,cfd4d8,29,WCC,West Coast Conference,29,GONZAGA.PNG,gozags.com
+102,2755,GRAM,Grambling Tigers,Grambling,Tigers,Grambling,Grambling,ee8601,ffd10a,26,SWAC,Southwestern Athletic Conference,26,GRAMBLING_ST.PNG,gsutigers.com
+103,2253,GCU,Grand Canyon Lopes,Grand Canyon,Lopes,Grand Canyon,Grand Canyon,522398,f0f0f0,30,WAC,Western Athletic Conference,30,GRAND_CANYON.PNG,gculopes.com
+104,2739,GB,Green Bay Phoenix,Green Bay,Phoenix,Green Bay,Green Bay,006633,ffffff,45,Horizon,Horizon League,45,GREEN_BAY.PNG,greenbayphoenix.com
+105,2261,HAMP,Hampton Pirates,Hampton,Pirates,Hampton,Hampton,0067AC,,10,CAA,Colonial Athletic Association,10,HAMPTON.PNG,hamptonpirates.com
+106,42,HART,Hartford Hawks,Hartford,Hawks,Hartford,Hartford,d60008,000000,43,Indep.,Division I Independents,43,HARTFORD.PNG,hartfordhawks.com
+107,108,HARV,Harvard Crimson,Harvard,Crimson,Harvard,Harvard,990000,dbdbdb,12,Ivy,Ivy League,12,HARVARD.PNG,gocrimson.com
+108,62,HAW,Hawai'i Rainbow Warriors,Hawai'i,Rainbow Warriors,Hawai'i,Hawai'i,003420,ffffff,9,Big West,Big West Conference,9,HAWAII.PNG,hubison.com
+109,2272,HP,High Point Panthers,High Point,Panthers,High Point,High Point,b0b7bc,ebebeb,6,Big South,Big South Conference,6,HIGH_POINT.PNG,highpointpanthers.com
+110,2275,HOF,Hofstra Pride,Hofstra,Pride,Hofstra,Hofstra,00337c,f6c934,10,CAA,Colonial Athletic Association,10,HOFSTRA.PNG,gohofstra.com
+111,107,HC,Holy Cross Crusaders,Holy Cross,Crusaders,Holy Cross,Holy Cross,0a0a0a,080808,22,Patriot,Patriot League,22,HOLY_CROSS.PNG,goholycross.com/
+112,2277,HCU,Houston Christian Huskies,Hou Christian,Huskies,Hou Christian,Houston Christian,00539c,,25,Southland,Southland Conference,25,,hcuhuskies.com
+113,248,HOU,Houston Cougars,Houston,Cougars,Houston,Houston,C90822,231f20,62,American,American Athletic Conference,62,HOUSTON.PNG,uhcougars.com
+114,47,HOW,Howard Bison,Howard,Bison,Howard,Howard,9e0b0e,6b818d,16,MEAC,Mid-Eastern Athletic Conference,16,HOWARD.PNG,hubison.com
+115,85,IUPU,IUPUI Jaguars,IUPUI,Jaguars,IUPUI,IUPUI,A81F30,d59f0f,45,Horizon,Horizon League,45,IUPUI.PNG,
+116,304,IDST,Idaho State Bengals,Idaho St,Bengals,Idaho St,Idaho State,ef8c00,e9a126,5,Big Sky,Big Sky Conference,5,IDAHO_ST.PNG,isubengals.com
+117,70,IDHO,Idaho Vandals,Idaho,Vandals,Idaho,Idaho,000000,8c6e4a,5,Big Sky,Big Sky Conference,5,IDAHO.PNG,govandals.com
+118,356,ILL,Illinois Fighting Illini,Illinois,Fighting Illini,Illinois,Illinois,f77329,fa6300,7,Big Ten,Big Ten Conference,7,ILLINOIS.PNG,GoRedbirds.com
+119,2287,ILST,Illinois State Redbirds,Illinois St,Redbirds,Illinois St,Illinois State,CE1126,ffe716,18,MVC,Missouri Valley Conference,18,ILLINOIS_ST.PNG,GoRedbirds.com
+120,2916,UIW,Incarnate Word Cardinals,Incarnate Word,Cardinals,Incarnate Word,Incarnate Word,000000,080808,25,Southland,Southland Conference,25,INCARNATE_WORD.PNG,uiwcardinals.com
+121,84,IU,Indiana Hoosiers,Indiana,Hoosiers,Indiana,Indiana,7D110C,eeedeb,7,Big Ten,Big Ten Conference,7,INDIANA.PNG,gosycamores.com
+122,282,INST,Indiana State Sycamores,Indiana St,Sycamores,Indiana St,Indiana State,00669a,f0f0f0,18,MVC,Missouri Valley Conference,18,INDIANA_ST.PNG,gosycamores.com
+123,314,IONA,Iona Gaels,Iona,Gaels,Iona,Iona,8c001a,f6a704,13,MAAC,Metro Atlantic Athletic Conference,13,IONA.PNG,ionagaels.com
+124,2294,IOWA,Iowa Hawkeyes,Iowa,Hawkeyes,Iowa,Iowa,000000,ffe100,7,Big Ten,Big Ten Conference,7,IOWA.PNG,hawkeyesports.com
+125,66,ISU,Iowa State Cyclones,Iowa State,Cyclones,Iowa State,Iowa State,660015,830b2c,8,Big 12,Big 12 Conference,8,,cyclones.com
+126,2296,JKST,Jackson State Tigers,Jackson St,Tigers,Jackson St,Jackson State,123297,b5b7ba,26,SWAC,Southwestern Athletic Conference,26,JACKSON_ST.PNG,gojsutigers.com
+127,294,JAX,Jacksonville Dolphins,Jacksonville,Dolphins,Jacksonville,Jacksonville,00523e,,46,ASUN,ASUN Conference,46,JACKSONVILLE.PNG,judolphins.com
+128,55,JVST,Jacksonville State Gamecocks,J'Ville St,Gamecocks,J'Ville St,Jacksonville State,b50500,b5b7ba,46,ASUN,ASUN Conference,46,,jaxstatesports.com
+129,256,JMU,James Madison Dukes,James Madison,Dukes,James Madison,James Madison,450084,cbb778,27,Sun Belt,Sun Belt Conference,27,JAMES_MADISON.PNG,jmusports.com
+130,140,KC,Kansas City Roos,Kansas City,Roos,Kansas City,Kansas City,004b87,ffc72c,49,Summit,Summit League,49,,kstatesports.com
+131,2305,KU,Kansas Jayhawks,Kansas,Jayhawks,Kansas,Kansas,0022B4,e8000d,8,Big 12,Big 12 Conference,8,KANSAS.PNG,kuathletics.com
+132,2306,KSU,Kansas State Wildcats,Kansas St,Wildcats,Kansas St,Kansas State,633194,e7d2ad,8,Big 12,Big 12 Conference,8,KANSAS_ST.PNG,kstatesports.com
+133,338,KENN,Kennesaw State Owls,Kennesaw St,Owls,Kennesaw St,Kennesaw State,000000,fdbb30,46,ASUN,ASUN Conference,46,KENNESAW_ST.PNG,ksuowls.com
+134,2309,KENT,Kent State Golden Flashes,Kent State,Golden Flashes,Kent State,Kent State,002445,f0b510,14,MAC,Mid-American Conference,14,,kentstatesports.com
+135,96,UK,Kentucky Wildcats,Kentucky,Wildcats,Kentucky,Kentucky,005DAA,ffffff,23,SEC,Southeastern Conference,23,KENTUCKY.PNG,ukathletics.com
+136,99,LSU,LSU Tigers,LSU,Tigers,LSU,LSU,fdd023,2b0d57,23,SEC,Southeastern Conference,23,LSU.PNG,
+137,2325,LAS,La Salle Explorers,La Salle,Explorers,La Salle,La Salle,003356,ffce00,3,A 10,Atlantic 10 Conference,3,LASALLE.PNG,goexplorers.com/
+138,322,LAF,Lafayette Leopards,Lafayette,Leopards,Lafayette,Lafayette,790000,a59474,22,Patriot,Patriot League,22,LAFAYETTE.PNG,goleopards.com
+139,2320,LAM,Lamar Cardinals,Lamar,Cardinals,Lamar,Lamar,000000,ebebeb,25,Southland,Southland Conference,25,LAMAR.PNG,lamarcardinals.com
+140,2329,LEH,Lehigh Mountain Hawks,Lehigh,Mountain Hawks,Lehigh,Lehigh,6c2b2a,b69e70,22,Patriot,Patriot League,22,LEHIGH.PNG,lehighsports.com
+141,2335,LIB,Liberty Flames,Liberty,Flames,Liberty,Liberty,071740,a61f21,46,ASUN,ASUN Conference,46,LIBERTY.PNG,LibertyFlames.com
+142,288,LIP,Lipscomb Bisons,Lipscomb,Bisons,Lipscomb,Lipscomb,20366C,f6b734,46,ASUN,ASUN Conference,46,LIPSCOMB.PNG,lipscombsports.com
+143,2031,LR,Little Rock Trojans,Little Rock,Trojans,Little Rock,Little Rock,AD0000,898d8f,20,OVC,Ohio Valley Conference,20,LITTLE_ROCK.PNG,//lrtrojans.com
+144,299,LBSU,Long Beach State Beach,Long Beach St,Beach,Long Beach St,Long Beach State,000000,f1f2f3,9,Big West,Big West Conference,9,LONG_BEACH_ST.PNG,longbeachstate.com
+145,112358,LIU,Long Island University Sharks,Long Island,Sharks,Long Island,Long Island University,50c9f7,ffbf00,19,NEC,Northeast Conference,19,LONG_ISLAND.PNG,liuathletics.com
+146,2344,LONG,Longwood Lancers,Longwood,Lancers,Longwood,Longwood,003273,9ea2a3,6,Big South,Big South Conference,6,LONGWOOD.PNG,longwoodlancers.com
+147,309,UL,Louisiana Ragin' Cajuns,Louisiana,Ragin' Cajuns,Louisiana,Louisiana,ce2842,,27,Sun Belt,Sun Belt Conference,27,LOUISIANA.PNG,latechsports.com/
+148,2348,LT,Louisiana Tech Bulldogs,Louisiana Tech,Bulldogs,Louisiana Tech,Louisiana Tech,002d65,d3313a,11,C-USA,Conference USA,11,LOUISIANA_TECH.PNG,latechsports.com/
+149,97,LOU,Louisville Cardinals,Louisville,Cardinals,Louisville,Louisville,ad000a,cccccc,2,ACC,Atlantic Coast Conference,2,LOUISVILLE.PNG,gocards.com
+150,2350,LUC,Loyola Chicago Ramblers,Loyola Chicago,Ramblers,Loyola Chicago,Loyola Chicago,9d1244,,3,A 10,Atlantic 10 Conference,3,LOYOLA_CHICAGO.PNG,loyolaramblers.com
+151,2352,L-MD,Loyola Maryland Greyhounds,Loyola MD,Greyhounds,Loyola MD,Loyola Maryland,76a7a0,c9cbca,22,Patriot,Patriot League,22,,loyolagreyhounds.com
+152,2351,LMU,Loyola Marymount Lions,LMU,Lions,LMU,Loyola Marymount,880029,00345b,29,WCC,West Coast Conference,29,,LMULions.com
+153,311,ME,Maine Black Bears,Maine,Black Bears,Maine,Maine,127dbe,,1,Am. East,America East Conference,1,MAINE.PNG,goredfoxes.com
+154,2363,MAN,Manhattan Jaspers,Manhattan,Jaspers,Manhattan,Manhattan,4f8537,b5b7ba,13,MAAC,Metro Atlantic Athletic Conference,13,MANHATTAN.PNG,gojaspers.com
+155,2368,MRST,Marist Red Foxes,Marist,Red Foxes,Marist,Marist,e53730,f0f0f0,13,MAAC,Metro Atlantic Athletic Conference,13,MARIST.PNG,goredfoxes.com
+156,269,MARQ,Marquette Golden Eagles,Marquette,Golden Eagles,Marquette,Marquette,083963,ffffff,4,Big East,Big East Conference,4,MARQUETTE.PNG,gomarquette.com
+157,276,MRSH,Marshall Thundering Herd,Marshall,Thundering Herd,Marshall,Marshall,00ae42,be854c,27,Sun Belt,Sun Belt Conference,27,MARSHALL.PNG,herdzone.com
+158,120,MD,Maryland Terrapins,Maryland,Terrapins,Maryland,Maryland,D5002B,ffcd00,7,Big Ten,Big Ten Conference,7,MARYLAND.PNG,loyolagreyhounds.com
+159,2379,UMES,Maryland-Eastern Shore Hawks,MD-Eastern,Hawks,MD-Eastern,Maryland-Eastern Shore,5c2301,b5b7ba,16,MEAC,Mid-Eastern Athletic Conference,16,,easternshorehawks.com
+160,2377,MCN,McNeese Cowboys,McNeese,Cowboys,McNeese,McNeese,00529C,,25,Southland,Southland Conference,25,MCNEESE.PNG,mcneesesports.com
+161,235,MEM,Memphis Tigers,Memphis,Tigers,Memphis,Memphis,003087,898d8d,62,American,American Athletic Conference,62,MEMPHIS.PNG,gotigersgo.com
+162,2382,MER,Mercer Bears,Mercer,Bears,Mercer,Mercer,ff7f29,080808,24,Southern,Southern Conference,24,MERCER.PNG,mercerbears.com
+163,2771,MRMK,Merrimack Warriors,Merrimack,Warriors,Merrimack,Merrimack,2f4f93,e8c535,19,NEC,Northeast Conference,19,MERRIMACK.PNG,merrimackathletics.com
+164,193,M-OH,Miami (OH) Redhawks,Miami OH,Redhawks,Miami OH,Miami (OH),a4000c,f0f0f0,14,MAC,Mid-American Conference,14,MIAMI_OH.PNG,miamiredhawks.com
+165,2390,MIA,Miami Hurricanes,Miami,Hurricanes,Miami,Miami,004325,f0f0f0,2,ACC,Atlantic Coast Conference,2,,miamiredhawks.com
+166,127,MSU,Michigan State Spartans,Michigan St,Spartans,Michigan St,Michigan State,18453B,ffffff,7,Big Ten,Big Ten Conference,7,MICHIGAN_ST.PNG,msuspartans.com/
+167,130,MICH,Michigan Wolverines,Michigan,Wolverines,Michigan,Michigan,00274c,00274c,7,Big Ten,Big Ten Conference,7,MICHIGAN.PNG,mgoblue.com
+168,2393,MTU,Middle Tennessee Blue Raiders,MTSU,Blue Raiders,MTSU,Middle Tennessee,0079C2,c3c5c8,11,C-USA,Conference USA,11,,goblueraiders.com
+169,270,MILW,Milwaukee Panthers,Milwaukee,Panthers,Milwaukee,Milwaukee,000000,ffc20e,45,Horizon,Horizon League,45,MILWAUKEE.PNG,mkepanthers.com
+170,135,MINN,Minnesota Golden Gophers,Minnesota,Golden Gophers,Minnesota,Minnesota,981a31,981a31,7,Big Ten,Big Ten Conference,7,MINNESOTA.PNG,utahutes.com/
+171,344,MSST,Mississippi State Bulldogs,Mississippi St,Bulldogs,Mississippi St,Mississippi State,762123,c8c8c8,23,SEC,Southeastern Conference,23,MISSISSIPPI_ST.PNG,hailstate.com
+172,2400,MVSU,Mississippi Valley State Delta Devils,Miss Valley St,Delta Devils,Miss Valley St,Mississippi Valley State,005328,cf2d34,26,SWAC,Southwestern Athletic Conference,26,MISSISSIPPI_VALLEY_ST.PNG,mvsusports.com
+173,2623,MOST,Missouri State Bears,Missouri St,Bears,Missouri St,Missouri State,5F0000,e8e8e8,18,MVC,Missouri Valley Conference,18,MISSOURI_ST.PNG,missouristatebears.com
+174,142,MIZ,Missouri Tigers,Missouri,Tigers,Missouri,Missouri,000000,000000,23,SEC,Southeastern Conference,23,MISSOURI.PNG,missouristatebears.com
+175,2405,MONM,Monmouth Hawks,Monmouth,Hawks,Monmouth,Monmouth,051844,,10,CAA,Colonial Athletic Association,10,MONMOUTH.PNG,monmouthhawks.com
+176,149,MONT,Montana Grizzlies,Montana,Grizzlies,Montana,Montana,751D4A,666666,5,Big Sky,Big Sky Conference,5,MONTANA.PNG,gogriz.com
+177,147,MTST,Montana State Bobcats,Montana St,Bobcats,Montana St,Montana State,003875,bf965c,5,Big Sky,Big Sky Conference,5,MONTANA_ST.PNG,msubobcats.com
+178,2413,MORE,Morehead State Eagles,Morehead St,Eagles,Morehead St,Morehead State,094FA3,fed91a,20,OVC,Ohio Valley Conference,20,MOREHEAD_ST.PNG,msueagles.com
+179,2415,MORG,Morgan State Bears,Morgan St,Bears,Morgan St,Morgan State,014786,f47937,16,MEAC,Mid-Eastern Athletic Conference,16,MORGAN_ST.PNG,morganstatebears.com
+180,116,MSM,Mount St. Mary's Mountaineers,Mount St Mary,Mountaineers,Mount St Mary,Mount St. Mary's,005596,ebebeb,13,MAAC,Metro Atlantic Athletic Conference,13,MOUNT_ST_MARYS.PNG,mountathletics.com
+181,93,MUR,Murray State Racers,Murray St,Racers,Murray St,Murray State,002148,000e00,18,MVC,Missouri Valley Conference,18,MURRAY_ST.PNG,goracers.com
+182,152,NCST,NC State Wolfpack,NC State,Wolfpack,NC State,NC State,EF1216,231f20,2,ACC,Atlantic Coast Conference,2,,coppinstatesports.com
+183,2885,NJIT,NJIT Highlanders,NJIT,Highlanders,NJIT,NJIT,EE3024,df3e2e,1,Am. East,America East Conference,1,NJIT.PNG,
+184,2426,NAVY,Navy Midshipmen,Navy,Midshipmen,Navy,Navy,131630,b6a77c,22,Patriot,Patriot League,22,NAVY.PNG,navysports.com
+185,158,NEB,Nebraska Cornhuskers,Nebraska,Cornhuskers,Nebraska,Nebraska,F20017,f5f1e7,7,Big Ten,Big Ten Conference,7,NEBRASKA.PNG,omavs.com
+186,2440,NEV,Nevada Wolf Pack,Nevada,Wolf Pack,Nevada,Nevada,153E5F,8e9295,44,Mountain West,Mountain West Conference,44,NEVADA.PNG,nevadawolfpack.com
+187,160,UNH,New Hampshire Wildcats,New Hampshire,Wildcats,New Hampshire,New Hampshire,004990,c3c4c6,1,Am. East,America East Conference,1,NEW_HAMPSHIRE.PNG,unhwildcats.com
+188,167,UNM,New Mexico Lobos,New Mexico,Lobos,New Mexico,New Mexico,000000,231f20,44,Mountain West,Mountain West Conference,44,NEW_MEXICO.PNG,golobos.com
+189,166,NMSU,New Mexico State Aggies,New Mexico St,Aggies,New Mexico St,New Mexico State,891216,000000,30,WAC,Western Athletic Conference,30,NEW_MEXICO_ST.PNG,nmstatesports.com
+190,2443,UNO,New Orleans Privateers,New Orleans,Privateers,New Orleans,New Orleans,005da6,a2a9ae,25,Southland,Southland Conference,25,NEW_ORLEANS.PNG,unoprivateers.com
+191,315,NIA,Niagara Purple Eagles,Niagara,Purple Eagles,Niagara,Niagara,69207E,f0f0f0,13,MAAC,Metro Atlantic Athletic Conference,13,NIAGARA.PNG,purpleeagles.com
+192,2447,NICH,Nicholls Colonels,Nicholls,Colonels,Nicholls,Nicholls,C41230,f0f0f0,25,Southland,Southland Conference,25,NICHOLLS.PNG,geauxcolonels.com
+193,2450,NORF,Norfolk State Spartans,Norfolk St,Spartans,Norfolk St,Norfolk State,046546,,16,MEAC,Mid-Eastern Athletic Conference,16,NORFOLK_ST.PNG,nsuspartans.com
+194,2453,UNA,North Alabama Lions,North Alabama,Lions,North Alabama,North Alabama,663399,,46,ASUN,ASUN Conference,46,NORTH_ALABAMA.PNG,roarlions.com
+195,2448,NCAT,North Carolina A&T Aggies,NC A&T,Aggies,NC A&T,North Carolina A&T,0505aa,004684,10,CAA,Colonial Athletic Association,10,NORTH_CAROLINA_AT.PNG,ncataggies.com
+196,2428,NCCU,North Carolina Central Eagles,NC Central,Eagles,NC Central,North Carolina Central,880023,c2c3c0,16,MEAC,Mid-Eastern Athletic Conference,16,,nccueaglepride.com
+197,153,UNC,North Carolina Tar Heels,North Carolina,Tar Heels,North Carolina,North Carolina,99bfe5,13294b,2,ACC,Atlantic Coast Conference,2,NORTH_CAROLINA.PNG,gopack.com
+198,155,UND,North Dakota Fighting Hawks,North Dakota,Fighting Hawks,North Dakota,North Dakota,00A26B,c2c3c0,49,Summit,Summit League,49,NORTH_DAKOTA.PNG,fightinghawks.com
+199,2449,NDSU,North Dakota State Bison,N Dakota St,Bison,N Dakota St,North Dakota State,01402A,ffffff,49,Summit,Summit League,49,NORTH_DAKOTA_ST.PNG,GoBison.com
+200,2454,UNF,North Florida Ospreys,North Florida,Ospreys,North Florida,North Florida,004B8D,babcbe,46,ASUN,ASUN Conference,46,NORTH_FLORIDA.PNG,unfospreys.com
+201,249,UNT,North Texas Mean Green,North Texas,Mean Green,North Texas,North Texas,00853D,000000,11,C-USA,Conference USA,11,NORTH_TEXAS.PNG,meangreensports.com
+202,111,NE,Northeastern Huskies,Northeastern,Huskies,Northeastern,Northeastern,CC0001,c2c3c0,10,CAA,Colonial Athletic Association,10,NORTHEASTERN.PNG,nuhuskies.com
+203,2464,NAU,Northern Arizona Lumberjacks,N Arizona,Lumberjacks,N Arizona,Northern Arizona,003976,1b3069,5,Big Sky,Big Sky Conference,5,ARIZONA.PNG,nauathletics.com
+204,2458,UNCO,Northern Colorado Bears,N Colorado,Bears,N Colorado,Northern Colorado,13558D,ffc533,5,Big Sky,Big Sky Conference,5,COLORADO.PNG,uncbears.com
+205,2459,NIU,Northern Illinois Huskies,N Illinois,Huskies,N Illinois,Northern Illinois,F1122C,cc0000,14,MAC,Mid-American Conference,14,ILLINOIS.PNG,niuhuskies.com
+206,2460,UNI,Northern Iowa Panthers,Northern Iowa,Panthers,Northern Iowa,Northern Iowa,473282,ffffff,18,MVC,Missouri Valley Conference,18,NORTHERN_IOWA.PNG,unipanthers.com
+207,94,NKU,Northern Kentucky Norse,N Kentucky,Norse,N Kentucky,Northern Kentucky,000000,eab621,45,Horizon,Horizon League,45,KENTUCKY.PNG,nkunorse.com
+208,2466,NWST,Northwestern State Demons,N'Western St,Demons,N'Western St,Northwestern State,492F91,ed6118,25,Southland,Southland Conference,25,NORTHWESTERN_ST.PNG,nsudemons.com
+209,77,NU,Northwestern Wildcats,Northwestern,Wildcats,Northwestern,Northwestern,372286,d6cac1,7,Big Ten,Big Ten Conference,7,NORTHWESTERN.PNG,nusports.com
+210,87,ND,Notre Dame Fighting Irish,Notre Dame,Fighting Irish,Notre Dame,Notre Dame,00122b,ae9142,2,ACC,Atlantic Coast Conference,2,NOTRE_DAME.PNG,und.com
+211,2473,OAK,Oakland Golden Grizzlies,Oakland,Golden Grizzlies,Oakland,Oakland,04091c,bc955c,45,Horizon,Horizon League,45,OAKLAND.PNG,goldengrizzlies.com
+212,195,OHIO,Ohio Bobcats,Ohio,Bobcats,Ohio,Ohio,295A29,e4bb85,14,MAC,Mid-American Conference,14,OHIO.PNG,ohiobobcats.com
+213,194,OSU,Ohio State Buckeyes,Ohio State,Buckeyes,Ohio State,Ohio State,de3129,666666,7,Big Ten,Big Ten Conference,7,,ohiostatebuckeyes.com/
+214,201,OU,Oklahoma Sooners,Oklahoma,Sooners,Oklahoma,Oklahoma,7b0000,cccccc,8,Big 12,Big 12 Conference,8,OKLAHOMA.PNG,soonersports.com
+215,197,OKST,Oklahoma State Cowboys,Oklahoma St,Cowboys,Oklahoma St,Oklahoma State,FF6500,ff9900,8,Big 12,Big 12 Conference,8,OKLAHOMA_ST.PNG,okstate.com
+216,295,ODU,Old Dominion Monarchs,Old Dominion,Monarchs,Old Dominion,Old Dominion,00507d,a1d2f1,27,Sun Belt,Sun Belt Conference,27,OLD_DOMINION.PNG,odusports.com
+217,145,MISS,Ole Miss Rebels,Ole Miss,Rebels,Ole Miss,Ole Miss,001148,00205b,23,SEC,Southeastern Conference,23,OLE_MISS.PNG,yalebulldogs.com
+218,2437,OMA,Omaha Mavericks,Omaha,Mavericks,Omaha,Omaha,e3193e,,49,Summit,Summit League,49,OMAHA.PNG,omavs.com
+219,198,ORU,Oral Roberts Golden Eagles,Oral Roberts,Golden Eagles,Oral Roberts,Oral Roberts,002955,ccb48c,49,Summit,Summit League,49,ORAL_ROBERTS.PNG,oruathletics.com
+220,2483,ORE,Oregon Ducks,Oregon,Ducks,Oregon,Oregon,044520,fee123,21,Pac-12,Pac-12 Conference,21,OREGON.PNG,goducks.com
+221,204,ORST,Oregon State Beavers,Oregon St,Beavers,Oregon St,Oregon State,c34500,dea076,21,Pac-12,Pac-12 Conference,21,OREGON_ST.PNG,osubeavers.com/
+222,279,PAC,Pacific Tigers,Pacific,Tigers,Pacific,Pacific,F47820,c2c3c0,29,WCC,West Coast Conference,29,PACIFIC.PNG,pacifictigers.com
+223,213,PSU,Penn State Nittany Lions,Penn State,Nittany Lions,Penn State,Penn State,00265D,002e5c,7,Big Ten,Big Ten Conference,7,,kentstatesports.com
+224,219,PENN,Pennsylvania Quakers,Penn,Quakers,Penn,Pennsylvania,082A74,a6163d,12,Ivy,Ivy League,12,PENNSYLVANIA.PNG,pennathletics.com
+225,2492,PEPP,Pepperdine Waves,Pepperdine,Waves,Pepperdine,Pepperdine,003A72,dc762f,29,WCC,West Coast Conference,29,PEPPERDINE.PNG,pepperdinewaves.com
+226,221,PITT,Pittsburgh Panthers,Pitt,Panthers,Pitt,Pittsburgh,003263,231f20,2,ACC,Atlantic Coast Conference,2,,pittsburghpanthers.com
+227,2501,PORT,Portland Pilots,Portland,Pilots,Portland,Portland,0e034e,f0f0f0,29,WCC,West Coast Conference,29,PORTLAND.PNG,portlandpilots.com
+228,2502,PRST,Portland State Vikings,Portland St,Vikings,Portland St,Portland State,00311e,ebebeb,5,Big Sky,Big Sky Conference,5,PORTLAND_ST.PNG,goviks.com
+229,2504,PV,Prairie View A&M Panthers,Prairie View,Panthers,Prairie View,Prairie View A&M,4d0960,,26,SWAC,Southwestern Athletic Conference,26,PRAIRIE_VIEW.PNG,pvpanthers.com
+230,2506,PRE,Presbyterian Blue Hose,Presbyterian,Blue Hose,Presbyterian,Presbyterian,194896,990134,6,Big South,Big South Conference,6,PRESBYTERIAN.PNG,gobluehose.com
+231,163,PRIN,Princeton Tigers,Princeton,Tigers,Princeton,Princeton,ff9408,080808,12,Ivy,Ivy League,12,PRINCETON.PNG,goprincetontigers.com
+232,2507,PROV,Providence Friars,Providence,Friars,Providence,Providence,000000,7d8082,4,Big East,Big East Conference,4,PROVIDENCE.PNG,friars.com
+233,2509,PUR,Purdue Boilermakers,Purdue,Boilermakers,Purdue,Purdue,B89D29,a4a9ad,7,Big Ten,Big Ten Conference,7,PURDUE.PNG,purduesports.com
+234,2870,PFW,Purdue Fort Wayne Mastodons,Purdue FW,Mastodons,Purdue FW,Purdue Fort Wayne,00378A,f0f0f0,45,Horizon,Horizon League,45,PURDUE.PNG,gomastodons.com/
+235,2514,QUIN,Quinnipiac Bobcats,Quinnipiac,Bobcats,Quinnipiac,Quinnipiac,041B43,,13,MAAC,Metro Atlantic Athletic Conference,13,QUINNIPIAC.PNG,gobobcats.com
+236,2515,RAD,Radford Highlanders,Radford,Highlanders,Radford,Radford,BC1515,c2c3c0,6,Big South,Big South Conference,6,RADFORD.PNG,radfordathletics.com
+237,227,URI,Rhode Island Rams,Rhode Island,Rams,Rhode Island,Rhode Island,091f3f,5ab3e8,3,A 10,Atlantic 10 Conference,3,RHODE_ISLAND.PNG,gorhody.com
+238,242,RICE,Rice Owls,Rice,Owls,Rice,Rice,d1d5d8,003d7d,11,C-USA,Conference USA,11,RICE.PNG,riceowls.com
+239,257,RICH,Richmond Spiders,Richmond,Spiders,Richmond,Richmond,9e0712,b90b2e,3,A 10,Atlantic 10 Conference,3,RICHMOND.PNG,richmondspiders.com/
+240,2520,RID,Rider Broncs,Rider,Broncs,Rider,Rider,a80532,ebebeb,13,MAAC,Metro Atlantic Athletic Conference,13,RIDER.PNG,gobroncs.com
+241,2523,RMU,Robert Morris Colonials,Robert Morris,Colonials,Robert Morris,Robert Morris,00214D,a21d2b,45,Horizon,Horizon League,45,ROBERT_MORRIS.PNG,rmucolonials.com
+242,164,RUTG,Rutgers Scarlet Knights,Rutgers,Scarlet Knights,Rutgers,Rutgers,d21034,ffffff,7,Big Ten,Big Ten Conference,7,RUTGERS.PNG,butlersports.com
+243,2545,SELA,SE Louisiana Lions,SE Louisiana,Lions,SE Louisiana,SE Louisiana,215732,ffc72c,25,Southland,Southland Conference,25,LOUISIANA.PNG,lionsports.net
+244,2565,SIUE,SIU Edwardsville Cougars,SIUE,Cougars,SIUE,SIU Edwardsville,eb1c23,080808,20,OVC,Ohio Valley Conference,20,,siuecougars.com
+245,2567,SMU,SMU Mustangs,SMU,Mustangs,SMU,SMU,E32F38,ecdcb9,62,American,American Athletic Conference,62,SMU.PNG,
+246,16,SAC,Sacramento State Hornets,Sacramento St,Hornets,Sacramento St,Sacramento State,00573C,cdb97d,5,Big Sky,Big Sky Conference,5,SACRAMENTO_ST.PNG,tarletonsports.com
+247,2529,SHU,Sacred Heart Pioneers,Sacred Heart,Pioneers,Sacred Heart,Sacred Heart,a40012,c29472,19,NEC,Northeast Conference,19,SACRED_HEART.PNG,sacredheartpioneers.com
+248,2603,JOES,Saint Joseph's Hawks,Saint Joseph's,Hawks,Saint Joseph's,Saint Joseph's,C2071B,101010,3,A 10,Atlantic 10 Conference,3,SAINT_JOSEPHS.PNG,sjuhawks.com
+249,139,SLU,Saint Louis Billikens,Saint Louis,Billikens,Saint Louis,Saint Louis,00539C,ebebeb,3,A 10,Atlantic 10 Conference,3,SAINT_LOUIS.PNG,slubillikens.com
+250,2608,SMC,Saint Mary's Gaels,Saint Mary's,Gaels,Saint Mary's,Saint Mary's,003768,d02f35,29,WCC,West Coast Conference,29,SAINT_MARYS.PNG,SMCGaels.com
+251,2612,SPU,Saint Peter's Peacocks,Saint Peter's,Peacocks,Saint Peter's,Saint Peter's,004CC2,,13,MAAC,Metro Atlantic Athletic Conference,13,ST_PETERS.PNG,saintpeterspeacocks.com
+252,2534,SHSU,Sam Houston Bearkats,Sam Houston,Bearkats,Sam Houston,Sam Houston,fe5000,000000,30,WAC,Western Athletic Conference,30,SAM_HOUSTON_ST.PNG,gobearkats.com
+253,2535,SAM,Samford Bulldogs,Samford,Bulldogs,Samford,Samford,005485,bc0023,24,Southern,Southern Conference,24,SAMFORD.PNG,samfordsports.com
+254,21,SDSU,San Diego State Aztecs,San Diego St,Aztecs,San Diego St,San Diego State,BF2C37,a8996e,44,Mountain West,Mountain West Conference,44,SAN_DIEGO_ST.PNG,goaztecs.com
+255,301,USD,San Diego Toreros,San Diego,Toreros,San Diego,San Diego,2f99d4,2f99d4,29,WCC,West Coast Conference,29,SAN_DIEGO.PNG,usdtoreros.com
+256,2539,SF,San Francisco Dons,San Francisco,Dons,San Francisco,San Francisco,22523F,fbcd3c,29,WCC,West Coast Conference,29,SAN_FRANCISCO.PNG,usfdons.com/index.aspx
+257,23,SJSU,San José State Spartans,San José St,Spartans,San José St,San José State,005893,fdba31,44,Mountain West,Mountain West Conference,44,SAN_JOSE_ST.PNG,sjsuspartans.com
+258,2541,SCU,Santa Clara Broncos,Santa Clara,Broncos,Santa Clara,Santa Clara,690b0b,101010,29,WCC,West Coast Conference,29,SANTA_CLARA.PNG,santaclarabroncos.com
+259,2547,SEA,Seattle U Redhawks,Seattle U,Redhawks,Seattle U,Seattle U,BF2E1A,c2c3c0,30,WAC,Western Athletic Conference,30,SEATTLE.PNG,goseattleu.com
+260,2550,HALL,Seton Hall Pirates,Seton Hall,Pirates,Seton Hall,Seton Hall,0857B1,8a8d8f,4,Big East,Big East Conference,4,SETON_HALL.PNG,shupirates.com
+261,2561,SIE,Siena Saints,Siena,Saints,Siena,Siena,037961,eea60f,13,MAAC,Metro Atlantic Athletic Conference,13,SIENA.PNG,sienasaints.com
+262,6,USA,South Alabama Jaguars,South Alabama,Jaguars,South Alabama,South Alabama,003E7E,,27,Sun Belt,Sun Belt Conference,27,SOUTH_ALABAMA.PNG,usajaguars.com
+263,2579,SC,South Carolina Gamecocks,South Carolina,Gamecocks,South Carolina,South Carolina,670010,000000,23,SEC,Southeastern Conference,23,SOUTH_CAROLINA.PNG,scsuathletics.com/index.aspx
+264,2569,SCST,South Carolina State Bulldogs,SC State,Bulldogs,SC State,South Carolina State,7d1315,104897,16,MEAC,Mid-Eastern Athletic Conference,16,,scsuathletics.com/index.aspx
+265,2908,UPST,South Carolina Upstate Spartans,SC Upstate,Spartans,SC Upstate,South Carolina Upstate,008545,000000,6,Big South,Big South Conference,6,,upstatespartans.com
+266,233,SDAK,South Dakota Coyotes,South Dakota,Coyotes,South Dakota,South Dakota,CD1241,f0f0f0,49,Summit,Summit League,49,SOUTH_DAKOTA.PNG,goyotes.com
+267,2571,SDST,South Dakota State Jackrabbits,S Dakota St,Jackrabbits,S Dakota St,South Dakota State,005DAB,c33139,49,Summit,Summit League,49,SOUTH_DAKOTA_ST.PNG,gojacks.com
+268,58,USF,South Florida Bulls,South Florida,Bulls,South Florida,South Florida,004A36,231f20,62,American,American Athletic Conference,62,SOUTH_FLORIDA.PNG,gousfbulls.com/
+269,2546,SEMO,Southeast Missouri State Redhawks,SE Missouri St,Redhawks,SE Missouri St,Southeast Missouri State,cc0000,080808,20,OVC,Ohio Valley Conference,20,SE_MISSOURI_ST.PNG,semoredhawks.com
+270,79,SIU,Southern Illinois Salukis,S Illinois,Salukis,S Illinois,Southern Illinois,85283D,c2c3c0,18,MVC,Missouri Valley Conference,18,ILLINOIS.PNG,niuhuskies.com
+271,2582,SOU,Southern Jaguars,Southern,Jaguars,Southern,Southern,004B97,ffc82d,26,SWAC,Southwestern Athletic Conference,26,SOUTHERN.PNG,suutbirds.com
+272,2572,USM,Southern Miss Golden Eagles,Southern Miss,Golden Eagles,Southern Miss,Southern Miss,FFAA3C,ffc423,27,Sun Belt,Sun Belt Conference,27,SOUTHERN_MISS.PNG,smumustangs.com
+273,253,SUU,Southern Utah Thunderbirds,Southern Utah,Thunderbirds,Southern Utah,Southern Utah,d10000,c2c3c0,30,WAC,Western Athletic Conference,30,SOUTHERN_UTAH.PNG,suutbirds.com
+274,179,SBU,St. Bonaventure Bonnies,St Bonaventure,Bonnies,St Bonaventure,St. Bonaventure,70261D,,3,A 10,Atlantic 10 Conference,3,ST_BONAVENTURE.PNG,gobonnies.com
+275,2598,SFPA,St. Francis (PA) Red Flash,St Francis PA,Red Flash,St Francis PA,St. Francis (PA),a20012,,19,NEC,Northeast Conference,19,ST_FRANCIS.PNG,sfuathletics.com
+276,2597,SFNY,St. Francis Brooklyn Terriers,St Francis BK,Terriers,St Francis BK,St. Francis Brooklyn,113682,,19,NEC,Northeast Conference,19,ST_FRANCIS.PNG,stonybrookathletics.com
+277,2599,SJU,St. John's Red Storm,St John's,Red Storm,St John's,St. John's,d10000,101010,4,Big East,Big East Conference,4,ST_JOHNS.PNG,redstormsports.com
+278,2900,STMN,St. Thomas - Minnesota Tommies,St Thomas (MN),Tommies,St Thomas (MN),St. Thomas - Minnesota,000000,,49,Summit,Summit League,49,,Tommiesports.com
+279,24,STAN,Stanford Cardinal,Stanford,Cardinal,Stanford,Stanford,A80532,ffffff,21,Pac-12,Pac-12 Conference,21,STANFORD.PNG,gostanford.com/
+280,2617,SFA,Stephen F. Austin Lumberjacks,SF Austin,Lumberjacks,SF Austin,Stephen F. Austin,393996,bec0c2,30,WAC,Western Athletic Conference,30,,SFAjacks.com
+281,56,STET,Stetson Hatters,Stetson,Hatters,Stetson,Stetson,0a5640,56854e,46,ASUN,ASUN Conference,46,STETSON.PNG,gohatters.com
+282,284,STO,Stonehill Skyhawks,Stonehill,Skyhawks,Stonehill,Stonehill,000000,,19,NEC,Northeast Conference,19,SETON_HALL.PNG,stonehillskyhawks.com
+283,2619,STBK,Stony Brook Seawolves,Stony Brook,Seawolves,Stony Brook,Stony Brook,990000,,10,CAA,Colonial Athletic Association,10,STONY_BROOK.PNG,stonybrookathletics.com
+284,183,SYR,Syracuse Orange,Syracuse,Orange,Syracuse,Syracuse,F37321,0d1d37,2,ACC,Atlantic Coast Conference,2,SYRACUSE.PNG,cuse.com
+285,2628,TCU,TCU Horned Frogs,TCU,Horned Frogs,TCU,TCU,3C377D,f1f2f3,8,Big 12,Big 12 Conference,8,TCU.PNG,
+286,2627,TAR,Tarleton Texans,Tarleton,Texans,Tarleton,Tarleton,000000,,30,WAC,Western Athletic Conference,30,TARLETON.PNG,tarletonsports.com
+287,218,TEM,Temple Owls,Temple,Owls,Temple,Temple,A80532,a7a9ac,62,American,American Athletic Conference,62,TEMPLE.png,owlsports.com
+288,2634,TNST,Tennessee State Tigers,Tennessee St,Tigers,Tennessee St,Tennessee State,171796,f0f0f0,20,OVC,Ohio Valley Conference,20,TENNESSEE_ST.PNG,tsutigers.com
+289,2635,TNTC,Tennessee Tech Golden Eagles,Tennessee Tech,Golden Eagles,Tennessee Tech,Tennessee Tech,5A4099,ffde00,20,OVC,Ohio Valley Conference,20,TENNESSEE_TECH.PNG,TTUsports.com/
+290,2633,TENN,Tennessee Volunteers,Tennessee,Volunteers,Tennessee,Tennessee,EE9627,ffffff,23,SEC,Southeastern Conference,23,TENNESSEE.PNG,tsutigers.com
+291,245,TA&M,Texas A&M Aggies,Texas A&M,Aggies,Texas A&M,Texas A&M,5C0025,ffffff,23,SEC,Southeastern Conference,23,TEXAS_AM.PNG,lionathletics.com
+292,2837,TAMC,Texas A&M-Commerce Lions,Texas A&M-Comm,Lions,Texas A&M-Comm,Texas A&M-Commerce,000000,,25,Southland,Southland Conference,25,,lionathletics.com
+293,357,AMCC,Texas A&M-Corpus Christi Islanders,Texas A&M-CC,Islanders,Texas A&M-CC,Texas A&M-Corpus Christi,00639c,008752,25,Southland,Southland Conference,25,,goislanders.com
+294,251,TEX,Texas Longhorns,Texas,Longhorns,Texas,Texas,EE7524,f0f0f0,8,Big 12,Big 12 Conference,8,TEXAS.PNG,texastech.com
+295,2640,TXSO,Texas Southern Tigers,Texas Southern,Tigers,Texas Southern,Texas Southern,6A0403,ebebeb,26,SWAC,Southwestern Athletic Conference,26,TEXAS_SOUTHERN.PNG,tsusports.com
+296,326,TXST,Texas State Bobcats,Texas St,Bobcats,Texas St,Texas State,4e1719,b4975a,27,Sun Belt,Sun Belt Conference,27,TEXAS_ST.PNG,txstatebobcats.com
+297,2641,TTU,Texas Tech Red Raiders,Texas Tech,Red Raiders,Texas Tech,Texas Tech,C80025,231f20,8,Big 12,Big 12 Conference,8,TEXAS_TECH.PNG,texastech.com
+298,2643,CIT,The Citadel Bulldogs,The Citadel,Bulldogs,The Citadel,The Citadel,002b5c,f0f0f0,24,Southern,Southern Conference,24,THE_CITADEL.PNG,citadelsports.com
+299,2649,TOL,Toledo Rockets,Toledo,Rockets,Toledo,Toledo,ffffff,ffd51d,14,MAC,Mid-American Conference,14,TOLEDO.PNG,utrockets.com
+300,119,TOW,Towson Tigers,Towson,Tigers,Towson,Towson,FFC229,,10,CAA,Colonial Athletic Association,10,TOWSON.PNG,towsontigers.com
+301,2653,TROY,Troy Trojans,Troy,Trojans,Troy,Troy,AE0210,88898c,27,Sun Belt,Sun Belt Conference,27,TROY.PNG,troytrojans.com
+302,2655,TULN,Tulane Green Wave,Tulane,Green Wave,Tulane,Tulane,005837,3baf29,62,American,American Athletic Conference,62,TULANE.PNG,tulanegreenwave.com
+303,202,TLSA,Tulsa Golden Hurricane,Tulsa,Golden Hurricane,Tulsa,Tulsa,004371,ee3b33,62,American,American Athletic Conference,62,TULSA.PNG,tulanegreenwave.com
+304,5,UAB,UAB Blazers,UAB,Blazers,UAB,UAB,054338,ffc845,11,C-USA,Conference USA,11,UAB.PNG,
+305,302,UCD,UC Davis Aggies,UC Davis,Aggies,UC Davis,UC Davis,002855,c3c4c6,9,Big West,Big West Conference,9,UC_DAVIS.PNG,davidsonwildcats.com
+306,300,UCI,UC Irvine Anteaters,UC Irvine,Anteaters,UC Irvine,UC Irvine,002B5C,fec52e,9,Big West,Big West Conference,9,UC_IRVINE.PNG,ucirvinesports.com
+307,27,UCR,UC Riverside Highlanders,UC Riverside,Highlanders,UC Riverside,UC Riverside,14234F,,9,Big West,Big West Conference,9,UC_RIVERSIDE.PNG,cornellbigred.com
+308,28,UCSD,UC San Diego Tritons,UC San Diego,Tritons,UC San Diego,UC San Diego,000000,,9,Big West,Big West Conference,9,UC_SAN_DIEGO.PNG,usdtoreros.com
+309,2540,UCSB,UC Santa Barbara Gauchos,UCSB,Gauchos,UCSB,UC Santa Barbara,1D1160,fdb813,9,Big West,Big West Conference,9,,ucsbgauchos.com
+310,2116,UCF,UCF Knights,UCF,Knights,UCF,UCF,000000,231f20,62,American,American Athletic Conference,62,UCF.PNG,
+311,26,UCLA,UCLA Bruins,UCLA,Bruins,UCLA,UCLA,005C8E,ffc72c,21,Pac-12,Pac-12 Conference,21,UCLA.PNG,
+312,41,CONN,UConn Huskies,UConn,Huskies,UConn,UConn,001d40,f1f2f3,4,Big East,Big East Conference,4,UCONN.PNG,cornellbigred.com
+313,82,UIC,UIC Flames,UIC,Flames,UIC,UIC,001e62,d50032,18,MVC,Missouri Valley Conference,18,UIC.PNG,
+314,2433,ULM,UL Monroe Warhawks,UL Monroe,Warhawks,UL Monroe,UL Monroe,231F20,b18445,27,Sun Belt,Sun Belt Conference,27,UL_MONROE.PNG,lemoynedolphins.com
+315,2378,UMBC,UMBC Retrievers,UMBC,Retrievers,UMBC,UMBC,000000,ad860a,1,Am. East,America East Conference,1,,
+316,2349,UML,UMass Lowell River Hawks,UMass Lowell,River Hawks,UMass Lowell,UMass Lowell,00529C,cf1f2f,1,Am. East,America East Conference,1,UMASS_LOWELL.PNG,goredfoxes.com
+317,113,MASS,UMass Minutemen,UMass,Minutemen,UMass,UMass,880007,,3,A 10,Atlantic 10 Conference,3,UMASS.PNG,herdzone.com
+318,2427,UNCA,UNC Asheville Bulldogs,UNC Asheville,Bulldogs,UNC Asheville,UNC Asheville,156199,c2c3c0,6,Big South,Big South Conference,6,UNC_ASHEVILLE.PNG,uncabulldogs.com
+319,2430,UNCG,UNC Greensboro Spartans,UNC Greensboro,Spartans,UNC Greensboro,UNC Greensboro,003559,ffd90a,24,Southern,Southern Conference,24,UNC_GREENSBORO.PNG,uncgspartans.com
+320,350,UNCW,UNC Wilmington Seahawks,UNC Wilmington,Seahawks,UNC Wilmington,UNC Wilmington,1d2f68,00665e,10,CAA,Colonial Athletic Association,10,UNC_WILMINGTON.PNG,uncwsports.com
+321,2439,UNLV,UNLV Rebels,UNLV,Rebels,UNLV,UNLV,000000,c2c4c6,44,Mountain West,Mountain West Conference,44,UNLV.PNG,
+322,30,USC,USC Trojans,USC,Trojans,USC,USC,ffc72c,ae2531,21,Pac-12,Pac-12 Conference,21,USC.PNG,
+323,250,UTA,UT Arlington Mavericks,UT Arlington,Mavericks,UT Arlington,UT Arlington,004b7c,f58024,30,WAC,Western Athletic Conference,30,UT_ARLINGTON.PNG,utamavs.com
+324,2630,UTM,UT Martin Skyhawks,UT Martin,Skyhawks,UT Martin,UT Martin,FF6700,102a5c,20,OVC,Ohio Valley Conference,20,,utmsports.com
+325,292,UTRGV,UT Rio Grande Valley Vaqueros,UT Rio Grande,Vaqueros,UT Rio Grande,UT Rio Grande Valley,dc6000,e1732d,30,WAC,Western Athletic Conference,30,,goutrgv.com
+326,2638,UTEP,UTEP Miners,UTEP,Miners,UTEP,UTEP,ff8200,041e42,11,C-USA,Conference USA,11,UTEP.PNG,
+327,2636,UTSA,UTSA Roadrunners,UTSA,Roadrunners,UTSA,UTSA,002A5C,f47321,11,C-USA,Conference USA,11,UTSA.PNG,
+328,328,USU,Utah State Aggies,Utah State,Aggies,Utah State,Utah State,003263,949ca1,44,Mountain West,Mountain West Conference,44,,utahstateaggies.com
+329,3101,UTU,Utah Tech Trailblazers,Utah Tech,Trailblazers,Utah Tech,Utah Tech,000000,,30,WAC,Western Athletic Conference,30,,https://utahtechtrailblazers.com/
+330,254,UTAH,Utah Utes,Utah,Utes,Utah,Utah,890012,7e8083,21,Pac-12,Pac-12 Conference,21,UTAH.PNG,utahutes.com/
+331,3084,UVU,Utah Valley Wolverines,Utah Valley,Wolverines,Utah Valley,Utah Valley,004812,e1c736,30,WAC,Western Athletic Conference,30,UTAH_VALLEY.PNG,gouvu.com
+332,2670,VCU,VCU Rams,VCU,Rams,VCU,VCU,929292,edb71d,3,A 10,Atlantic 10 Conference,3,VCU.PNG,
+333,2678,VMI,VMI Keydets,VMI,Keydets,VMI,VMI,E52D37,eec52b,24,Southern,Southern Conference,24,VMI.PNG,
+334,2674,VAL,Valparaiso Beacons,Valparaiso,Beacons,Valparaiso,Valparaiso,794500,,18,MVC,Missouri Valley Conference,18,VALPARAISO.PNG,valpoathletics.com
+335,238,VAN,Vanderbilt Commodores,Vanderbilt,Commodores,Vanderbilt,Vanderbilt,000000,231f20,23,SEC,Southeastern Conference,23,VANDERBILT.PNG,vucommodores.com
+336,261,UVM,Vermont Catamounts,Vermont,Catamounts,Vermont,Vermont,013C24,ffc72c,1,Am. East,America East Conference,1,VERMONT.PNG,uvmathletics.com
+337,222,VILL,Villanova Wildcats,Villanova,Wildcats,Villanova,Villanova,123d7C,f0f0f0,4,Big East,Big East Conference,4,VILLANOVA.PNG,villanova.com
+338,258,UVA,Virginia Cavaliers,Virginia,Cavaliers,Virginia,Virginia,f84c1e,ffffff,2,ACC,Atlantic Coast Conference,2,VIRGINIA.PNG,virginiasports.com
+339,259,VT,Virginia Tech Hokies,Virginia Tech,Hokies,Virginia Tech,Virginia Tech,74232D,c2c1ba,2,ACC,Atlantic Coast Conference,2,VIRGINIA_TECH.PNG,wvusports.com
+340,2681,WAG,Wagner Seahawks,Wagner,Seahawks,Wagner,Wagner,00483A,ffffff,19,NEC,Northeast Conference,19,WAGNER.PNG,wagnerathletics.com
+341,154,WAKE,Wake Forest Demon Deacons,Wake Forest,Demon Deacons,Wake Forest,Wake Forest,9E7E38,000000,2,ACC,Atlantic Coast Conference,2,WAKE_FOREST.PNG,godeacs.com
+342,264,WASH,Washington Huskies,Washington,Huskies,Washington,Washington,2B2F64,e8e3d3,21,Pac-12,Pac-12 Conference,21,WASHINGTON.PNG,gohuskies.com
+343,265,WSU,Washington State Cougars,Washington St,Cougars,Washington St,Washington State,94022a,6a747c,21,Pac-12,Pac-12 Conference,21,WASHINGTON_ST.PNG,wsucougars.com
+344,2692,WEB,Weber State Wildcats,Weber St,Wildcats,Weber St,Weber State,18005a,ebebeb,5,Big Sky,Big Sky Conference,5,WEBER_ST.PNG,weberstatesports.com/
+345,277,WVU,West Virginia Mountaineers,West Virginia,Mountaineers,West Virginia,West Virginia,FFC600,eaaa00,8,Big 12,Big 12 Conference,8,WEST_VIRGINIA.PNG,wvusports.com
+346,2717,WCU,Western Carolina Catamounts,W Carolina,Catamounts,W Carolina,Western Carolina,492F91,bf9e70,24,Southern,Southern Conference,24,WESTERN_CAROLINA.PNG,catamountsports.com
+347,2710,WIU,Western Illinois Leathernecks,W Illinois,Leathernecks,W Illinois,Western Illinois,4e1e8a,ffc90a,49,Summit,Summit League,49,ILLINOIS.PNG,goleathernecks.com
+348,98,WKU,Western Kentucky Hilltoppers,Western KY,Hilltoppers,Western KY,Western Kentucky,F32026,b3b5b8,11,C-USA,Conference USA,11,WESTERN_KENTUCKY.PNG,wkusports.com
+349,2711,WMU,Western Michigan Broncos,W Michigan,Broncos,W Michigan,Western Michigan,532e1f,8b7f79,14,MAC,Mid-American Conference,14,MICHIGAN.PNG,wmubroncos.com
+350,2724,WICH,Wichita State Shockers,Wichita St,Shockers,Wichita St,Wichita State,0d0a03,ffc41e,62,American,American Athletic Conference,62,WICHITA_ST.PNG,goshockers.com
+351,2729,W&M,William & Mary Tribe,William & Mary,Tribe,William & Mary,William & Mary,103217,f6b220,10,CAA,Colonial Athletic Association,10,WILLIAM_MARY.PNG,tribeathletics.com
+352,2737,WIN,Winthrop Eagles,Winthrop,Eagles,Winthrop,Winthrop,9e0b0e,fdb41e,6,Big South,Big South Conference,6,WINTHROP.PNG,winthropeagles.com
+353,275,WISC,Wisconsin Badgers,Wisconsin,Badgers,Wisconsin,Wisconsin,A00002,f7f7f7,7,Big Ten,Big Ten Conference,7,WISCONSIN.PNG,lipscombsports.com
+354,2747,WOF,Wofford Terriers,Wofford,Terriers,Wofford,Wofford,533B22,f0f0f0,24,Southern,Southern Conference,24,WOFFORD.PNG,wofford.edu/athletics
+355,2750,WRST,Wright State Raiders,Wright St,Raiders,Wright St,Wright State,cba052,cba052,45,Horizon,Horizon League,45,WRIGHT_ST.PNG,wsuraiders.com
+356,2751,WYO,Wyoming Cowboys,Wyoming,Cowboys,Wyoming,Wyoming,533B22,ffffff,44,Mountain West,Mountain West Conference,44,WYOMING.PNG,gowyo.com
+357,2752,XAV,Xavier Musketeers,Xavier,Musketeers,Xavier,Xavier,002144,9ea2a2,4,Big East,Big East Conference,4,XAVIER.PNG,goxavier.com
+358,43,YALE,Yale Bulldogs,Yale,Bulldogs,Yale,Yale,004a81,286dc0,12,Ivy,Ivy League,12,YALE.PNG,yalebulldogs.com
+359,2754,YSU,Youngstown State Penguins,Youngstown St,Penguins,Youngstown St,Youngstown State,E51935,690717,45,Horizon,Horizon League,45,YOUNGSTOWN_ST.PNG,ysusports.com
+360,12345,FM,Franklin & Marshall Diplomats,Franklin & Marshall,Diplomats,Franklin & Marshall,Franklin & Marshall,25377D,FFFFFE,7,EIWA,Eastern Intercollegiate,7,FRANKLIN_MARSHALL.PNG,godiplomats.com

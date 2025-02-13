@@ -1,0 +1,13 @@
+@code {
+    [Parameter]
+    public required string Filename { get; set; }
+
+    private string SvgContent { get; set; } = string.Empty;
+    
+    protected override async Task OnInitializedAsync()
+    {
+        SvgContent = await File.ReadAllTextAsync(Filename);
+    }
+}
+
+@((MarkupString)SvgContent)

@@ -1,0 +1,67 @@
+@using LiveStatsManager.Services
+@using NCAALiveStats.Objects
+@inject TeamDataRepository teamRepo
+
+<style>
+    .mono {
+        font-family: "Berkeley Mono", monospace; 
+        font-weight: bolder;
+    }
+
+    .table-row {
+        font-size: 16px;
+    }
+</style>
+
+<HxCard>
+    <BodyTemplate>
+        <HxGrid TItem="PlayerWithStats"
+                DataProvider="GetGridData"
+                Striped="true"
+                Responsive="true"
+                ItemRowCssClass="table-row"
+                PageSize="15">
+            <Columns>
+                <HxGridColumn HeaderText="Name" ItemTextSelector="r => r.Player.FullName"
+                              SortKeySelector="r => r.Player.FullName"/>
+                <HxGridColumn HeaderText="Team"
+                              ItemTextSelector="r => GetTeamById(r.Player.TeamId).Info.SchoolName" 
+                              SortKeySelector="r => GetTeamById(r.Player.TeamId).Info.SchoolName"/>
+                <HxGridColumn HeaderText="POS" ItemTextSelector="r => r.Player.Position"/>
+                <StatRow HeaderText="GP" StatCategory="Stat.GamesPlayed" />
+                <StatRow HeaderText="MIN" StatCategory="Stat.AvgMinutes" />
+                <StatRow HeaderText="PTS" StatCategory="Stat.PointsPerGame" />
+                <StatRow HeaderText="REB" StatCategory="Stat.ReboundsPerGame" />
+                <StatRow HeaderText="AST" StatCategory="Stat.AssistsPerGame" />
+                <StatRow HeaderText="STL" StatCategory="Stat.StealsPerGame" />
+                <StatRow HeaderText="BLK" StatCategory="Stat.BlocksPerGame" />
+                <StatRow HeaderText="FG%" StatCategory="Stat.FieldGoalPercentage" />
+                <StatRow HeaderText="3FG%" StatCategory="Stat.ThreePointPercentage" />
+                <StatRow HeaderText="FT%" StatCategory="Stat.FreeThrowPercentage" />
+                <StatRow HeaderText="FC" StatCategory="Stat.AvgFouls" />
+            </Columns>
+        </HxGrid>
+    </BodyTemplate>
+</HxCard>
+
+@code {
+    [Parameter]
+    public Sport Sport { get; set; }
+
+    private IEnumerable<PlayerWithStats> Stats = [];
+    private Dictionary<string, Team> TeamLookup = new();
+    
+    protected override void OnInitialized()
+    {
+        Stats = teamRepo.StatsBySport(Sport);
+        TeamLookup = teamRepo.Teams.ToDictionary(t => t.Id, t => t);
+    }
+
+    private Team GetTeamById(string id) => TeamLookup[id];
+
+    private Task<GridDataProviderResult<PlayerWithStats>> GetGridData(
+        GridDataProviderRequest<PlayerWithStats> request)
+    {
+        return Task.FromResult(request.ApplyTo(Stats));
+    }
+}

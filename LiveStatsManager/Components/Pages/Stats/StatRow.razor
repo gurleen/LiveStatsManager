@@ -1,0 +1,14 @@
+@using NCAALiveStats.Objects
+
+<HxGridColumn TItem="PlayerWithStats"
+              HeaderText="@HeaderText"
+              ItemTextSelector="r => r.Stats.GetStatDisplay(StatCategory)"
+              SortKeySelector="r => r.Stats.GetStat(StatCategory)"
+              ItemCssClass="mono"/>
+
+@code {
+    [Parameter]
+    public Stat StatCategory { get; set; }
+    [Parameter]
+    public required string HeaderText { get; set; }
+}

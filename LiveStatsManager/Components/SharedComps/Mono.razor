@@ -1,0 +1,12 @@
+<span class="mono">@ChildContent</span>
+
+@code {
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+}
+
+<style>
+    .mono {
+        font-family: "Berkeley Mono", monospace;
+    }
+</style>

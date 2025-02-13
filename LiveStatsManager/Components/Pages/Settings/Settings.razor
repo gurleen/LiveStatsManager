@@ -1,0 +1,31 @@
+@page "/Settings"
+@using LiveStatsManager.Services
+@using NCAALiveStats.Objects
+@inject TeamDataRepository teamRepo;
+@inject AppState appState;
+<h3>Settings</h3>
+
+<p>Set Home Team:</p>
+<select @bind="appState.HomeTeam" @bind:after="GetHomePlayers">
+    @foreach (var team in teamRepo.Teams)
+    {
+        <option value="@team">@team.Name</option>
+    }
+</select>
+
+@if (homePlayers.Count > 0)
+{
+    <p>Home Players:</p>
+    <select @bind="appState.HomePlayerToWatch">
+        @foreach (var player in homePlayers)
+        {
+           <option value="@player">@player.FullName</option>
+        }
+    </select>
+}
+
+
+@code {
+    private List<Player> homePlayers = [];
+    private void GetHomePlayers() => homePlayers = appState.HomeTeam.Players;
+}

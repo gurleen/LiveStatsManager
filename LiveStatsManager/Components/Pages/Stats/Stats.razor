@@ -1,0 +1,17 @@
+@page "/stats"
+@using NCAALiveStats.Objects
+
+<PageTitle>Player Stats</PageTitle>
+
+<HxTabPanel InitialActiveTabId="mbb">
+    <HxTab Id="mbb" Title="NCAAM">
+        <Content>
+            <StatsTable Sport="Sport.MensBasketball"></StatsTable>
+        </Content>
+    </HxTab>
+    <HxTab Id="wbb" Title="NCAAW">
+        <Content>
+            <StatsTable Sport="Sport.WomensBasketball"></StatsTable>
+        </Content>
+    </HxTab>
+</HxTabPanel>

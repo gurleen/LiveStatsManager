@@ -1,0 +1,8 @@
+<div style="width: @(Width)px; height: @(Height)px; background-color: @Color; border: solid 1px white"></div>
+
+@code {
+    [Parameter]
+    public string Color { get; set; } = "#000000";
+    [Parameter] public int Height { get; set; } = 50;
+    [Parameter] public int Width { get; set; } = 50;
+}

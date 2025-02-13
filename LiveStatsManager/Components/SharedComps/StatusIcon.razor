@@ -1,0 +1,11 @@
+<HxIcon CssClass="@CssClass" Icon="IconToUse"></HxIcon>
+
+@code {
+    [Parameter]
+    public bool Condition { get; set; }
+    
+    private BootstrapIcon IconToUse =>
+        Condition ? BootstrapIcon.CheckCircle : BootstrapIcon.ExclamationCircle;
+    
+    private string CssClass => Condition ? "text-success" : "text-danger";
+}
