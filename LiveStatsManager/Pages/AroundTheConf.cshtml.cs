@@ -1,11 +1,22 @@
+using LiveStatsManager.Services;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Shared.Objects;
+using Svg;
 
-namespace LiveStatsManager.Components.Pages.Graphics;
+namespace LiveStatsManager.Pages;
 
-public class AroundTheConf : PageModel
+public class AroundTheConf(TeamDataRepository teamRepo, AppState appState) : PageModel
 {
-    public void OnGet()
+    private List<GameStatus> games = [];
+    private const string GraphicPath = "wwwroot/graphics/AroundTheConf.png";
+
+    public async Task OnGet()
     {
-        
+        games = await teamRepo.GetScoreboard(appState.Sport);
+    }
+
+    public async Task<string> GetGraphic()
+    {
+        return await System.IO.File.ReadAllTextAsync(GraphicPath);
     }
 }

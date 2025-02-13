@@ -1,17 +1,18 @@
 @page "/stats"
-@using NCAALiveStats.Objects
+@using LiveStatsManager.Services
+@inject AppState appState
 
 <PageTitle>Player Stats</PageTitle>
 
-<HxTabPanel InitialActiveTabId="mbb">
-    <HxTab Id="mbb" Title="NCAAM">
+<HxTabPanel InitialActiveTabId="season">
+    <HxTab Id="season" Title="Season">
         <Content>
-            <StatsTable Sport="Sport.MensBasketball"></StatsTable>
+            <StatsTable Sport="appState.Sport"></StatsTable>
         </Content>
     </HxTab>
-    <HxTab Id="wbb" Title="NCAAW">
+    <HxTab Id="live" Title="Live">
         <Content>
-            <StatsTable Sport="Sport.WomensBasketball"></StatsTable>
+            
         </Content>
     </HxTab>
 </HxTabPanel>

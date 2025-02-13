@@ -1,6 +1,54 @@
-@page "/Scorebug"
-<h3>Scorebug</h3>
+@page "/scorebug"
+@using NCAALiveStats
+@using LiveStatsManager.Components.Pages.Scorebug.GameBar
 
-@code {
+<div class="d-flex p-2 flex-wrap">
+    <HxCard CssClass="w-25 m-3">
+        <HeaderTemplate><span class="fw-bold">Main Control</span></HeaderTemplate>
+        <BodyTemplate>
+            <InfoControl />
+        </BodyTemplate>
+    </HxCard>
     
-}
+    <HxCard CssClass="w-25 m-3">
+        <HeaderTemplate><span class="fw-bold">Home Player Slider</span></HeaderTemplate>
+        <BodyTemplate>
+            <PlayerStatSelector Side="TeamSide.Home"/>
+        </BodyTemplate>
+    </HxCard>
+
+    <HxCard CssClass="w-25 m-3">
+        <HeaderTemplate><span class="fw-bold">Away Player Slider</span></HeaderTemplate>
+        <BodyTemplate>
+            <PlayerStatSelector Side="TeamSide.Away"/>
+        </BodyTemplate>
+    </HxCard>
+
+    <HxCard CssClass="w-25 m-3">
+        <HeaderTemplate><span class="fw-bold">Text Slider</span></HeaderTemplate>
+        <BodyTemplate>
+            <TextSlider/>
+        </BodyTemplate>
+    </HxCard>
+    
+    <HxCard CssClass="w-25 m-3">
+        <HeaderTemplate><span class="fw-bold">Comparison Slider</span></HeaderTemplate>
+        <BodyTemplate>
+            <CompSlider />
+        </BodyTemplate>
+    </HxCard>
+    
+    <HxCard CssClass="w-25 m-3">
+        <HeaderTemplate><span class="fw-bold">Team Sliders</span></HeaderTemplate>
+        <BodyTemplate>
+            <TeamSlider/>
+        </BodyTemplate>
+    </HxCard>
+
+    <HxCard CssClass="w-25 m-3">
+        <HeaderTemplate><span class="fw-bold">Sponsor Slider</span></HeaderTemplate>
+        <BodyTemplate>
+            <SponsorSlider/>
+        </BodyTemplate>
+    </HxCard>
+</div>

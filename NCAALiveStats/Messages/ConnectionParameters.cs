@@ -4,7 +4,12 @@ namespace NCAALiveStats.Messages;
 
 public record ConnectionParameters
 {
-    public readonly string type = "parameters";
+    [JsonPropertyName("type")]
+    public string MessageType => "parameters";
 
-    public required string types { get; init; }
+    [JsonPropertyName("types")]
+    public required string Types { get; init; }
+    
+    [JsonPropertyName("playbyplayOnConnect")]
+    public int PlayByPlayOnConnect { get; init; } = 1;
 };

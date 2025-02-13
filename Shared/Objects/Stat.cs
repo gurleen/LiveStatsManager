@@ -1,7 +1,8 @@
-namespace NCAALiveStats.Objects;
+namespace Shared.Objects;
 
 public enum Stat
 {
+    None,
     GamesPlayed,
     AvgMinutes,
     AvgFouls,
@@ -92,6 +93,7 @@ public static class StatLists
 {
     public static List<Stat> GameStats => 
     [
+        Stat.None,
         Stat.Points,
         Stat.FieldGoalsMade,
         Stat.FieldGoalsAttempted,
@@ -112,6 +114,7 @@ public static class StatLists
 
     public static List<Stat> SeasonStats =>
     [
+        Stat.None,
         Stat.GamesPlayed,
         Stat.AvgMinutes,
         Stat.AvgFouls,

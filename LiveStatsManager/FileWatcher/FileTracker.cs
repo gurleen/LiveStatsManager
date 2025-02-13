@@ -1,6 +1,6 @@
-using GfxDataService.DataStore;
+using LiveStatsManager.Services.DataStore;
 
-namespace GfxDataService.FileWatcher;
+namespace LiveStatsManager.FileWatcher;
 
 public class FileTracker : IHostedService
 {
@@ -37,8 +37,15 @@ public class FileTracker : IHostedService
 
     private void ParseFile(string filename)
     {
-        var records = CsvParser.Parse(filename);
-        dataStore.Add(records);
+        try
+        {
+            var records = CsvParser.Parse(filename);
+            dataStore.Add(records);
+        }
+        catch(Exception e)
+        {
+            // Log error
+        }
     }
     
     private static bool FileValid(string filename) => filename.EndsWith(".csv");

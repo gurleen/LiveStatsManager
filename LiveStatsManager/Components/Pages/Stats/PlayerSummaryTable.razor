@@ -1,5 +1,23 @@
-<h3>PlayerSummaryTable</h3>
+@using global::Shared.Objects
+<HxGrid TItem="Player" 
+        DataProvider="GetGridData"
+        Responsive="true"
+        ItemRowHeight="30"
+        Striped="true">
+    <Columns>
+        <HxGridColumn HeaderText="#" ItemTextSelector="p => p.JerseyNumber" />
+        <HxGridColumn HeaderText="Name" ItemTextSelector="p => p.FullName"/>
+        <HxGridColumn HeaderText="Pos" ItemTextSelector="p => p.Position"/>
+        <HxGridColumn HeaderText="Class" ItemTextSelector="p => p.Experience"/>
+    </Columns>
+</HxGrid>
 
 @code {
-    
+    [Parameter]
+    public List<Player> Players { get; init; } = [];
+
+    private Task<GridDataProviderResult<Player>> GetGridData(GridDataProviderRequest<Player> request)
+    {
+        return Task.FromResult(request.ApplyTo(Players));
+    }
 }

@@ -1,44 +1,46 @@
+@using global::Shared.Enums
+@using global::Shared.Objects
 @using LiveStatsManager.Services
-@using NCAALiveStats.Objects
 @inject TeamDataRepository teamRepo
+@inject AppState state
 
-<style>
-    .mono {
-        font-family: "Berkeley Mono", monospace; 
-        font-weight: bolder;
-    }
-
-    .table-row {
-        font-size: 16px;
-    }
-</style>
+<TeamDetail @ref="TeamDetailComponent" />
 
 <HxCard>
     <BodyTemplate>
+        <HxSwitch Text="Only Current Game Players" 
+                  ValueChanged="CurrentFilterChanged"
+                  ValueExpression="() => OnlyCurrentPlayers"/>
         <HxGrid TItem="PlayerWithStats"
                 DataProvider="GetGridData"
                 Striped="true"
                 Responsive="true"
                 ItemRowCssClass="table-row"
-                PageSize="15">
+                PageSize="15"
+                @ref="GridComponent">
             <Columns>
                 <HxGridColumn HeaderText="Name" ItemTextSelector="r => r.Player.FullName"
                               SortKeySelector="r => r.Player.FullName"/>
                 <HxGridColumn HeaderText="Team"
-                              ItemTextSelector="r => GetTeamById(r.Player.TeamId).Info.SchoolName" 
-                              SortKeySelector="r => GetTeamById(r.Player.TeamId).Info.SchoolName"/>
+                              SortKeySelector="r => TeamName(r)">
+                    <ItemTemplate Context="PlayerDetail">
+                        <p class="link-primary" @onclick="() => ShowTeamDetail(PlayerDetail.Player.TeamId)">
+                            @GetTeamById(PlayerDetail.Player.TeamId)?.Info.SchoolName
+                        </p>
+                    </ItemTemplate>
+                </HxGridColumn>
                 <HxGridColumn HeaderText="POS" ItemTextSelector="r => r.Player.Position"/>
-                <StatRow HeaderText="GP" StatCategory="Stat.GamesPlayed" />
-                <StatRow HeaderText="MIN" StatCategory="Stat.AvgMinutes" />
-                <StatRow HeaderText="PTS" StatCategory="Stat.PointsPerGame" />
-                <StatRow HeaderText="REB" StatCategory="Stat.ReboundsPerGame" />
-                <StatRow HeaderText="AST" StatCategory="Stat.AssistsPerGame" />
-                <StatRow HeaderText="STL" StatCategory="Stat.StealsPerGame" />
-                <StatRow HeaderText="BLK" StatCategory="Stat.BlocksPerGame" />
-                <StatRow HeaderText="FG%" StatCategory="Stat.FieldGoalPercentage" />
-                <StatRow HeaderText="3FG%" StatCategory="Stat.ThreePointPercentage" />
-                <StatRow HeaderText="FT%" StatCategory="Stat.FreeThrowPercentage" />
-                <StatRow HeaderText="FC" StatCategory="Stat.AvgFouls" />
+                <StatRow HeaderText="GP" StatCategory="Stat.GamesPlayed"/>
+                <StatRow HeaderText="MIN" StatCategory="Stat.AvgMinutes"/>
+                <StatRow HeaderText="PTS" StatCategory="Stat.PointsPerGame"/>
+                <StatRow HeaderText="REB" StatCategory="Stat.ReboundsPerGame"/>
+                <StatRow HeaderText="AST" StatCategory="Stat.AssistsPerGame"/>
+                <StatRow HeaderText="STL" StatCategory="Stat.StealsPerGame"/>
+                <StatRow HeaderText="BLK" StatCategory="Stat.BlocksPerGame"/>
+                <StatRow HeaderText="FG%" StatCategory="Stat.FieldGoalPercentage"/>
+                <StatRow HeaderText="3FG%" StatCategory="Stat.ThreePointPercentage"/>
+                <StatRow HeaderText="FT%" StatCategory="Stat.FreeThrowPercentage"/>
+                <StatRow HeaderText="FC" StatCategory="Stat.AvgFouls"/>
             </Columns>
         </HxGrid>
     </BodyTemplate>
@@ -50,6 +52,9 @@
 
     private IEnumerable<PlayerWithStats> Stats = [];
     private Dictionary<string, Team> TeamLookup = new();
+    private TeamDetail TeamDetailComponent { get; set; }
+    private HxGrid<PlayerWithStats> GridComponent { get; set; }
+    private bool OnlyCurrentPlayers = true;
     
     protected override void OnInitialized()
     {
@@ -57,11 +62,33 @@
         TeamLookup = teamRepo.Teams.ToDictionary(t => t.Id, t => t);
     }
 
-    private Team GetTeamById(string id) => TeamLookup[id];
+    private Team? GetTeamById(string id) => TeamLookup.GetValueOrDefault(id);
+    private string TeamName(PlayerWithStats r) => GetTeamById(r.Player.TeamId)?.Info.SchoolName ?? string.Empty;
 
     private Task<GridDataProviderResult<PlayerWithStats>> GetGridData(
         GridDataProviderRequest<PlayerWithStats> request)
     {
         return Task.FromResult(request.ApplyTo(Stats));
+    }
+    
+    private IEnumerable<PlayerWithStats> CurrentGamePlayers()
+    {
+        List<string> currentTeamIds = [state.HomeTeam.Id, state.AwayTeam.Id];
+        return teamRepo
+            .StatsBySport(state.Sport)
+            .Where(p => currentTeamIds.Contains(p.Player.TeamId));
+    }
+
+    private async Task CurrentFilterChanged(bool newValue)
+    {
+        OnlyCurrentPlayers = newValue;
+        Stats = OnlyCurrentPlayers ? CurrentGamePlayers() : teamRepo.StatsBySport(state.Sport);
+        await GridComponent.RefreshDataAsync();
+    }
+
+    private async Task ShowTeamDetail(string teamId)
+    {
+        var team = teamRepo.GetFullTeam(state.Sport, teamId);
+        await TeamDetailComponent.Show(team);
     }
 }

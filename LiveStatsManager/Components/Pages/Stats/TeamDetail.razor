@@ -1,5 +1,36 @@
-<h3>TeamDetail</h3>
+@using LiveStatsManager.Models
+<HxOffcanvas @ref="Offcanvas" Title="Team Detail">
+    <BodyTemplate>
+        <img class="" height="200" width="200" src="@Team.Info.FullLogoUrl"/>
+        <div class="p-2">
+            <p class="fs-3">@Team.Info.SchoolName <span class="fw-bold">@Team.Info.TeamName</span></p>
+        </div>
+        <HxTabPanel InitialActiveTabId="info">
+            <HxTab Id="info" Title="Info">
+                <Content>
+                    <TeamInfo Team="Team" />
+                </Content>
+            </HxTab>
+            <HxTab Id="players" Title="Players">
+                <Content>
+                    <PlayerSummaryTable Players="Team.Players"/>
+                </Content>
+            </HxTab>
+        </HxTabPanel>
+    </BodyTemplate>
+</HxOffcanvas>
 
 @code {
+    [Parameter]
+    public FullTeam Team { get; set; }
     
+    private HxOffcanvas Offcanvas { get; set; }
+    
+    public async Task Show(FullTeam team)
+    {
+        Team = team;
+        await Offcanvas.ShowAsync();
+    }
+    
+    public async Task Hide() => await Offcanvas.HideAsync();
 }

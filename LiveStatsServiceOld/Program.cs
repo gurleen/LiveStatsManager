@@ -1,6 +1,6 @@
-using LiveStatsService.Components;
-using LiveStatsService.Services;
-using LiveStatsService.Utilities;
+using LiveStatsServiceOld.Components;
+using LiveStatsServiceOld.Services;
+using LiveStatsServiceOld.Utilities;
 using MudBlazor.Services;
 using NCAALiveStats;
 
@@ -15,7 +15,7 @@ builder.Services.AddControllers().AddJsonOptions(options =>
 });
 builder.Services.AddMudServices();
 
-builder.Services.AddSingleton<GameState>();
+builder.Services.AddSingleton<RawGameState>();
 builder.Services.AddSingleton<IMessageTypeRegistry, MessageTypeRegistry>();
 builder.Services.AddSingleton<NCAAListener>();
 builder.Services.AddHostedService<LiveStatsListener>();

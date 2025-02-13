@@ -1,6 +1,6 @@
 ﻿@page "/"
 @using NCAALiveStats
-@inject GameState state;
+@inject RawGameState state;
 
 <PageTitle>Home</PageTitle>
 
@@ -20,7 +20,7 @@
 {
     protected override void OnInitialized()
     {
-        state.OnUpdate += HandleStateChanged;
+        //state.OnUpdate += HandleStateChanged;
     }
 
     private void HandleStateChanged()
@@ -30,6 +30,6 @@
 
     public void Dispose()
     {
-        state.OnUpdate -= HandleStateChanged;
+        //state.OnUpdate -= HandleStateChanged;
     }
 }

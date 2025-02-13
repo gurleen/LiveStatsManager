@@ -1,7 +1,66 @@
 ﻿@page "/"
+@using System.Diagnostics
+@using LiveStatsManager.Services
+@using LiveStatsManager.Components.SharedComps
+@using LiveStatsManager.Services.FileWriter
+@inject TeamDataRepository teamRepo;
+@inject IHxMessengerService messenger;
 
-<PageTitle>Home</PageTitle>
+<div class="d-flex p-2">
+    <HxCard CssClass="mx-3">
+        <HeaderTemplate><span class="fw-bold">Stats Refresh</span></HeaderTemplate>
+        <BodyTemplate>
+            
+            <HxButton Text="Refresh Stats From ESPN" Icon="BootstrapIcon.BarChart" 
+                      Color="ThemeColor.Info" OnClick="Refresh" />
+        </BodyTemplate>
+    </HxCard>
 
-<h1>Hello, world!</h1>
+    <HxCard CssClass="mx-3">
+        <HeaderTemplate><span class="fw-bold">Data Status</span></HeaderTemplate>
+        <BodyTemplate>
+            <p>
+                Teams: <Mono>@teamRepo.Teams.Count</Mono>
+                <StatusIcon Condition="TeamsGood" />
+            </p>
+            <p>
+                Players: <Mono>@teamRepo.Players.Count</Mono>
+                <StatusIcon Condition="PlayersGood" />
+            </p>
+            <p>
+                Stats available for <Mono>@teamRepo.StatLines.Count</Mono> players 
+                <StatusIcon Condition="PlayersMatchStats" />
+            </p>
+        </BodyTemplate>
+    </HxCard>
+    
+    <HxCard CssClass="mx-3">
+        <HeaderTemplate><span class="fw-bold">Service Status</span></HeaderTemplate>
+        <BodyTemplate>
+            <ServiceStatusDisplay TService="typeof(LiveStatsListener)"></ServiceStatusDisplay>
+            <ServiceStatusDisplay TService="typeof(FileWriterService)"></ServiceStatusDisplay>
+        </BodyTemplate>
+    </HxCard>
+</div>
 
-Welcome to your new app.
+
+@code{
+
+    private async Task Refresh()
+    {
+        var stopwatch = Stopwatch.StartNew();
+        await teamRepo.UpdateAll();
+        stopwatch.Stop();
+        messenger.AddInformation($"Updated all stats in {stopwatch.ElapsedMilliseconds}ms");
+    }
+
+    private bool PlayersMatchStats =>
+        teamRepo.Players.Count == teamRepo.StatLines.Count;
+    
+    private bool TeamsGood =>
+        teamRepo.Teams.Count > 250;
+    
+    private bool PlayersGood => 
+        teamRepo.Players.Count > 2000;
+
+}

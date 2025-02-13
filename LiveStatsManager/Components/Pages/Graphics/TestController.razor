@@ -1,6 +1,17 @@
 @page "/TestController"
-<h3>TestController</h3>
+@using LiveStatsManager.Services.Graphics
+@inject GraphicsManager manager
+
+<HxInputText @bind-Value="Source" Label="Source" />
+<HxButton Color="ThemeColor.Primary" OnClick="() => Layer.SetSource(Source)" Text="Update Source" />
+<HxButton Color="ThemeColor.Primary" OnClick="() => Layer.Play()" Text="Play" />
 
 @code {
+    private GraphicLayer Layer { get; set; }
+    private string Source { get; set; }
     
+    protected override void OnInitialized()
+    {
+        Layer = manager.Layers[0];
+    }
 }

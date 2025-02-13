@@ -1,18 +1,26 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <base href="/"/>
+    @((MarkupString)HxSetup.RenderBootstrapCssReference())
     <link rel="stylesheet" href="app.css"/>
     <link rel="stylesheet" href="LiveStatsManager.styles.css"/>
+    <script src="util.js"></script>
+    <script src="gfx.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <HeadOutlet @rendermode="InteractiveServer"/>
 </head>
 
 <body>
 <Routes @rendermode="InteractiveServer"/>
 <script src="_framework/blazor.web.js"></script>
+<environment names="Development">
+    <script src="_framework/aspnetcore-browser-refresh.js"></script>
+</environment>
+@((MarkupString)@HxSetup.RenderBootstrapJavaScriptReference())
 </body>
 
 </html>

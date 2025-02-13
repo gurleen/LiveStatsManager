@@ -1,6 +1,6 @@
 using NCAALiveStats;
 
-namespace LiveStatsService.Services;
+namespace LiveStatsServiceOld.Services;
 
 public class LiveStatsListener(NCAAListener ncaaListener, ILogger<LiveStatsListener> logger)
     : BackgroundService

@@ -1,5 +1,66 @@
-<h3>GameBarInfo</h3>
+@using global::Shared.Enums
+@using LiveStatsManager.Services
+@using LiveStatsManager.Services.DataStore
+@using NCAALiveStats
+@inject RawGameState gameState
+@inject IDataStore dataStore
+@inject AppState appState
+
+<div class="d-flex flex-column py-4 align-items-center justify-content-center">
+    <p class="fw-bolder fs-4">@Clock - @Period</p>
+    <table class="table table-text">
+        <thead>
+        <tr>
+            <th scope="col"></th>
+            <th scope="col">1</th>
+            <th scope="col">2</th>
+            <th scope="col">3</th>
+            <th scope="col">4</th>
+            <th scope="col" class="fw-bold">T</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">@appState.AwayTeam.Info.Abbreviation</th>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td class="fw-bold">0</td>
+        </tr>
+        <tr>
+            <th scope="row">@appState.HomeTeam.Info.Abbreviation</th>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td class="fw-bold">0</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<style>
+    .table-text {
+        font-size: 10px;
+    }
+</style>
 
 @code {
+    private string Clock => dataStore.Get("Clock");
+    private string Period => dataStore.Get("Period");
+    private string PeriodKind => appState.Sport == Sport.MensBasketball ? "Half" : "Quarter";
+    private string PeriodString => $"{Period} {PeriodKind}";
     
+    protected override void OnInitialized()
+    {
+        //dataStore.OnUpdate += Refresh;
+        gameState.OnUpdate += Refresh;
+    }
+
+    private Task Refresh()
+    {
+        StateHasChanged();
+        return Task.CompletedTask;
+    }
 }

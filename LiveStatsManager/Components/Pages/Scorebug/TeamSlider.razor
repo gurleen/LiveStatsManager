@@ -1,5 +1,93 @@
-<h3>TeamSlider</h3>
+@using LiveStatsManager.Services.DataStore
+@inject IDataStore store
+
+<div class="d-flex">
+    <HxInputText Label="Home Slider Text"
+                 @bind-Value="HomeSliderText"
+                 Enabled="!HomeScoringDrought"/>
+    <HxSwitch Text="Scoring Drought" 
+              CssClass="mt-4 ms-3" 
+              @bind-Value="HomeScoringDrought"/>
+</div>
+
+@if (HomeScoringDrought)
+{
+    <p>@HomeSliderText</p>
+}
+
+<div class="d-flex">
+    <HxInputText Label="Away Slider Text"
+                 @bind-Value="AwaySliderText"
+                 Enabled="!AwayScoringDrought" />
+    <HxSwitch Text="Scoring Drought"
+              CssClass="mt-4 ms-3"
+              @bind-Value="AwayScoringDrought"/>
+</div>
+
+@if (AwayScoringDrought)
+{
+    <p>@AwaySliderText</p>
+}
+
+<HxButton Text="Update" Color="ThemeColor.Primary" OnClick="Update" CssClass="w-100 mt-3" />
+<ToggleButton Key="@HomeToggleKey" Text="Toggle Home Slider" CssClass="w-100 mt-3" />
+<ToggleButton Key="@AwayToggleKey" Text="Toggle Away Slider" CssClass="w-100 mt-3" />
 
 @code {
+    private const string HomeSliderTextKey = "fade:Home-Big-Text-Slider";
+    private const string AwaySliderTextKey = "fade:Away-Big-Text-Slider";
+    private const string HomeToggleKey = "Toggle-Home-Slider";
+    private const string AwayToggleKey = "Toggle-Away-Slider";
     
+    private bool HomeScoringDrought = false;
+    private bool AwayScoringDrought = false;
+
+    private string HomeSliderText = string.Empty;
+    private string AwaySliderText = string.Empty;
+
+    protected override void OnInitialized()
+    {
+        store.OnUpdate += OnStoreUpdate;
+    }
+
+    private Task OnStoreUpdate()
+    {
+        try
+        {
+            var clock = store.Get("Clock");
+            if (HomeScoringDrought)
+            {
+                var homeLastScore = store.Get("Home-Last-Score");
+                var diff = CalculateTimeDifference(clock, homeLastScore);
+                HomeSliderText = $"SCORING DROUGHT LAST {diff}";
+            }
+
+            if (AwayScoringDrought)
+            {
+                var awayLastScore = store.Get("Away-Last-Score");
+                var diff = CalculateTimeDifference(clock, awayLastScore);
+                AwaySliderText = $"SCORING DROUGHT LAST {diff}";
+            }
+        }
+        catch (Exception e)
+        {
+            
+        }
+        return Task.CompletedTask;
+    }
+
+    private void Update()
+    {
+        store.Add(HomeSliderTextKey, HomeSliderText);
+        store.Add(AwaySliderTextKey, AwaySliderText);
+    }
+    
+    private static string CalculateTimeDifference(string time1, string time2)
+    {
+        var t1 = TimeSpan.Parse(time1);
+        var t2 = TimeSpan.Parse(time2);
+        var diff = t1 - t2;
+        diff = diff.Duration();
+        return diff.ToString(@"hh\:mm");
+    }
 }

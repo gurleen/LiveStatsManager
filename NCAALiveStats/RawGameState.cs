@@ -6,12 +6,12 @@ using ShirtNumber = (TeamSide Side, string Shirt);
 
 public enum TeamSide { Home, Away };
 
-public class GameState
+public class RawGameState
 {
     private readonly SynchronizationContext _syncContext;
     public event Func<Task> OnUpdate;
     
-    public GameState()
+    public RawGameState()
     {
         _syncContext = _syncContext = SynchronizationContext.Current ?? new SynchronizationContext();
     }
@@ -20,8 +20,8 @@ public class GameState
     {
         _syncContext.Post(_ => OnUpdate?.Invoke(), null);
     }
-    public Team HomeTeam { get; private set; } = new();
-    public Team AwayTeam { get; private set; } = new();
+    public TeamInfoMessage HomeTeam { get; private set; } = new();
+    public TeamInfoMessage AwayTeam { get; private set; } = new();
     private readonly Dictionary<ShirtNumber, Player> _players = new();
     private readonly Dictionary<ShirtNumber, PlayerStats> _playerStats = new();
     private TeamStats HomeStats { get; set; } = new();
@@ -32,7 +32,12 @@ public class GameState
     public int AwayScore => AwayStats.Points;
     
     public TeamStats GetTeamStats(TeamSide side) => side == TeamSide.Home? HomeStats : AwayStats;
-    public PlayerStats GetPlayerStats(TeamSide side, string shirt) => _playerStats[(side, shirt)];
+
+    public PlayerStats GetPlayerStats(TeamSide side, string shirt)
+    {
+        var key = (side, shirt);
+        return _playerStats.TryGetValue(key, out var stats) ? stats : new PlayerStats();
+    }
     
     public Dictionary<string, PlayerStats> PlayerStatsByShirt(TeamSide side) =>
         _playerStats.Where(kvp => kvp.Key.Side == side).ToDictionary(kvp => kvp.Key.Shirt, kvp => kvp.Value);

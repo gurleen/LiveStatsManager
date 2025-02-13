@@ -1,6 +1,6 @@
-using NCAALiveStats.Objects;
+using Shared.Enums;
 
-namespace LiveStatsManager.Objects.DB;
+namespace LiveStatsManager.Models.DB;
 
 public class SavedAppState
 {

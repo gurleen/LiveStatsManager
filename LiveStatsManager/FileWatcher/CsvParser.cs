@@ -1,7 +1,7 @@
 using System.Globalization;
 using CsvHelper;
 
-namespace GfxDataService.FileWatcher;
+namespace LiveStatsManager.FileWatcher;
 
 // ReSharper disable once ClassNeverInstantiated.Global
 public record DataPair(string Key, string Value);

@@ -1,5 +1,92 @@
-<h3>ProbablesRow</h3>
+@using System.Text.Json
+@using global::Shared.Enums
+@using global::Shared.Objects
+@using LiveStatsManager.Services
+@using Optional
+@inject TeamDataRepository repo
+@inject AppState state
+@inject SettingsProvider settings
+
+<div class="d-flex my-2">
+    <HxSelect TItem="Player"
+              TValue="Player"
+              Label="Home Player"
+              Data="HomeWrestlers"
+              @bind-Value="SelectedHomePlayer"
+              TextSelector="player => player.FullName"
+              ValueSelector="player => player" />
+    <HxButton Text="@WeightClass.ToStringValue()"
+              Color="ThemeColor.Primary"
+              CssClass="mx-3 h-50 align-self-end"
+              OnClick="OnUpdate"/>
+    <HxSelect TItem="Player"
+              TValue="Player"
+              Label="Away Player"
+              Data="AwayWrestlers"
+              @bind-Value="SelectedAwayPlayer"
+              TextSelector="player => player.FullName"
+              ValueSelector="player => player" />
+</div>
+
+<div class="d-flex justify-content-between">
+    <HxCheckbox Text="Rank?" @bind-Value="HomePlayerHasRank" />
+    <HxInputNumber Enabled="@HomePlayerHasRank" CssClass="rank-input" @bind-Value="HomePlayerRank" />
+    <div></div>
+    <HxInputNumber Enabled="AwayPlayerHasRank" CssClass="rank-input" @bind-Value="AwayPlayerRank" />
+    <HxCheckbox Text="Rank?" @bind-Value="AwayPlayerHasRank" />
+</div>
+
+<style>
+    .rank-input {
+        width: 50px;
+    }
+</style>
 
 @code {
+    [Parameter]
+    public required WrestlingWeightClass WeightClass { get; set; }
     
+    private Player? SelectedHomePlayer { get; set; }
+    private bool HomePlayerHasRank { get; set; }
+    private int HomePlayerRank { get; set; }
+    private Player? SelectedAwayPlayer { get; set; }
+    private bool AwayPlayerHasRank { get; set; }
+    private int AwayPlayerRank { get; set; }
+
+    private IEnumerable<Player> HomeWrestlers => repo.PlayersForTeam(Sport.Wrestling, state.HomeTeam.Id);
+    private IEnumerable<Player> AwayWrestlers => repo.PlayersForTeam(Sport.Wrestling, state.AwayTeam.Id);
+    
+    private string HomePlayerName => SelectedHomePlayer?.FullName ?? string.Empty;
+    private string HomePlayerDisplay => HomePlayerHasRank 
+        ? $"#{HomePlayerRank} {HomePlayerName}" 
+        : HomePlayerName;
+    
+    private string AwayPlayerName => SelectedAwayPlayer?.FullName ?? string.Empty;
+    private string AwayPlayerDisplay => AwayPlayerHasRank 
+        ? $"#{AwayPlayerRank} {AwayPlayerName}" 
+        : AwayPlayerName;
+    
+    private record ScorebugOutput(string HomeWrestlerName, string AwayWrestlerName, 
+        string WeightClass);
+
+    private bool ArePlayersSet => SelectedHomePlayer != null && SelectedAwayPlayer != null;
+
+    private Option<ScorebugOutput> GetOutput() => ArePlayersSet
+        ? Option.Some(
+            new ScorebugOutput(HomePlayerDisplay, 
+                AwayPlayerDisplay, WeightClass.ToStringValue()))
+        : Option.None<ScorebugOutput>();
+
+    private async Task WriteToFile(ScorebugOutput output)
+    {
+        var jsonString = JsonSerializer.Serialize(output);
+        var outputFile = Path.Join(settings.LiveDataDirectory, "WrestlingBug.json");
+        await using var fileWriter = new StreamWriter(outputFile);
+        await fileWriter.WriteAsync(jsonString);
+    }
+    
+    private async Task OnUpdate()
+    {
+        GetOutput().MatchSome(async output => await WriteToFile(output));
+    }
 }

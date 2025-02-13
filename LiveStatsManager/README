@@ -1,0 +1,27 @@
+# LiveStatsManager
+
+LiveStatsManager is the software that powers [Drexel Dragons](https://drexeldragons.com) basketball TV broadcasts.
+It provides APIs for hydrating graphics with the following data:
+- Daktronics RTD (Real Time Data) clock and score
+- NCAA LiveStats feed for boxscore
+- Team and player stats from ESPN
+- Locally-stored team metadata (colors, logos, etc.)
+
+## Building from source
+
+`dotnet build`
+
+## Usage
+
+- Configure settings in `appsettings.json`
+- Run the application (`LiveStatsManager.exe`)
+
+## Contributing
+
+Pull requests are welcome. For major changes, please open an issue first
+to discuss what you would like to change.
+
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)

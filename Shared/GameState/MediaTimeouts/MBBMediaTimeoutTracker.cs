@@ -2,8 +2,9 @@ namespace Shared.GameState.MediaTimeouts;
 
 public class MBBMediaTimeoutTracker : IMediaTimeoutTracker
 {
-    private Queue<MediaTimeout> MediaMarkers = new();
-    public bool FloaterTaken { get; private set; } = false;
+    private readonly Queue<MediaTimeout> MediaMarkers = new();
+    private readonly List<TakenMediaTimeout> TakenTimeouts = [];
+    private (int, int)? FloaterTakenAt { get; set; } = null;
 
     private void AddMarkers()
     {
@@ -23,19 +24,35 @@ public class MBBMediaTimeoutTracker : IMediaTimeoutTracker
     }
     
     private MediaTimeout NextMedia => MediaMarkers.Peek();
+
+    private TakenMediaTimeout TakeTimeout(int period, int secondsRemaining)
+    {
+        var timeout = MediaMarkers.Dequeue().TakeAt(period, secondsRemaining);
+        TakenTimeouts.Add(timeout);
+        return timeout;
+    }
     
     public void DeadBallAt(int period, int timeRemaining)
     {
         if (NextMedia.IsInWindow(period, timeRemaining))
         {
-            
+            TakeTimeout(period, timeRemaining);
         }
     }
 
     public void ChargedTimeoutAt(int period, int timeRemaining)
     {
-        throw new NotImplementedException();
+        if (FloaterTakenAt.HasValue || period != 2) return;
+        FloaterTakenAt = (period, timeRemaining);
     }
+    
+    private bool AtFloaterTimeout(int period, int timeRemaining) => 
+        FloaterTakenAt.HasValue && FloaterTakenAt.Value == (period, timeRemaining);
+    
+    private bool AtMediaTimeout(int period, int timeRemaining) =>
+        TakenTimeouts.Any(t => t.IsCurrent(period, timeRemaining));
 
-    public bool IsMediaTimeout { get; }
+    public bool IsMediaTimeout(int period, int timeRemaining) =>
+        AtMediaTimeout(period, timeRemaining)
+        || AtFloaterTimeout(period, timeRemaining);
 }

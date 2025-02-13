@@ -1,5 +1,110 @@
-<h3>CompSlider</h3>
+@using System.Reflection
+@using LiveStatsManager.Services.DataStore
+@using NCAALiveStats
+@using TeamStats = NCAALiveStats.Messages.TeamStats
+@inject IDataStore store
+@inject RawGameState gameState
+
+<HxSelect Label="Stat"
+          Data="Choices"
+          TextSelector="p => p.Name"
+          @bind-Value="SelectedStat" />
+
+<p>@StatName</p>
+<p>Home: @HomeValue</p>
+<p>Away: @AwayValue</p>
+
+<HxButton Color="ThemeColor.Primary"
+          CssClass="w-100 mt-3"
+          Text="Update"
+          OnClick="Update"/>
+
+<ToggleButton Key="@ToggleKey" 
+              Color="ThemeColor.Success"
+              CssClass="w-100 mt-3"
+              Text="Toggle Comparison Slider"/>
 
 @code {
-    
+    private List<PropertyInfo> Choices = [];
+    private PropertyInfo? SelectedStat;
+    private string StatName = string.Empty;
+    private string HomeValue = string.Empty;
+    private string AwayValue = string.Empty;
+
+    private const string StatNameKey = "fade:Comparison-Slider-Stat";
+    private const string HomeValueKey = "fade:Home-Comp-Stat";
+    private const string AwayValueKey = "fade:Away-Comp-Stat";
+    private const string ToggleKey = "Toggle-Comparison-Slider";
+
+    protected override void OnInitialized()
+    {
+        Choices = typeof(TeamStats).GetProperties().ToList();
+    }
+
+    private void Update()
+    {
+        var homeStats = gameState.GetTeamStats(TeamSide.Home);
+        var awayStats = gameState.GetTeamStats(TeamSide.Away);
+
+        StatName = GetDisplayName(SelectedStat?.Name ?? string.Empty);
+        HomeValue = SelectedStat?.GetValue(homeStats)?.ToString() ?? string.Empty;
+        AwayValue = SelectedStat?.GetValue(awayStats)?.ToString() ?? string.Empty;
+        
+        store.Add(StatNameKey, StatName);
+        store.Add(HomeValueKey, HomeValue);
+        store.Add(AwayValueKey, AwayValue);
+    }
+
+    private static string GetDisplayName(string propertyName) => propertyName switch
+    {
+        "BenchPoints" => "Bench Points",
+        "BiggestLead" => "Biggest Lead",
+        "BiggestScoringRun" => "Biggest Scoring Run",
+        "TimeLeading" => "Time Leading",
+        "LeadChanges" => "Lead Changes",
+        "TimesTied" => "Times Tied",
+        "DefensiveRebounds" => "Defensive Rebounds",
+        "OffensiveRebounds" => "Offensive Rebounds",
+        "PersonalRebounds" => "Personal Rebounds",
+        "TeamDefensiveRebounds" => "Team Defensive Rebounds",
+        "TeamOffensiveRebounds" => "Team Offensive Rebounds",
+        "TotalDefensiveRebounds" => "Total Defensive Rebounds",
+        "TotalOffensiveRebounds" => "Total Offensive Rebounds",
+        "TeamRebounds" => "Team Rebounds",
+        "TeamTurnovers" => "Team Turnovers",
+        "TeamFouls" => "Team Fouls",
+        "Assists" => "Assists",
+        "Blocks" => "Blocks",
+        "BlocksReceived" => "Blocks Received",
+        "Efficiency" => "Efficiency",
+        "FastBreakPointsMade" => "Fast Break Points Made",
+        "FieldGoalsAttempted" => "Field Goals Attempted",
+        "FieldGoalsMade" => "Field Goals Made",
+        "FieldGoalsPercentage" => "Field Goals Percentage",
+        "FoulsDrawn" => "Fouls Drawn",
+        "PersonalFouls" => "Personal Fouls",
+        "TechnicalFouls" => "Technical Fouls",
+        "FreeThrowsAttempted" => "Free Throws Attempted",
+        "FreeThrowsMade" => "Free Throws Made",
+        "FreeThrowsPercentage" => "Free Throws Percentage",
+        "Minutes" => "Minutes",
+        "Points" => "Points",
+        "FastBreakPoints" => "Fast Break Points",
+        "PointsInPaint" => "Points In Paint",
+        "PointsInPaintMade" => "Points In Paint Made",
+        "SecondChancePoints" => "Second Chance Points",
+        "SecondChancePointsMade" => "Second Chance Points Made",
+        "TotalRebounds" => "Total Rebounds",
+        "Steals" => "Steals",
+        "ThreePointersAttempted" => "Three Pointers Attempted",
+        "ThreePointersMade" => "Three Pointers Made",
+        "ThreePointersPercentage" => "Three Pointers Percentage",
+        "Turnovers" => "Turnovers",
+        "TwoPointersAttempted" => "Two Pointers Attempted",
+        "TwoPointersMade" => "Two Pointers Made",
+        "TwoPointersPercentage" => "Two Pointers Percentage",
+        "PointsFromTurnovers" => "Points From Turnovers",
+        _ => propertyName
+    };
+
 }

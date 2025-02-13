@@ -1,5 +1,50 @@
-<h3>TeamInfo</h3>
+@using LiveStatsManager.Components.SharedComps
+@using LiveStatsManager.Models
+@inject IJSRuntime JSRuntime
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col"></th>
+        <td></td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Abbreviation</td>
+        <td>@Team.Info.Abbreviation</td>
+    </tr>
+    <tr>
+        <td>Website</td>
+        <td><a href="https://@Team.Info.Website" target="_blank">@Team.Info.Website</a></td>
+    </tr>
+    <tr>
+        <td>Conference</td>
+        <td>@Team.Info.Conference.Name</td>
+    </tr>
+    <tr>
+        <td>Primary Color</td>
+        <td class="link-primary d-flex" @onclick="() => CopyTextToClipboard(Team.Info.PrimaryColor)">
+            <ColorBox Color="@Team.Info.PrimaryColor" Height="20" Width="20"/>
+            <span class="px-3">@Team.Info.PrimaryColor</span>
+        </td>
+    </tr>
+    <tr>
+        <td>Secondary Color</td>
+        <td class="link-primary d-flex" @onclick="() => CopyTextToClipboard(Team.Info.SecondaryColor)">
+            <ColorBox Color="@Team.Info.SecondaryColor" Height="20" Width="20"/>
+            <span class="px-3">@Team.Info.SecondaryColor</span>
+        </td>
+    </tr>
+    </tbody>
+</table>
 
 @code {
+    [Parameter]
+    public FullTeam Team { get; set; }
     
+    private async Task CopyTextToClipboard(string text)
+    {
+        await JSRuntime.InvokeVoidAsync("clipboardCopy.copyText", text);
+    }
 }

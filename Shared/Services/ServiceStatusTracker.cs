@@ -1,4 +1,4 @@
-namespace LiveStatsManager.Services;
+namespace Shared.Services;
 
 public enum ServiceStatus
 {

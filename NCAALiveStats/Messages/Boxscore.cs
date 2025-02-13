@@ -1,4 +1,5 @@
 using NCAALiveStats.Messages.Helpers;
+using Shared.Objects;
 
 namespace NCAALiveStats.Messages;
 
@@ -106,6 +107,8 @@ public class TeamStats
 
     [JsonPropertyName("sFieldGoalsPercentage")]
     public double FieldGoalsPercentage { get; set; }
+    
+    public string FieldGoalsDisplay => $"{FieldGoalsMade}/{FieldGoalsAttempted}";
 
     [JsonPropertyName("sFoulsOn")]
     public int FoulsDrawn { get; set; }
@@ -124,6 +127,8 @@ public class TeamStats
 
     [JsonPropertyName("sFreeThrowsPercentage")]
     public double FreeThrowsPercentage { get; set; }
+    
+    public string FreeThrowsDisplay => $"{FreeThrowsMade}/{FreeThrowsAttempted}";
 
     [JsonPropertyName("sMinutes")]
     public double Minutes { get; set; }
@@ -160,6 +165,8 @@ public class TeamStats
 
     [JsonPropertyName("sThreePointersPercentage")]
     public double ThreePointersPercentage { get; set; }
+    
+    public string ThreePointersDisplay => $"{ThreePointersMade}/{ThreePointersAttempted}";
 
     [JsonPropertyName("sTurnovers")]
     public int Turnovers { get; set; }

@@ -1,6 +1,8 @@
-@page
-@model LiveStatsManager.Components.Pages.Graphics.AroundTheConf
+@page "/graphics/around-the-conf"
+@model LiveStatsManager.Pages.AroundTheConf
 
 @{
-    Layout = "Gra";
+    Layout = "GraphicLayout";
 }
+
+@Html.Raw(await Model.GetGraphic())

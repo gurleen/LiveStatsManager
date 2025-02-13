@@ -1,5 +1,38 @@
-<h3>WrestlingRosterControl</h3>
+@using global::Shared.Enums
+@using LiveStatsManager.Services
+@inject TeamDataRepository repo
+@inject AppState state
+
+<HxCard CssClass="m-3">
+    <HeaderTemplate><span class="fw-bold">Roster Refresh</span></HeaderTemplate>
+    <BodyTemplate>
+        <p>Home Players (@state.HomeTeam.Info.Abbreviation): @HomeWrestlerCount</p>
+        <p>Away Players (@state.AwayTeam.Info.Abbreviation): @AwayWrestlerCount</p>
+        <HxButton Text="Refresh Home" Icon="BootstrapIcon.ArrowRepeat"
+                  Color="ThemeColor.Info" OnClick="RefreshHome"/>
+        <HxButton Text="Refresh Away" Icon="BootstrapIcon.ArrowRepeat"
+                  Color="ThemeColor.Info" OnClick="RefreshAway"/>
+    </BodyTemplate>
+</HxCard>
 
 @code {
+    private int HomeWrestlerCount => repo.Players
+        .Count(p => p.TeamId == state.HomeTeam.Info.Id 
+                    && p.Sport == Sport.Wrestling);
     
+    private int AwayWrestlerCount => repo.Players
+        .Count(p => p.TeamId == state.AwayTeam.Info.Id 
+                    && p.Sport == Sport.Wrestling);
+    
+    private async Task RefreshHome()
+    {
+        await repo.GetRosterFromSidearm(Sport.Wrestling, state.HomeTeam.Info.Id);
+        StateHasChanged();
+    }
+
+    private async Task RefreshAway()
+    {
+        await repo.GetRosterFromSidearm(Sport.Wrestling, state.AwayTeam.Info.Id);
+        StateHasChanged();
+    }
 }

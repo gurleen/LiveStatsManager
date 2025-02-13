@@ -1,5 +1,38 @@
-<h3>ToggleButton</h3>
+@using LiveStatsManager.Services.DataStore
+@inject IHxMessengerService messenger
+@inject IDataStore store
+
+<HxButton 
+    Text="@Text" 
+    Icon="Icon" 
+    Color="Color"
+    OnClick="Toggle"
+    CssClass="@CssClass" />
 
 @code {
+    [Parameter]
+    public required string Text { get; set; }
     
+    [Parameter]
+    public required string Key { get; set; }
+    
+    [Parameter]
+    public BootstrapIcon Icon { get; set; }
+
+    [Parameter] public ThemeColor Color { get; set; } = ThemeColor.Primary;
+    
+    [Parameter]
+    public string CssClass { get; set; }
+
+    private void Toggle()
+    {
+        try
+        {
+            store.Toggle(Key);
+        }
+        catch (Exception ex)
+        {
+            messenger.AddError(ex.Message);
+        }
+    }
 }

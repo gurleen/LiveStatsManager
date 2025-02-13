@@ -1,21 +1,41 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <OutputType>Exe</OutputType>
         <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="AngleSharp" Version="1.2.0-beta.439" />
       <PackageReference Include="CommandLineParser" Version="2.9.1" />
+      <PackageReference Include="CsvHelper" Version="33.0.1" />
+      <PackageReference Include="FlexLabs.EntityFrameworkCore.Upsert" Version="8.1.2" />
+      <PackageReference Include="Flurl" Version="4.0.0" />
+      <PackageReference Include="Flurl.Http" Version="4.0.2" />
+      <PackageReference Include="Havit.Blazor.Components.Web.Bootstrap" Version="4.7.2-pre02" />
+      <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.11" />
+      <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.11" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.0">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
       <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.0-rc.2.24473.5" />
       <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="9.0.0-rc.2.24473.5" />
       <PackageReference Include="MudBlazor" Version="7.15.0" />
+      <PackageReference Include="NameParserSharp" Version="1.5.0" />
       <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
       <PackageReference Include="Optional" Version="4.0.0" />
+      <PackageReference Include="Photino.Blazor" Version="3.2.0" />
+      <PackageReference Include="Raffinert.FuzzySharp" Version="2.0.3" />
       <PackageReference Include="SocketMeister" Version="4.0.6" />
-      <PackageReference Include="System.Text.Json" Version="9.0.0-rc.2.24473.5" />
+      <PackageReference Include="Svg" Version="3.4.7" />
+      <PackageReference Include="Swashbuckle.AspNetCore" Version="7.1.0" />
+      <PackageReference Include="System.Text.Json" Version="9.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Shared\Shared.csproj" />
     </ItemGroup>
 
 </Project>

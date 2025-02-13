@@ -1,5 +1,55 @@
-<h3>NewMatchupModal</h3>
+@using global::Shared.Enums
+@using global::Shared.Objects
+@using LiveStatsManager.Services
+@inject WrestlingViewModel viewModel
+@inject TeamDataRepository repo
+@inject AppState state
+
+<HxOffcanvas @ref="newMatchupModal" OnClosed="OnClosed">
+    <BodyTemplate>
+        <HxSelect TItem="Player"
+                  TValue="Player"
+                  Label="Home Player"
+                  Data="HomeWrestlers"
+                  @bind-Value="viewModel.FormHomeWrestler"
+                  TextSelector="player => player.FullName"
+                  ValueSelector="player => player" />
+
+        <HxSelect TItem="Player"
+                  TValue="Player"
+                  Label="Away Player"
+                  Data="AwayWrestlers"
+                  @bind-Value="viewModel.FormAwayWrestler"
+                  TextSelector="player => player.FullName"
+                  ValueSelector="player => player" />
+
+        <HxSelect TItem="WrestlingWeightClass"
+                  TValue="WrestlingWeightClass"
+                  Label="Weight Class"
+                  Data="viewModel.WeightClasses"
+                  @bind-Value="viewModel.FormWeightClass"
+                  TextSelector="weight => weight.ToStringValue()"
+                  ValueSelector="weight => weight" />
+
+        <HxButton Text="Add"
+                  Icon="BootstrapIcon.Plus"
+                  Color="ThemeColor.Primary"
+                  OnClick="() => viewModel.AddFormMatchup()"/>
+    </BodyTemplate>
+</HxOffcanvas>
 
 @code {
+    private HxOffcanvas? newMatchupModal;
     
+    [Parameter]
+    public required Action OnClosed { get; set; }
+    
+    private IEnumerable<Player> HomeWrestlers => repo.PlayersForTeam(Sport.Wrestling, state.HomeTeam.Id);
+    private IEnumerable<Player> AwayWrestlers => repo.PlayersForTeam(Sport.Wrestling, state.AwayTeam.Id);
+    
+    public async Task ShowAsync()
+    {
+        if(newMatchupModal != null)
+            await newMatchupModal.ShowAsync();
+    }
 }

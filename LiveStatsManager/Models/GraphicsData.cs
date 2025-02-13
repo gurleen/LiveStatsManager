@@ -1,4 +1,4 @@
-namespace LiveStatsManager.Objects;
+namespace LiveStatsManager.Models;
 
 public class GraphicsData(FullTeam homeTeam, FullTeam awayTeam)
 {

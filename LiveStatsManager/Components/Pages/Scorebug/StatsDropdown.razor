@@ -1,5 +1,50 @@
-<h3>StatsDropdown</h3>
+@using Shared.Objects
+<div class="d-flex justify-content-between align-items-end w-full">
+    <HxSelect Label="Stat 1"
+              TItem="Stat"
+              TValue="Stat"
+              TextSelector="s => s.ToShortString()"
+              Data="Choices"
+              @bind-Value="Stat1"
+              @bind-Value:after="StatsChanged.InvokeAsync" />
+    <HxSelect Label="Stat 2"
+              TItem="Stat"
+              TValue="Stat"
+              Data="Choices"
+              TextSelector="s => s.ToShortString()"
+              @bind-Value="Stat2"
+              @bind-Value:after="StatsChanged.InvokeAsync" />
+    <HxSelect Label="Stat 3"
+              TItem="Stat"
+              TValue="Stat"
+              TextSelector="s => s.ToShortString()"
+              Data="Choices"
+              @bind-Value="Stat3"
+              @bind-Value:after="StatsChanged.InvokeAsync" />
+    
+    <HxButton CssClass="mt-4 ms-3" 
+              Color="ThemeColor.Danger" 
+              Text="RESET"
+              OnClick="ResetStats" />
+</div>
 
 @code {
+    [Parameter]
+    public List<Stat> Choices { get; set; }
+
+    [Parameter] public Stat Stat1 { get; set; } = Stat.None;
+    [Parameter] public Stat Stat2 { get; set; } = Stat.None;
+    [Parameter] public Stat Stat3 { get; set; } = Stat.None;
     
+    [Parameter] public EventCallback<Stat> StatsChanged { get; set; }
+
+    public List<Stat> SelectedStats() => [Stat1, Stat2, Stat3];
+
+    private void ResetStats()
+    {
+        Stat1 = Stat.Points;
+        Stat2 = Stat.Rebounds;
+        Stat3 = Stat.Assists;
+        StatsChanged.InvokeAsync();
+    }
 }

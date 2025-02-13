@@ -1,8 +1,7 @@
-using System.Drawing;
 using Shared.Enums;
 using Shared.Utilities;
 
-namespace NCAALiveStats.Objects;
+namespace Shared.Objects;
 
 public enum TeamGender
 {

@@ -1,6 +1,6 @@
 using Shared.Enums;
 
-namespace NCAALiveStats.Objects;
+namespace Shared.Objects;
 
 public record LegacyPlayer(string name, string pos, string year, string jersey_num);
 

@@ -1,9 +1,8 @@
 using System.Globalization;
 using CsvHelper;
 using CsvHelper.Configuration.Attributes;
-using Shared.Objects;
 
-namespace NCAALiveStats;
+namespace Shared.Objects;
 
 public record LocalTeamInfo
 {
@@ -57,8 +56,15 @@ public class LocalTeamData
     
     private static List<LocalTeamInfo> LoadCustomTeams()
     {
-        using var reader = new StreamReader(_customTeamsPath);
-        using var csv = new CsvReader(reader, CultureInfo.InvariantCulture);
-        return csv.GetRecords<LocalTeamInfo>().ToList();
+        try
+        {
+            using var reader = new StreamReader(_customTeamsPath);
+            using var csv = new CsvReader(reader, CultureInfo.InvariantCulture);
+            return csv.GetRecords<LocalTeamInfo>().ToList();
+        }
+        catch (Exception e)
+        {
+            return [];
+        }
     }
 }

@@ -1,5 +1,57 @@
-<h3>TextSlider</h3>
+@using LiveStatsManager.Services
+@using LiveStatsManager.Services.DataStore
+@inject AppState appState
+@inject IDataStore store
+
+<HxSelect 
+    TItem="Tuple<string, string>"
+    TValue="Tuple<string, string>"
+    Label="Presets"
+    Data="appState.TextSliderPresets"
+    @bind-Value="selectedPreset"
+    TextSelector="FormatPreset" />
+
+
+<HxButton CssClass="w-100 my-3" Text="Update" Color="ThemeColor.Success" OnClick="UpdateSliderText" />
+<ToggleButton CssClass="w-100 my-1" Text="Toggle" Key="Toggle-Generic-Slider" />
+
+<HxCollapseToggleElement ElementName="div" CollapseTarget="#myCollapse5" CssClass="bg-primary p-3 text-white" role="button">
+    Add New Preset
+    <HxIcon Icon="BootstrapIcon.ArrowDown" />
+</HxCollapseToggleElement>
+<HxCollapse Id="myCollapse5">
+    <HxCard>
+        <BodyTemplate>
+            <HxInputText @bind-Value="newPresetTitle" Label="Title" />
+            <HxInputText @bind-Value="newPresetValue" Label="Value" />
+            <HxButton CssClass="mt-3" Color="ThemeColor.Primary" Text="Add" OnClick="AddNewPreset" /> 
+        </BodyTemplate>
+    </HxCard>
+</HxCollapse>
 
 @code {
+    private Tuple<string, string> selectedPreset;
+    private string newPresetTitle = string.Empty;
+    private string newPresetValue = string.Empty;
+    private const string TextKey = "Generic-Slider-Text";
+
+    private static string FormatPreset(Tuple<string, string> preset) => 
+        preset.Item1 + "/" + preset.Item2; 
     
+    protected override void OnInitialized()
+    {
+        selectedPreset = appState.TextSliderPresets.First();
+    }
+
+    private void UpdateSliderText()
+    {
+        store.Add(TextKey, FormatPreset(selectedPreset));
+    }
+
+    private void AddNewPreset()
+    {
+        var newPreset = new Tuple<string, string>(newPresetTitle, newPresetValue);
+        appState.TextSliderPresets.Add(newPreset);
+        StateHasChanged();
+    }
 }

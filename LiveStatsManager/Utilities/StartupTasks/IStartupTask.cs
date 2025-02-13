@@ -1,4 +1,4 @@
-namespace LiveStatsManager.Utilities;
+namespace LiveStatsManager.Utilities.StartupTasks;
 
 public interface IStartupTask
 {

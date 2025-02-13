@@ -1,5 +1,108 @@
-<h3>TeamSettings</h3>
+@using global::Shared.Objects
+@using LiveStatsManager.Services
+@using LiveStatsManager.Components.SharedComps
+@using NCAALiveStats
+@inject TeamDataRepository teamRepo;
+@inject AppState appState;
+
+<HxSearchBox DataProvider="SearchForTeam"
+             Label="Team"
+             TItem="Team"
+             Delay="1000"
+             ItemTitleSelector="t => t.Name"
+             ItemSubtitleSelector="t => t.Info.Abbreviation"
+             Placeholder="Search for teams..."
+             OnItemSelected="t => SetTeam(t)">
+</HxSearchBox>
+
+@if (SelectedTeam != null)
+{
+    <div class="d-flex mt-3">
+        <img style="max-height: 200px; max-width: 200px;" src="@SelectedTeam.Info.FullLogoUrl"/>
+        <div>
+            <p>
+                <span>@SelectedTeam.Info.SchoolName</span>
+                <span class="fw-bold">@SelectedTeam.Info.TeamName</span>
+                <span>•</span>
+                <span>@SelectedTeam.Info.Abbreviation</span>
+                <span>•</span>
+                <span><a href="https://@SelectedTeam.Info.Website" target="_blank">Website</a></span>
+                <span>•</span>
+                <span>
+                    <a href="/api/teams/@SelectedTeam.Id/headshots/download">
+                        Download Headshots
+                    </a>
+                </span>
+                <span>•</span>
+                <span>
+                    <HxButton Text="Load Rosters From Website"
+                              CssClass="btn-link"
+                              Icon="BootstrapIcon.Download"
+                              OnClick="LoadRostersFromWebsite"/>
+                </span>
+            </p>
+            <div class="d-flex">
+                <div>
+                    <ColorBox Color="@SelectedTeam.Info.PrimaryColor"></ColorBox>
+                    <ColorBox Color="@SelectedTeam.Info.SecondaryColor"></ColorBox>
+                </div>
+                
+                <HxSwitch ValueExpression="() => UsingSecondaryColor"
+                          ValueChanged="SetColorUsage"
+                          Text="Use Secondary Color For Graphics"
+                          CssClass="ms-5" />
+            </div>
+        </div>
+    </div>
+}
 
 @code {
+    [Parameter]
+    public bool IsHome { get; set; }
     
+    private List<string> teamNames = [];
+    private Dictionary<string, Team> teamLookup = new();
+    private Team? SelectedTeam { get; set; }
+    
+    private bool UsingSecondaryColor => IsHome 
+        ? appState.UseHomeTeamSecondaryColor 
+        : appState.UseAwayTeamSecondaryColor;
+    private TeamSide TeamSide => IsHome ? TeamSide.Home : TeamSide.Away;
+    private void SetColorUsage(bool value) => appState.SetTeamColorUsage(TeamSide, value);
+
+    private async Task<SearchBoxDataProviderResult<Team>> SearchForTeam(SearchBoxDataProviderRequest request)
+    {
+        return new SearchBoxDataProviderResult<Team>
+        {
+            Data = await teamRepo.SearchTeams(request.UserInput)
+        };
+    }
+
+    private void SetTeam(Team team)
+    {
+        SelectedTeam = team;
+        if (IsHome)
+        {
+            appState.SetHomeTeam(team);
+        }
+        else
+        {
+            appState.SetAwayTeam(team);
+        }
+    }
+
+    protected override void OnInitialized()
+    {
+        SelectedTeam = IsHome ? appState.HomeTeam : appState.AwayTeam;
+        teamNames = teamRepo.Teams.Select(t => t.Name).ToList();
+        teamLookup = teamRepo.Teams.ToDictionary(t => t.Name, t => t);
+    }
+
+    private async Task LoadRostersFromWebsite()
+    {
+        if(SelectedTeam != null)
+            await teamRepo.GetRosterFromSidearm(appState.Sport, SelectedTeam.Id);
+    }
+
+    private string Side => IsHome ? "Home" : "Away";
 }

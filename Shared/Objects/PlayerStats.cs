@@ -1,7 +1,7 @@
 using System.Globalization;
 using Shared.Enums;
 
-namespace NCAALiveStats.Objects;
+namespace Shared.Objects;
 
 public class PlayerStats(string playerId, string teamId, Sport sport)
 {

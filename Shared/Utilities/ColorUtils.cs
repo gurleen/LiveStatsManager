@@ -32,4 +32,20 @@ public class ColorUtils
         // format back to hex
         return $"#{r:X2}{g:X2}{b:X2}";
     }
+    
+    public static string GetBestTextColor(string hexColor)
+    {
+        if (hexColor.StartsWith('#'))
+            hexColor = hexColor[1..];
+
+        if (hexColor.Length != 6)
+            return "#000000";
+
+        var r = Convert.ToInt32(hexColor.Substring(0, 2), 16);
+        var g = Convert.ToInt32(hexColor.Substring(2, 2), 16);
+        var b = Convert.ToInt32(hexColor.Substring(4, 2), 16);
+
+        var luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255.0;
+        return luminance > 0.5 ? "#000000" : "#FFFFFF";
+    }
 }

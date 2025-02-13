@@ -1,5 +1,112 @@
-<h3>InfoControl</h3>
+@using LiveStatsManager.Services.DataStore
+@using NCAALiveStats
+@inject IDataStore store
+
+<div class="d-flex justify-content-between">
+    <div class="d-flex flex-column">
+        <HxSwitch
+            Text="Home Bonus"
+            @bind-Value="HomeBonusActive"
+            @bind-Value:after="Update"/>
+
+        <HxSwitch
+            Text="Away Bonus"
+            @bind-Value="AwayBonusActive"
+            @bind-Value:after="Update"/>
+    </div>
+    
+    <HxButton Color="ThemeColor.Danger" Text="RESET" OnClick="Reset" />
+</div>
+
+<div class="d-flex mt-3">
+    <HxInputNumber
+        Label="Home Timeouts"
+        Enabled="false"
+        @bind-Value="HomeTimeouts"/>
+    <HxButton Text="-1" OnClick="() => UpdateTimeouts(TeamSide.Home, -1)" Color="ThemeColor.Danger" CssClass="mt-4 ms-3" />
+    <HxButton Text="+1" OnClick="() => UpdateTimeouts(TeamSide.Home, 1)" Color="ThemeColor.Primary" CssClass="mt-4 ms-3" />
+</div>
+
+<div class="d-flex mt-3">
+    <HxInputNumber
+        Label="Away Timeouts"
+        Enabled="false"
+        @bind-Value="AwayTimeouts"/>
+    <HxButton Text="-1" OnClick="() => UpdateTimeouts(TeamSide.Away, -1)" Color="ThemeColor.Danger" CssClass="mt-4 ms-3" />
+    <HxButton Text="+1" OnClick="() => UpdateTimeouts(TeamSide.Away, 1)" Color="ThemeColor.Primary" CssClass="mt-4 ms-3" />
+</div>
 
 @code {
-    
+    private const string HomeBonusKey = "show:Home-Bonus";
+    private const string AwayBonusKey = "show:Away-Bonus";
+    private const string HomeTimeoutsKey = "Home-Timeouts";
+    private const string AwayTimeoutsKey = "Away-Timeouts";
+    private bool HomeBonusActive = false;
+    private bool AwayBonusActive = false;
+    private int HomeTimeouts = 4;
+    private int AwayTimeouts = 4;
+
+    private static bool ParseBoolFromStore(string value)
+    {
+        return value == string.Empty || Convert.ToBoolean(int.Parse(value));
+    }
+
+    private static int SafeParseInt(string value, int defaultValue = -1)
+    {
+        try
+        {
+            return int.Parse(value);
+        }
+        catch
+        {
+            return defaultValue;
+        }
+    }
+
+    protected override void OnInitialized()
+    {
+        var rawHomeBonus = store.Get("show:Home-Bonus");
+        var rawAwayBonus = store.Get("show:Away-Bonus");
+        HomeBonusActive = ParseBoolFromStore(rawHomeBonus);
+        AwayBonusActive = ParseBoolFromStore(rawAwayBonus);
+        HomeTimeouts = SafeParseInt(store.Get("Home-Timeouts"), 4);
+        AwayTimeouts = SafeParseInt(store.Get("Away-Timeouts"), 4);
+    }
+
+    private void UpdateTimeouts(TeamSide side, int amount)
+    {
+        if (side == TeamSide.Home)
+        {
+            if(HomeTimeouts + amount >= 0 && HomeTimeouts + amount < 5)
+            {
+                HomeTimeouts += amount;
+                
+            }
+        }
+        else
+        {
+            if(AwayTimeouts + amount >= 0 && AwayTimeouts + amount < 5)
+            {
+                AwayTimeouts += amount;
+            }
+        }
+        Update();
+    }
+
+    private void Reset()
+    {
+        HomeTimeouts = 4;
+        AwayTimeouts = 4;
+        HomeBonusActive = false;
+        AwayBonusActive = false;
+        Update();
+    }
+
+    private void Update()
+    {
+        store.Add(HomeBonusKey, HomeBonusActive? "1" : "0");
+        store.Add(AwayBonusKey, AwayBonusActive? "1" : "0");
+        store.Add(HomeTimeoutsKey, HomeTimeouts.ToString());
+        store.Add(AwayTimeoutsKey, AwayTimeouts.ToString());
+    }
 }

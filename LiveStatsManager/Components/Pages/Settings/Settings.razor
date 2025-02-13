@@ -1,31 +1,38 @@
-@page "/Settings"
+@page "/settings"
+@using global::Shared.Enums
 @using LiveStatsManager.Services
-@using NCAALiveStats.Objects
-@inject TeamDataRepository teamRepo;
-@inject AppState appState;
-<h3>Settings</h3>
+@inject AppState appState
 
-<p>Set Home Team:</p>
-<select @bind="appState.HomeTeam" @bind:after="GetHomePlayers">
-    @foreach (var team in teamRepo.Teams)
-    {
-        <option value="@team">@team.Name</option>
-    }
-</select>
+<h3>Global Settings</h3>
 
-@if (homePlayers.Count > 0)
-{
-    <p>Home Players:</p>
-    <select @bind="appState.HomePlayerToWatch">
-        @foreach (var player in homePlayers)
-        {
-           <option value="@player">@player.FullName</option>
-        }
-    </select>
-}
+<HxCard>
+    <HeaderTemplate>Sport Select</HeaderTemplate>
+    <BodyTemplate>
+        <select class="form-select" @bind="Sport" @bind:after="SetSport">
+            <option value="@Sport.MensBasketball">Men's Basketball</option>
+            <option value="@Sport.WomensBasketball">Women's Basketball</option>
+            <option value="@Sport.Wrestling">Wrestling</option>
+        </select>
+    </BodyTemplate>
+</HxCard>
 
+<HxCard CssClass="mt-3">
+    <HeaderTemplate>Home Team</HeaderTemplate>
+    <BodyTemplate>
+        <TeamSettings IsHome="true"></TeamSettings>
+    </BodyTemplate>
+</HxCard>
+
+<HxCard CssClass="mt-3">
+    <HeaderTemplate>Away Team</HeaderTemplate>
+    <BodyTemplate>
+        <TeamSettings IsHome="false"></TeamSettings>
+    </BodyTemplate>
+</HxCard>
 
 @code {
-    private List<Player> homePlayers = [];
-    private void GetHomePlayers() => homePlayers = appState.HomeTeam.Players;
+    private Sport Sport { get; set; }
+
+    protected override void OnInitialized() => Sport = appState.Sport;
+    private void SetSport() => appState.SetSport(Sport);
 }

@@ -1,13 +1,9 @@
 using GfxDataService.DataStore;
 using GfxDataService.FileWatcher;
 using Microsoft.AspNetCore.SignalR;
+using Shared.Interfaces;
 
 namespace GfxDataService.Hubs;
-
-public interface ILiveDataHub
-{
-    Task DataUpdate(string key, string value);
-}
 
 public class LiveDataHub : Hub<ILiveDataHub>
 {

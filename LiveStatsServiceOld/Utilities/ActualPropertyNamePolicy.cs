@@ -1,6 +1,6 @@
-namespace LiveStatsService.Utilities;
-
 using System.Text.Json;
+
+namespace LiveStatsServiceOld.Utilities;
 
 public class ActualPropertyNamePolicy : JsonNamingPolicy
 {

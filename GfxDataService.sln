@@ -1,12 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GfxDataService", "GfxDataService\GfxDataService.csproj", "{83AE7468-192C-4ABC-B269-83BE7760AFC0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCAALiveStats", "NCAALiveStats\NCAALiveStats.csproj", "{F5D628C7-2A7A-4687-99B7-9F8891D51C06}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AllSportListener", "AllSportListener\AllSportListener.csproj", "{2921839A-D891-40C8-8139-61074A79B3A6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveStatsManager", "LiveStatsManager\LiveStatsManager.csproj", "{6C71E420-9EE7-4ACD-9EB2-EDE0D2DE8495}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCAALiveStatsListener", "NCAALiveStatsListener\NCAALiveStatsListener.csproj", "{F5D628C7-2A7A-4687-99B7-9F8891D51C06}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{89BA85FC-5A3C-4A19-911F-BF13D1A4FF1B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveStatsService", "LiveStatsService\LiveStatsService.csproj", "{373D2D41-6E1A-4C2E-BDA4-E13B22B1A24D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCAADataLoader", "NCAADataLoader\NCAADataLoader.csproj", "{F0A51B70-CFD4-4A3E-B8CB-6373E5337237}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -14,21 +14,21 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{83AE7468-192C-4ABC-B269-83BE7760AFC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{83AE7468-192C-4ABC-B269-83BE7760AFC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{83AE7468-192C-4ABC-B269-83BE7760AFC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{83AE7468-192C-4ABC-B269-83BE7760AFC0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2921839A-D891-40C8-8139-61074A79B3A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2921839A-D891-40C8-8139-61074A79B3A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2921839A-D891-40C8-8139-61074A79B3A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2921839A-D891-40C8-8139-61074A79B3A6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F5D628C7-2A7A-4687-99B7-9F8891D51C06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F5D628C7-2A7A-4687-99B7-9F8891D51C06}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F5D628C7-2A7A-4687-99B7-9F8891D51C06}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F5D628C7-2A7A-4687-99B7-9F8891D51C06}.Release|Any CPU.Build.0 = Release|Any CPU
-		{373D2D41-6E1A-4C2E-BDA4-E13B22B1A24D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{373D2D41-6E1A-4C2E-BDA4-E13B22B1A24D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{373D2D41-6E1A-4C2E-BDA4-E13B22B1A24D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{373D2D41-6E1A-4C2E-BDA4-E13B22B1A24D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C71E420-9EE7-4ACD-9EB2-EDE0D2DE8495}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C71E420-9EE7-4ACD-9EB2-EDE0D2DE8495}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C71E420-9EE7-4ACD-9EB2-EDE0D2DE8495}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C71E420-9EE7-4ACD-9EB2-EDE0D2DE8495}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89BA85FC-5A3C-4A19-911F-BF13D1A4FF1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89BA85FC-5A3C-4A19-911F-BF13D1A4FF1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89BA85FC-5A3C-4A19-911F-BF13D1A4FF1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89BA85FC-5A3C-4A19-911F-BF13D1A4FF1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0A51B70-CFD4-4A3E-B8CB-6373E5337237}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0A51B70-CFD4-4A3E-B8CB-6373E5337237}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0A51B70-CFD4-4A3E-B8CB-6373E5337237}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0A51B70-CFD4-4A3E-B8CB-6373E5337237}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -1,8 +1,8 @@
-using GfxDataService.DataStore;
-using GfxDataService.FileWatcher;
+using LiveStatsManager.FileWatcher;
+using LiveStatsManager.Services.DataStore;
 using Microsoft.AspNetCore.Mvc;
 
-namespace GfxDataService.Endpoints;
+namespace LiveStatsManager.Controllers;
 
 [ApiController]
 public class DataStoreAPI(IDataStore dataStore) : Controller

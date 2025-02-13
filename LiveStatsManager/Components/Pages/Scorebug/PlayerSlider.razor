@@ -1,5 +1,146 @@
-<h3>PlayerSlider</h3>
+@using global::Shared.Objects
+@using LiveStatsManager.Models
+@using LiveStatsManager.Services
+@using LiveStatsManager.Services.DataStore
+@using NCAALiveStats
+@using NCAALiveStats.Messages.Helpers
+@inject TeamDataRepository repo
+@inject AppState state
+@inject IDataStore store
+@inject RawGameState gameStats
+
+<ToggleButton CssClass="w-100 mb-3" Text="Toggle Slider" Key="@ToggleKey" />
+<HxInputNumber 
+    InputCssClass="mb-3"
+    TValue="int"
+    Label="Player Number" CssClass="w-100" SelectOnFocus="true"
+    ValueExpression="() => PlayerNumber"
+    ValueChanged="num => UpdatePlayerNumber(num)"/>
+<HxSwitch CssClass="mb-3" 
+          Text="@StatsSwitchText" 
+          ValueExpression="() => UseLiveStats"
+          ValueChanged="val => UpdateStatsType(val)" />
+
+@if (Player != null)
+{
+    <div class="d-flex">
+        <img class="w-50 me-3" src="@HeadshotUrl" />
+        <div>
+            <p>@Player.FirstName <span class="fw-bolder">@Player.LastName</span></p>
+            <p>
+                @Player.Position - @Player.Experience
+            </p>
+        </div>
+    </div>
+    <p class="mt-3">@StatsText</p>
+    <div class="d-flex justify-content-between">
+        <HxSelect Label="Stat 1"
+                  TItem="Stat"
+                  TValue="Stat"
+                  TextSelector="s => s.ToShortString()"
+                  Data="UseLiveStats ? StatLists.GameStats : StatLists.SeasonStats"
+                  @bind-Value="stat1"/>
+        <HxSelect Label="Stat 2"
+                  TItem="Stat"
+                  TValue="Stat"
+                  Data="UseLiveStats ? StatLists.GameStats : StatLists.SeasonStats"
+                  TextSelector="s => s.ToShortString()"
+                  @bind-Value="stat2"/>
+        <HxSelect Label="Stat 3"
+                  TItem="Stat"
+                  TValue="Stat"
+                  TextSelector="s => s.ToShortString()"
+                  Data="UseLiveStats ? StatLists.GameStats : StatLists.SeasonStats"
+                  @bind-Value="stat3"/>
+    </div>
+    <HxButton Text="Update" 
+              OnClick="UpdateText" 
+              Color="ThemeColor.Primary"
+              CssClass="mt-3 w-100"/>
+}
+else
+{
+    <p>Player number @PlayerNumber is not valid.</p>
+}
+
 
 @code {
+    [Parameter]
+    public TeamSide Side { get; set; }
+    private string SideText => Side == TeamSide.Home ? "Home" : "Away";
+    private string Key => $"{SideText}-Player-Slider-Num";
+    private string ToggleKey => $"Toggle-{SideText}-Player-Slider";
+    private int PlayerNumber { get; set; }
+    private FullTeam? Team;
+    private Player? Player;
+    private bool UseLiveStats { get; set; } = false;
+    private string StatsSwitchText => UseLiveStats ? "Live" : "Season";
+    private string StatsText { get; set; } = string.Empty;
+    private string HeadshotUrl => 
+        $"https://gfx.dragonstv.io/media/images/headshots/{SideText}/{PlayerNumber}.png?random={Guid.NewGuid()}";
     
+    private Stat stat1 = Stat.Points;
+    private Stat stat2 = Stat.Rebounds;
+    private Stat stat3 = Stat.Assists;
+    
+    protected override void OnInitialized()
+    {
+        Team = Side == TeamSide.Home ? state.HomeFullTeam : state.AwayFullTeam;
+    }
+    
+    private async Task UpdatePlayerNumber(int number)
+    {
+        PlayerNumber = number;
+        UpdatePlayer();
+        UpdateKey();
+        //await InvokeAsync(StateHasChanged);
+        //gameStats.OnUpdate += OnLiveStatsUpdate;
+    }
+    
+    private Task OnLiveStatsUpdate()
+    {
+        if(UseLiveStats) { UpdateText(); }
+        return Task.CompletedTask;
+    }
+
+    private string LiveStatLine()
+    {
+        var stats = gameStats.GetPlayerStats(Side, PlayerNumber.ToString());
+        var stat1Value = stats.GetStat(stat1) + " " + stat1.ToShortString();
+        var stat2Value = stats.GetStat(stat2) + " " + stat2.ToShortString();
+        var stat3Value = stats.GetStat(stat3) + " " + stat3.ToShortString();
+        return $"{stat1Value} | {stat2Value} | {stat3Value}";
+    }
+
+    private string SeasonStatLine()
+    {
+        if (Player == null) return string.Empty;
+        var stats = repo.GetPlayerStats(Player.Id, state.Sport);
+        if (stats == null) return string.Empty;
+        return $"{stats.GetStat(stat1)} {stat1.ToShortString()} | " +
+               $"{stats.GetStat(stat2)} {stat2.ToShortString()} | " +
+               $"{stats.GetStat(stat3)} {stat3.ToShortString()}";
+    }
+
+    private void UpdatePlayer()
+    {
+        Player = Team?.Players.FirstOrDefault(p => p.JerseyNumber == PlayerNumber.ToString());
+        UpdateText();
+    }
+
+    private void UpdateText()
+    {
+        var statLine = UseLiveStats ? LiveStatLine() : SeasonStatLine();
+        StatsText = statLine;
+        store.Add($"fade:{SideText}-Player-Slider-Text", statLine);
+        StateHasChanged();
+    }
+    
+    private void UpdateStatsType(bool useLiveStats)
+    {
+        UseLiveStats = useLiveStats;
+        UpdateText();
+    }
+
+    private void UpdateKey() => store.Add(Key, PlayerNumber.ToString());
 }

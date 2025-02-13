@@ -2,7 +2,7 @@ using System.Globalization;
 using CsvHelper;
 using Shared.Services;
 
-namespace LiveStatsManager.Services;
+namespace LiveStatsManager.Services.FileWriter;
 
 public class FileWriterService(SettingsProvider settingsProvider,
     ServiceStatusTracker status, TeamDataRepository teamRepo, AppState appState) : BackgroundService
@@ -51,7 +51,9 @@ public class FileWriterService(SettingsProvider settingsProvider,
 
     private async Task WriteStandings()
     {
-        var standings = teamRepo.GetStandings(appState.Sport, 10);
+        var standings = teamRepo
+            .GetStandings(appState.Sport, 10)
+            .Select(t => new StandingsDTO(t, appState.Sport));
         await WriteCsv(StandingsFile, standings);
     }
 

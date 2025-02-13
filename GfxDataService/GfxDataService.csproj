@@ -7,10 +7,25 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="AngleSharp" Version="1.2.0-beta.439" />
         <PackageReference Include="CsvHelper" Version="33.0.1" />
+        <PackageReference Include="Flurl" Version="4.0.0" />
+        <PackageReference Include="Havit.Blazor.Components.Web.Bootstrap" Version="4.7.2-pre02" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.11" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.11" />
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.7"/>
         <PackageReference Include="Microsoft.AspNetCore.SignalR.Common" Version="9.0.0-rc.2.24474.3" />
+        <PackageReference Include="MudBlazor" Version="7.15.0" />
+        <PackageReference Include="NameParserSharp" Version="1.5.0" />
+        <PackageReference Include="Optional" Version="4.0.0" />
+        <PackageReference Include="Photino.Blazor" Version="3.2.0" />
+        <PackageReference Include="Raffinert.FuzzySharp" Version="2.0.3" />
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0"/>
+        <PackageReference Include="System.Text.Json" Version="9.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Shared\Shared.csproj" />
     </ItemGroup>
 
 </Project>

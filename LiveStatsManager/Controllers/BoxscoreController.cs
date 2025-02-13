@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using NCAALiveStats;
 using NCAALiveStats.Messages;
 
-namespace LiveStatsService.Controllers;
+namespace LiveStatsManager.Controllers;
 
 [ApiController]
 [Route("api/boxscore")]

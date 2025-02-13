@@ -1,9 +1,8 @@
-using GfxDataService.DataStore;
-using GfxDataService.FileWatcher;
+using LiveStatsManager.FileWatcher;
 using Microsoft.AspNetCore.SignalR;
 using Shared.Interfaces;
 
-namespace GfxDataService.Hubs;
+namespace LiveStatsManager.Hubs;
 
 public class LiveDataHub : Hub<ILiveDataHub>
 {

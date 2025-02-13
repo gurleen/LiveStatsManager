@@ -1,5 +1,28 @@
-<h3>GameBarTeam</h3>
+@using LiveStatsManager.Services
+@using LiveStatsManager.Services.DataStore
+@using NCAALiveStats
+@using LiveStatsManager.Components.SharedComps
+@using LiveStatsManager.Models
+@inject RawGameState gameState
+@inject IDataStore dataStore
+@inject AppState appState
+
+
+<Row CssClass="align-items-center justify-content-end" Reverse="Side == TeamSide.Home">
+    <Column CssClass="align-items-end" Spacing="0px">
+        <p class="fw-bold mb-0">@Team.Info.SchoolName</p>
+        <p class="mb-0">@Team.Info.TeamName</p>
+        <p>@TeamRecord</p>
+    </Column>
+    <img src="@Team.Info.FullLogoUrl" width="200"/>
+    <p class="fw-bolder fs-2">@TeamScore</p>
+</Row>
 
 @code {
-    
+    [Parameter]
+    public required TeamSide Side { get; set; }
+
+    private FullTeam Team => Side == TeamSide.Home ? appState.HomeFullTeam : appState.AwayFullTeam;
+    private string TeamScore => dataStore.Get($"fade:{Side}-Score");
+    private string TeamRecord => $"{Team.Stats.Overall.RecordDisplay} ({Team.Stats.Conference.RecordDisplay})";
 }

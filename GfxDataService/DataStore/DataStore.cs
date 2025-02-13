@@ -2,6 +2,7 @@ using System.Collections.Concurrent;
 using GfxDataService.FileWatcher;
 using GfxDataService.Hubs;
 using Microsoft.AspNetCore.SignalR;
+using Shared.Interfaces;
 
 namespace GfxDataService.DataStore;
 
@@ -19,6 +20,8 @@ public class DataStore(IHubContext<LiveDataHub, ILiveDataHub> hubContext) : IDat
 
     private void Add(string key, string value)
     {
+        if(key.StartsWith('#')) return;
+        if(_dataStore.TryGetValue(key, out var existingValue) && existingValue == value) return;
         _dataStore[key] = value;
         Console.WriteLine($"{key} = {value}");
         hubContext.Clients.All.DataUpdate(key, value);

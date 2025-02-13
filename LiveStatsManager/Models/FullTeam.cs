@@ -1,6 +1,6 @@
-using NCAALiveStats.Objects;
+using Shared.Objects;
 
-namespace LiveStatsManager.Objects;
+namespace LiveStatsManager.Models;
 
 public class FullTeam
 {

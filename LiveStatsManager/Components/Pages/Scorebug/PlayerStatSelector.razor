@@ -1,5 +1,104 @@
-<h3>PlayerStatSelector</h3>
+@using LiveStatsManager.Models
+@using LiveStatsManager.Services
+@using LiveStatsManager.Services.DataStore
+@using NCAALiveStats
+@using NCAALiveStats.Messages.Helpers
+@using Shared.Objects
+@inject TeamDataRepository teamRepo
+@inject AppState appState
+@inject RawGameState gameState
+@inject IDataStore store
+
+@if(_team is not null)
+{
+    <div class="d-flex">
+        @if (_selectedPlayerJersey > 0 && Player is not null)
+        {
+            <img height="150" src="@GetPlayerImage()"/>
+            <div class="d-flex ms-5 flex-column w-full">
+                <p class="fs-3">@Player.FirstName <span class="fw-bold">@Player.LastName</span></p>
+                <div class="d-flex fs-3 fw-bold justify-content-between w-100">
+                    <p class="badge bg-primary-subtle">@Player.Position</p>
+                    <p class="badge bg-secondary-subtle">@Player.Experience</p>
+                    <p class="badge bg-success-subtle">@Player.Height</p>
+                </div>
+                <StatsDropdown @ref="_statsDropdown" StatsChanged="SetStatLine" Choices="StatLists.GameStats" />
+            </div>
+        }
+        else
+        {
+            <p>No player selected.</p>
+        }
+    </div>
+    
+    <p class="fw-bold fs-4 mt-4 w-100">@_statLine</p>
+    
+    <div class="d-flex flex-wrap w-100 mt-3">
+        <HxInputNumber 
+            CssClass="w-100"
+            Label="Player Number" 
+            @bind-Value="_selectedPlayerJersey"
+            @bind-Value:after="OnPlayerSelected" />
+    </div>
+    
+    <ToggleButton Text="Toggle Slider" 
+                  Color="ThemeColor.Success"
+                  Key="@ToggleKey" 
+                  CssClass="w-100 mt-3"/>
+}
 
 @code {
+    [Parameter]
+    public TeamSide Side { get; set; }
+
+    private FullTeam? _team;
+    private int _selectedPlayerJersey = -1;
+    private string SelectedJersey => _selectedPlayerJersey.ToString();
+    private Player? Player => _team?.Players.Find(p => p.JerseyNumber == SelectedJersey);
+    private string SideSlug => Side == TeamSide.Home ? "Home" : "Away";
+    private StatsDropdown? _statsDropdown;
+    private string ToggleKey => $"Toggle-{SideSlug}-Player-Slider";
+
+    private string _statLine = string.Empty;
+
+    protected override void OnInitialized()
+    {
+        _team = Side == TeamSide.Home
+            ? appState.HomeFullTeam
+            : appState.AwayFullTeam;
+
+        gameState.OnUpdate += OnGameStateUpdate;
+    }
     
+    private string GetPlayerImage()
+    {
+        var jerseyNum = Player?.JerseyNumber ?? "0";
+        return $"https://gfx.dragonstv.io/media/images/headshots/{SideSlug}/{jerseyNum}.png";
+    }
+
+    private Task OnGameStateUpdate()
+    {
+        SetStatLine();
+        //StateHasChanged();
+        return Task.CompletedTask;
+    }
+    
+    private void OnPlayerSelected()
+    {
+        store.Add($"{SideSlug}-Player-Slider-Num", _selectedPlayerJersey.ToString());
+        SetStatLine();
+    }
+
+    private void SetStatLine()
+    {
+        var playerStats = gameState.GetPlayerStats(Side, SelectedJersey);
+        var statPoints = _statsDropdown?
+            .SelectedStats()
+            .Where(s => s != Stat.None)
+            .Select(s => (s, playerStats.GetStat(s)))
+            .Select(p => $"{p.Item2:N0} {p.Item1.ToShortString()}")
+        ?? [];
+        _statLine = string.Join(" - ", statPoints);
+        store.Add($"{SideSlug}-Player-Text", _statLine);
+    }
 }

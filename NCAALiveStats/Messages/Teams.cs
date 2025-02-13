@@ -106,7 +106,7 @@ public class Player
     [JsonPropertyName("nationality")] public string Nationality { get; set; } = string.Empty;
 }
 
-public class Team
+public class TeamInfoMessage
 {
     [JsonPropertyName("teamNumber")]
     public int TeamNumber { get; set; }
@@ -122,7 +122,7 @@ public class Team
 public class TeamMessage
 {
     [JsonPropertyName("teams")] 
-    public List<Team> Teams { get; set; } = [];
+    public List<TeamInfoMessage> Teams { get; set; } = [];
     
     [JsonPropertyName("messageId")]
     public  int MessageId { get; set; }

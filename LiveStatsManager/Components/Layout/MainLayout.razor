@@ -1,9 +1,46 @@
 ﻿@inherits LayoutComponentBase
 
-@Body
+<HxMessenger Position="ToastContainerPosition.BottomEnd" />
+
+<div class="d-md-flex min-vh-100">
+
+	<HxSidebar CssClass="bg-body-secondary sticky-top">
+        <HeaderTemplate>
+            <HxSidebarBrand BrandName="DragonsTV Graphics" BrandNameShort="DTV">
+                <LogoTemplate>
+                    <img src="dtv-logo.png" width="30" height="30" alt="DragonsTV Graphics" class="img-fluid" />
+                </LogoTemplate>
+            </HxSidebarBrand>
+        </HeaderTemplate>
+
+        <ItemsTemplate>
+            <HxSidebarItem Text="Home" Icon="BootstrapIcon.House" TooltipText="Home" Href="" Match="NavLinkMatch.All" />
+            <HxSidebarItem Text="Scorebug" Icon="BootstrapIcon._3SquareFill" TooltipText="Scorebug" Href="scorebug" />
+            <HxSidebarItem Text="Wrestling" Icon="BootstrapIcon.PersonWalking" TooltipText="Wrestling" Href="wrestling" />
+            <HxSidebarItem Text="Stats" Icon="BootstrapIcon.GraphUpArrow" TooltipText="Stats" Href="stats" />
+            <HxSidebarItem Text="Settings" Icon="BootstrapIcon.Gear" TooltipText="Settings" Href="settings" />
+        </ItemsTemplate>
+
+        <FooterTemplate>
+            <HxSidebarFooter Icon="BootstrapIcon.Heart" TextCssClass="@(context.SidebarCollapsed ? "d-md-none" : null)" Text="Made with love in Philadelphia" />
+        </FooterTemplate>
+    </HxSidebar>
+
+	<div class="main p-4 flex-grow-1 overflow-hidden">
+		@Body
+	</div>
+
+</div>
+
 
 <div id="blazor-error-ui">
     An unhandled error has occurred.
     <a href="" class="reload">Reload</a>
     <a class="dismiss">🗙</a>
 </div>
+
+<style>
+    * {
+        font-family: "Univers Next Pro", sans-serif;
+    }
+</style>

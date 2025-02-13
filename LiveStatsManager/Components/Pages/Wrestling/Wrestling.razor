@@ -1,6 +1,115 @@
-@page "/Wrestling"
-<h3>Wrestling</h3>
+@page "/wrestling"
+@inject WrestlingViewModel viewModel
+
+<div class="d-flex flex-wrap p-2">
+    <NewMatchupModal @ref="newMatchupModal" OnClosed="() => StateHasChanged()" />
+    
+    <!--
+    <HxCard CssClass="m-3">
+        <HeaderTemplate><span class="fw-bold">Matchup Selector</span></HeaderTemplate>
+        <BodyTemplate>
+            <HxButton Text="Add" 
+                      Icon="BootstrapIcon.Plus" 
+                      Color="ThemeColor.Primary"
+                      OnClick="async () => await newMatchupModal.ShowAsync()" />
+            
+            <HxButton Text="Remove"
+                      Icon="BootstrapIcon.Subtract"
+                      Color="ThemeColor.Danger"
+                      OnClick="RemoveMatchup"/>
+            
+            <HxSelect TItem="Matchup"
+                      TValue="Matchup"
+                      Label="Matchup"
+                      Data="viewModel.Matchups"
+                      @bind-Value="viewModel.SelectedMatchup"
+                      TextSelector="matchup => matchup.ToStringValue()" 
+                      ValueSelector="matchup => matchup"
+                      CssClass="my-3" />
+        </BodyTemplate>
+    </HxCard>
+    -->
+    
+    <HxCard CssClass="m-3">
+        <HeaderTemplate><span class="fw-bold">Probable Starters</span></HeaderTemplate>
+        <BodyTemplate>
+            @foreach (var weightClass in viewModel.WeightClasses)
+            {
+                <ProbablesRow WeightClass="weightClass" />
+            }
+        </BodyTemplate>
+    </HxCard>
+    
+    <HxCard CssClass="m-3">
+        <HeaderTemplate><span class="fw-bold">Score Control</span></HeaderTemplate>
+        <BodyTemplate>
+            <div class="d-flex">
+                <HxInputNumber Label="Home Score" Enabled="false" 
+                               @bind-Value="viewModel.HomeScore"
+                               CssClass="w-25" />
+                <HxButton CssClass="ms-2 mt-3" 
+                          Text="+1" 
+                          Color="ThemeColor.Primary" 
+                          OnClick="() => viewModel.IncrementHomeScore(1)" />
+                <HxButton CssClass="ms-2 mt-3"
+                          Text="+2"
+                          Color="ThemeColor.Primary"
+                          OnClick="() => viewModel.IncrementHomeScore(2)" />
+                <HxButton CssClass="ms-2 mt-3"
+                          Text="+3"
+                          Color="ThemeColor.Primary"
+                          OnClick="() => viewModel.IncrementHomeScore(3)" />
+                <HxButton CssClass="ms-2 mt-3"
+                          Text="-1"
+                          Color="ThemeColor.Danger" 
+                          OnClick="() => viewModel.IncrementHomeScore(-1)" />
+            </div>
+
+            <div class="d-flex mt-2">
+                <HxInputNumber Label="Away Score" Enabled="false"
+                               @bind-Value="viewModel.AwayScore"
+                               CssClass="w-25" />
+                <HxButton CssClass="ms-2 mt-3"
+                          Text="+1"
+                          Color="ThemeColor.Primary"
+                          OnClick="() => viewModel.IncrementAwayScore(1)" />
+                <HxButton CssClass="ms-2 mt-3"
+                          Text="+2"
+                          Color="ThemeColor.Primary"
+                          OnClick="() => viewModel.IncrementAwayScore(2)" />
+                <HxButton CssClass="ms-2 mt-3"
+                          Text="+3"
+                          Color="ThemeColor.Primary"
+                          OnClick="() => viewModel.IncrementAwayScore(3)" />
+                <HxButton CssClass="ms-2 mt-3"
+                          Text="-1"
+                          Color="ThemeColor.Danger"
+                          OnClick="() => viewModel.IncrementAwayScore(-1)" />
+            </div>
+            
+            <div class="d-flex mt-3">
+                <p class="mt-3 me-5 fw-bold">@viewModel.Period</p>
+                <HxButtonToolbar>
+                    <HxButtonGroup>
+                        <HxButton Color="ThemeColor.Primary" Text="1st" OnClick="() => viewModel.UpdatePeriod(1)"/>
+                        <HxButton Color="ThemeColor.Primary" Text="2nd" OnClick="() => viewModel.UpdatePeriod(2)"/>
+                        <HxButton Color="ThemeColor.Primary" Text="3rd" OnClick="() => viewModel.UpdatePeriod(3)"/>
+                        <HxButton Color="ThemeColor.Primary" Text="OT" OnClick="() => viewModel.UpdatePeriod(4)"/>
+                    </HxButtonGroup>
+                </HxButtonToolbar>
+            </div>
+        </BodyTemplate>
+    </HxCard>
+
+    <WrestlingRosterControl />
+</div>
 
 @code {
-    
+    private NewMatchupModal newMatchupModal;
+
+    private void RemoveMatchup()
+    {
+        viewModel.RemoveMatchup();
+        StateHasChanged();
+    }
 }

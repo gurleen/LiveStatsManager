@@ -1,5 +1,36 @@
-<h3>SponsorSlider</h3>
+@using LiveStatsManager.Services.DataStore
+@inject IDataStore store
+
+<select class="form-select" @bind="SelectedSponsor">
+    <option value="AcademyBus.png">Academy Bus</option>
+    <option value="DrexelPT.png">Drexel PT</option>
+    <option value="Frontier.png">Frontier</option>
+    <option value="RothmanOrtho.png">Rothman Ortho</option>
+    <option value="StrategicWealth.png">Strategic Wealth Designers</option>
+    <option value="ValleyForge.png">Valley Forge</option>
+    <option value="VarsityNetwork.png">Varsity Network</option>
+</select>
+
+<img class="w-100 mt-2" src="@SponsorImage" alt="Sponsor Read Banner"/>
+
+<HxButton Text="Update" 
+          Color="ThemeColor.Primary"
+          Icon="BootstrapIcon.ArrowUp"
+          CssClass="mt-2 w-100"
+          OnClick="Update"/>
+
+<HxButton Text="Play"
+          Color="ThemeColor.Success"
+          Icon="BootstrapIcon.Play" 
+          CssClass="mt-2 w-100"
+          OnClick="Play"/>
 
 @code {
-    
+    private string SelectedSponsor = "AcademyBus.png";
+    private string SponsorImage => "http://localhost:5069/sponsor-banners/" + SelectedSponsor;
+    private const string ImageKey = "img:Sponsor-Read-Image";
+    private const string ToggleKey = "Toggle-Sponsor-Slider";
+
+    private void Update() => store.Add(ImageKey, SponsorImage);
+    private void Play() => store.Toggle(ToggleKey);
 }
