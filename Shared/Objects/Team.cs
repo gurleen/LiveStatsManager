@@ -50,8 +50,8 @@ public record TeamInfo
     public string SecondaryTextColor => ColorUtils.GetBestTextColor(SecondaryColor);
     public required ConferenceInfo Conference { get; init; }
     public required string Website { get; init; }
-    public string FullLogoUrl => $"https://dtv-media.us-east-1.linodeobjects.com/logos/{TeamLogo}";
-    public string KnockoutLogoUrl => $"https://dtv-media.us-east-1.linodeobjects.com/logos-white/{TeamLogo}";
+    public string FullLogoUrl => $"https://images.dragonstv.io/logos/{TeamLogo}";
+    public string KnockoutLogoUrl => $"https://images.dragonstv.io/logos-knockout/{TeamLogo}";
 
     public static TeamInfo CustomTeamInfo(LocalTeamInfo local) =>
         new()

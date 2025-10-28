@@ -6,6 +6,6 @@ namespace LiveStatsManager.Hubs;
 
 public class LiveDataHub : Hub<ILiveDataHub>
 {
-    public async Task EmitUpdate(DataPair pair) => 
+    public async Task EmitUpdate(DataPair pair) =>
         await Clients.All.DataUpdate(pair.Key, pair.Value);
 }

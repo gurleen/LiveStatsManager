@@ -1,15 +1,13 @@
+using LiveStatsManager.Models.TypedDataStore;
 using LiveStatsManager.Services.DataStore;
-using Shared.Enums;
-using Shared.Extensions;
-using Shared.GameState;
-using Shared.Objects;
 
 namespace LiveStatsManager.Services.AllSport;
 
 public class AllSportListener(
     SettingsProvider settingsProvider,
     IDataStore store,
-    AppState appState) : BackgroundService
+    AppState appState,
+    TypedDataStore typedDataStore) : BackgroundService
 {
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
@@ -29,16 +27,41 @@ public class AllSportListener(
         var sport = appState.Sport;
         var data = new AllSportData(line, sport);
         store.Add(data.DataPairs().ToList());
-        
-        if(store.Add("fade:Home-Score", data.HomeScore))
+        UpdateTypedStore(data);
+
+        if (store.Add("fade:Home-Score", data.HomeScore))
         {
             store.Add("Home-Last-Score", data.Clock);
         }
-        if(store.Add("fade:Away-Score", data.AwayScore))
+        if (store.Add("fade:Away-Score", data.AwayScore))
         {
             store.Add("Away-Last-Score", data.Clock);
         }
-        
+
         return Task.CompletedTask;
+    }
+    
+    private void UpdateTypedStore(AllSportData data)
+    {
+        typedDataStore.GameState = new GameState
+        {
+            Clock = data.ClockSeconds,
+            ShotClock = data.ShotClockSeconds,
+            Period = data.PeriodInt,
+            HomeTeam = new TeamGameState
+            {
+                Score = data.HomeScoreInt,
+                Timeouts = 4,
+                Fouls = 0,
+                Bonus = false
+            },
+            AwayTeam = new TeamGameState
+            {
+                Score = data.AwayScoreInt,
+                Timeouts = 4,
+                Fouls = 0,
+                Bonus = false
+            }
+        };
     }
 }

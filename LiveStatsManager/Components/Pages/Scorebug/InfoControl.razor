@@ -1,6 +1,7 @@
 @using LiveStatsManager.Services.DataStore
 @using NCAALiveStats
 @inject IDataStore store
+@inject TypedDataStore typedDataStore
 
 <div class="d-flex justify-content-between">
     <div class="d-flex flex-column">
@@ -80,7 +81,6 @@
             if(HomeTimeouts + amount >= 0 && HomeTimeouts + amount < 5)
             {
                 HomeTimeouts += amount;
-                
             }
         }
         else
@@ -108,5 +108,15 @@
         store.Add(AwayBonusKey, AwayBonusActive? "1" : "0");
         store.Add(HomeTimeoutsKey, HomeTimeouts.ToString());
         store.Add(AwayTimeoutsKey, AwayTimeouts.ToString());
+        typedDataStore.GameState = typedDataStore.GameState with {
+            HomeTeam = typedDataStore.GameState.HomeTeam with {
+                Timeouts = HomeTimeouts,
+                Bonus = HomeBonusActive
+            },
+            AwayTeam = typedDataStore.GameState.AwayTeam with {
+                Timeouts = AwayTimeouts,
+                Bonus = AwayBonusActive
+            } 
+        };
     }
 }

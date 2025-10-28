@@ -20,15 +20,18 @@ public class AppStateController(TeamDataRepository repo, AppState state, Current
     
     [HttpGet("/api/state/awayTeam")]
     public FullTeam AwayTeam() => repo.GetFullTeam(state.Sport, state.AwayTeam.Id);
-    
+
     [HttpGet("/api/state/awayTeam/legacy")]
     public List<LegacyPlayer> AwayTeamLegacyJson() => repo
         .PlayersForTeam(state.Sport, state.AwayTeam.Id)
         .Select(p => p.AsLegacyPlayer())
         .ToList();
-    
+        
     [HttpGet("/api/state/graphicsData")]
-    public Dictionary<string, string> GraphicsData() => state.GraphicsData.TemplateData();
+    public GraphicsData GraphicsData() => state.GraphicsData;
+    
+    [HttpGet("/api/state/graphicsData/legacy")]
+    public Dictionary<string, string> GraphicsDataLegacy() => state.GraphicsData.TemplateData();
     
     [HttpGet("/api/state/game")]
     public CurrentGameState GameState() => gameState;

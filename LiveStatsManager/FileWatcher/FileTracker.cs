@@ -11,6 +11,7 @@ public class FileTracker : IHostedService
     public FileTracker(IConfiguration config, IDataStore dataStore)
     {
         Path = config.GetValue<string>("LiveDataDirectory") ?? "/LiveData";
+        Directory.CreateDirectory(Path);
         _watcher = new FileSystemWatcher(Path);
         this.dataStore = dataStore;
     }

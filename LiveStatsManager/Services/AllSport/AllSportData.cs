@@ -1,3 +1,4 @@
+using System.Globalization;
 using AngleSharp.Text;
 using LiveStatsManager.FileWatcher;
 using Shared.Enums;
@@ -13,6 +14,13 @@ public class AllSportData
     public string HomeScore { get; init; }
     public string AwayScore { get; init; }
     public string Period { get; set; }
+
+    public TimeSpan ClockSpan => TimeSpan.Parse(Clock, CultureInfo.InvariantCulture);
+    public int ClockSeconds => ClockSpan.Seconds;
+    public int ShotClockSeconds => ShotClock.SafeParseInt();
+    public int HomeScoreInt => HomeScore.SafeParseInt();
+    public int AwayScoreInt => AwayScore.SafeParseInt();
+    public int PeriodInt => Period.SafeParseInt();
     
     private string GetRange(int start, int end) => 
         DataLine.Substring(start, end - start).StripLeadingTrailingSpaces();

@@ -29,4 +29,10 @@ public static partial class StringExtensions
     private static partial Regex MyRegex1();
     [GeneratedRegex(@"\s")]
     private static partial Regex MyRegex2();
+
+    public static int SafeParseInt(this string input, int defaultValue = 0)
+    {
+        if (int.TryParse(input, out var parsed)) { return parsed; }
+        return defaultValue;
+    }
 }

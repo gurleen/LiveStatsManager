@@ -39,6 +39,7 @@ public static class StartupExtensions
         services.AddHostedService<LiveStatsListener>();
         services.AddHostedService<AllSportListener>();
         services.AddHostedService<FileWriterService>();
+        services.AddHostedService<MockAllSportListener>();
     }
 
     public static void AddUtilityServices(this IServiceCollection services)
@@ -63,6 +64,7 @@ public static class StartupExtensions
     public static void AddGraphicsServices(this IServiceCollection services)
     {
         services.AddSingleton<IDataStore, DataStore>();
+        services.AddSingleton<TypedDataStore>();
         services.AddSingleton<GraphicsManager>();
     }
 
@@ -114,6 +116,7 @@ public static class StartupExtensions
         app.MapRazorPages();
         app.MapControllers();
         app.MapHub<LiveDataHub>("/LiveData");
+        app.MapHub<TypedLiveDataHub>("/TypedLiveData");
     }
 
     public static async Task ExecuteStartupTasks(this IServiceProvider services)
