@@ -43,24 +43,19 @@ public class AllSportListener(
     
     private void UpdateTypedStore(AllSportData data)
     {
-        typedDataStore.GameState = new GameState
+        typedDataStore.GameState = typedDataStore.GameState with
         {
             Clock = data.ClockSeconds,
+            ClockDisplay = data.ClockDisplay,
             ShotClock = data.ShotClockSeconds,
             Period = data.PeriodInt,
-            HomeTeam = new TeamGameState
+            HomeTeam = typedDataStore.GameState.HomeTeam with
             {
-                Score = data.HomeScoreInt,
-                Timeouts = 4,
-                Fouls = 0,
-                Bonus = false
+                Score = data.HomeScoreInt
             },
-            AwayTeam = new TeamGameState
+            AwayTeam = typedDataStore.GameState.AwayTeam with
             {
-                Score = data.AwayScoreInt,
-                Timeouts = 4,
-                Fouls = 0,
-                Bonus = false
+                Score = data.AwayScoreInt
             }
         };
     }

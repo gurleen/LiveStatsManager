@@ -14,8 +14,7 @@ public record struct TeamGameState
 public record struct GameState
 {
     public int Clock { get; set; }
-    private readonly TimeSpan ClockSpan => TimeSpan.FromSeconds(Clock);
-    public readonly string ClockDisplay => ClockSpan.ToString(@"m\:ss");
+    public string ClockDisplay { get; set; }
     public int ShotClock { get; set; }
     public int Period { get; set; }
     public readonly string PeriodDisplay => Period.DisplayWithSuffix();

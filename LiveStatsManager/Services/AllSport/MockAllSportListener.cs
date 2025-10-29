@@ -15,7 +15,7 @@ public class MockAllSportListener(TypedDataStore typedDataStore) : BackgroundSer
         while (true)
         {
             Tick();
-            Update();
+            // Update();
             await Task.Delay(1000, stoppingToken);
         }
     }
