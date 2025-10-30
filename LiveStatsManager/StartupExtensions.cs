@@ -39,7 +39,7 @@ public static class StartupExtensions
         services.AddHostedService<LiveStatsListener>();
         services.AddHostedService<AllSportListener>();
         services.AddHostedService<FileWriterService>();
-        // services.AddHostedService<MockAllSportListener>();
+        services.AddHostedService<MockAllSportListener>();
     }
 
     public static void AddUtilityServices(this IServiceCollection services)

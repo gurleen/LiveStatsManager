@@ -10,7 +10,7 @@ public class CurrentGameState
                                                            ?? new SynchronizationContext();
     public event Func<Task> OnUpdate;
     
-    public Sport Sport { get; init; } = Sport.MensBasketball;
+    public Sport Sport { get; set; } = Sport.MensBasketball;
     public int Period { get; set; } = 1;
     public int TimeRemaining { get; set; } = 20 * 60;
     public int ShotClock { get; set; } = 30;

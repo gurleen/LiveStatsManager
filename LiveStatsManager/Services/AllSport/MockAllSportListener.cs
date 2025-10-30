@@ -1,12 +1,21 @@
 using System;
 using LiveStatsManager.Models.TypedDataStore;
 using LiveStatsManager.Services.DataStore;
+using Shared.GameState;
 
 namespace LiveStatsManager.Services.AllSport;
 
-public class MockAllSportListener(TypedDataStore typedDataStore) : BackgroundService
+public class MockAllSportListener(TypedDataStore typedDataStore, CurrentGameState gameState) : BackgroundService
 {
     private int Clock = 60 * 20;
+    private string ClockDisplay
+    {
+        get
+        {
+            var span = TimeSpan.FromSeconds(Clock);
+            return $"{span.Minutes}:{span.Seconds:D2}";
+        }
+    }
     private int ShotClock = 30;
     private int Period = 1;
 
@@ -15,7 +24,7 @@ public class MockAllSportListener(TypedDataStore typedDataStore) : BackgroundSer
         while (true)
         {
             Tick();
-            // Update();
+            Update();
             await Task.Delay(1000, stoppingToken);
         }
     }
@@ -30,8 +39,13 @@ public class MockAllSportListener(TypedDataStore typedDataStore) : BackgroundSer
     {
         typedDataStore.GameState = typedDataStore.GameState with
         {
+            Period = Period,
             Clock = Clock,
+            ClockDisplay = ClockDisplay,
             ShotClock = ShotClock
         };
+        gameState.Period = Period;
+        gameState.TimeRemaining = Clock;
+        gameState.ShotClock = ShotClock;
     }
 }

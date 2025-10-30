@@ -4,6 +4,7 @@ using LiveStatsManager.Services.DataStore;
 using NCAALiveStats;
 using NCAALiveStats.ExternalData.Sidearm;
 using Shared.Enums;
+using Shared.GameState;
 using Shared.Objects;
 
 #pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
@@ -12,6 +13,7 @@ namespace LiveStatsManager.Services;
 
 public class AppState
 {
+    private readonly CurrentGameState currentGameState;
     private readonly TeamDataRepository teamRepo;
     private readonly DatabaseRepository dbRepo;
     private readonly IDataStore store;
@@ -89,7 +91,11 @@ public class AppState
             UseAwayTeamSecondaryColor = useSecondary;
     }
     
-    public void SetSport(Sport sport) => SaveState(() => Sport = sport);
+    public void SetSport(Sport sport)
+    {
+        SaveState(() => Sport = sport);
+        currentGameState.Sport = sport;
+    }
 
     private async Task<List<PlayerHeadshot>> GetHeadshots(Team team)
     {
@@ -108,7 +114,8 @@ public class AppState
         teamRepo = services.GetRequiredService<TeamDataRepository>();
         dbRepo = services.GetRequiredService<DatabaseRepository>();
         store = services.GetRequiredService<IDataStore>();
-        
+        currentGameState = services.GetRequiredService<CurrentGameState>();
+
         var savedState = dbRepo.GetSingleton<SavedAppState>();
         savedState.Match(SetTeamsFromDb, SetDefaultTeams);
     }
