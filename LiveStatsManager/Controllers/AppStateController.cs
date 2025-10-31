@@ -1,13 +1,14 @@
 using LiveStatsManager.Models;
+using LiveStatsManager.Models.TypedDataStore;
 using LiveStatsManager.Services;
+using LiveStatsManager.Services.DataStore;
 using Microsoft.AspNetCore.Mvc;
-using Shared.GameState;
 using Shared.Objects;
 
 namespace LiveStatsManager.Controllers;
 
 [ApiController]
-public class AppStateController(TeamDataRepository repo, AppState state, CurrentGameState gameState) : ControllerBase
+public class AppStateController(TeamDataRepository repo, AppState state, TypedDataStore typedDataStore) : ControllerBase
 {
     [HttpGet("/api/state/homeTeam")]
     public FullTeam HomeTeam() => repo.GetFullTeam(state.Sport, state.HomeTeam.Id);
@@ -34,5 +35,5 @@ public class AppStateController(TeamDataRepository repo, AppState state, Current
     public Dictionary<string, string> GraphicsDataLegacy() => state.GraphicsData.TemplateData();
     
     [HttpGet("/api/state/game")]
-    public CurrentGameState GameState() => gameState;
+    public GameState GameState() => typedDataStore.GameState;
 }
