@@ -5,7 +5,7 @@ using Shared.GameState;
 
 namespace LiveStatsManager.Services.AllSport;
 
-public class MockAllSportListener(TypedDataStore typedDataStore, CurrentGameState gameState) : BackgroundService
+public class MockAllSportListener(TypedDataStore typedDataStore, CurrentGameState gameState, SettingsProvider settings) : BackgroundService
 {
     private int Clock = 60 * 20;
     private string ClockDisplay
@@ -21,6 +21,7 @@ public class MockAllSportListener(TypedDataStore typedDataStore, CurrentGameStat
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
+        if (!settings.AllSportSettings.MockEnabled) return;
         while (true)
         {
             Tick();

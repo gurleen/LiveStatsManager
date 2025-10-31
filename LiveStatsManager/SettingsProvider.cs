@@ -19,6 +19,7 @@ public class AllSportSettings
     public bool Enabled { get; set; } = false;
     public string ComPort { get; set; } = string.Empty;
     public int BaudRate { get; set; } = 9600;
+    public bool MockEnabled { get; set; } = false;
 }
 
 public class FileWriterSettings

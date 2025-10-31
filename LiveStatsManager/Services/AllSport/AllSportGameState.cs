@@ -12,7 +12,7 @@ public static class AllSportGameState
     
     public static void UpdateAllSportData(this CurrentGameState gameState, AllSportData data)
     {
-        gameState.Period = int.Parse(data.Period);
+        gameState.Period = int.Parse(data.Period.Substring(0, 1));
         gameState.TimeRemaining = data.Clock.ParseClockStringToSeconds();
         gameState.ShotClock = data.ShotClock.ParseClockStringToSeconds();
         gameState.HomeScore = int.Parse(data.HomeScore);

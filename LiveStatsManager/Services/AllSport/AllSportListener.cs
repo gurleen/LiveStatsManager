@@ -1,4 +1,3 @@
-using LiveStatsManager.Models.TypedDataStore;
 using LiveStatsManager.Services.DataStore;
 
 namespace LiveStatsManager.Services.AllSport;
