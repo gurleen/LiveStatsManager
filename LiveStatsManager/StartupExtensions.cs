@@ -8,6 +8,7 @@ using LiveStatsManager.Services.AllSport;
 using LiveStatsManager.Services.DataStore;
 using LiveStatsManager.Services.FileWriter;
 using LiveStatsManager.Services.Graphics;
+using LiveStatsManager.Services.StatCrew;
 using LiveStatsManager.Utilities.StartupTasks;
 using NCAALiveStats;
 using Shared.GameState;
@@ -36,7 +37,8 @@ public static class StartupExtensions
     public static void AddBackgroundServices(this IServiceCollection services)
     {
         services.AddHostedService<FileTracker>();
-        services.AddHostedService<LiveStatsListener>();
+        // services.AddHostedService<LiveStatsListener>();
+        services.AddHostedService<StatCrewListener>();
         services.AddHostedService<AllSportListener>();
         services.AddHostedService<FileWriterService>();
         services.AddHostedService<MockAllSportListener>();
@@ -59,6 +61,7 @@ public static class StartupExtensions
         services.AddSingleton<NCAAListener>();
         services.AddSingleton<AppState>();
         services.AddSingleton<CurrentGameState>();
+        services.AddSingleton<StatCrewDataService>();
     }
 
     public static void AddGraphicsServices(this IServiceCollection services)
@@ -100,6 +103,7 @@ public static class StartupExtensions
             app.UseExceptionHandler("/Error", createScopeForErrors: true);
             app.UseHsts();
         }
+
 
         app.UseHttpsRedirection();
         app.UseStaticFiles();

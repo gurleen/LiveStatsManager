@@ -1,5 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 using NCAADataLoader.Loaders;
+using NCAALiveStats.ExternalData.StatCrew;
 
 namespace NCAADataLoader;
 
