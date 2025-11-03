@@ -11,8 +11,7 @@ namespace LiveStatsManager.Controllers;
 public class BoxscoreController(StatCrewDataService statCrewData) : ControllerBase
 {
     [HttpGet]
-    [Route("{team}")]
-    public StatCrewBasketballState GetBoxscore(TeamSide team) => statCrewData.GameState;
+    public StatCrewBasketballState GetBoxscore() => statCrewData.GameState;
     
     [HttpGet]
     [Route("{team}/player/{shirt}")]

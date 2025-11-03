@@ -1,4 +1,5 @@
 using System;
+using LiveStatsManager.Components.Pages;
 using LiveStatsManager.Models.TypedDataStore;
 using LiveStatsManager.Services.DataStore;
 using Shared.GameState;
@@ -18,6 +19,8 @@ public class MockAllSportListener(TypedDataStore typedDataStore, CurrentGameStat
     }
     private int ShotClock = 30;
     private int Period = 1;
+    private int HomeScore = 0;
+    private int AwayScore = 0;
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
@@ -34,6 +37,15 @@ public class MockAllSportListener(TypedDataStore typedDataStore, CurrentGameStat
     {
         Clock = Clock == 0 ? (60 * 20) : (Clock - 1);
         ShotClock = ShotClock == 0 ? 30 : (ShotClock - 1);
+        var rand = new Random();
+        if (rand.NextDouble() < 0.3)
+        {
+            HomeScore += 2;
+        }
+        else if (rand.NextDouble() < 0.3)
+        {
+            AwayScore += 2;
+        }
     }
 
     private void Update()
@@ -43,7 +55,15 @@ public class MockAllSportListener(TypedDataStore typedDataStore, CurrentGameStat
             Period = Period,
             Clock = Clock,
             ClockDisplay = ClockDisplay,
-            ShotClock = ShotClock
+            ShotClock = ShotClock,
+            HomeTeam = typedDataStore.GameState.HomeTeam with
+            {
+                Score = HomeScore
+            },
+            AwayTeam = typedDataStore.GameState.AwayTeam with
+            {
+                Score = AwayScore
+            }
         };
         gameState.Period = Period;
         gameState.TimeRemaining = Clock;
