@@ -78,7 +78,7 @@ public class TeamRecord(int wins, int losses)
     public int Wins { get; init; } = wins;
     public int Losses { get; init; } = losses;
     public int Games => Wins + Losses;
-    public double WinPercentage => Math.Round((double)Wins / Games, 3);
+    public double WinPercentage => Games == 0 ? 0 : Math.Round((double)Wins / Games, 3);
     public string RecordDisplay => $"{Wins}-{Losses}";
     public string WinPercentageDisplay => $"{WinPercentage:P1}";
 }

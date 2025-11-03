@@ -5,18 +5,25 @@ namespace LiveStatsManager.Services.StatCrew;
 
 public class StatCrewListener : BackgroundService
 {
-    private readonly string StatsFileDir = @"/Users/gurleen/Downloads/";
+    private readonly bool Enabled;
+    private readonly string StatsFileDir;
     private StatCrewDataService statCrewDataService;
-    private FileSystemWatcher fileSystemWatcher;
+    private FileSystemWatcher? fileSystemWatcher;
 
     public StatCrewListener(StatCrewDataService dataService, SettingsProvider settings)
     {
+        Enabled = settings.StatCrewSettings.Enabled;
+        StatsFileDir = settings.StatCrewSettings.WatchDirectory;
         statCrewDataService = dataService;
-        fileSystemWatcher = new FileSystemWatcher(StatsFileDir, "bbgame.xml");
+        if (Enabled)
+        {
+            fileSystemWatcher = new FileSystemWatcher(StatsFileDir, settings.StatCrewSettings.XmlFileName);
+        }
     }
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
+        if (fileSystemWatcher is null) return;
         fileSystemWatcher.NotifyFilter = NotifyFilters.Attributes
                                  | NotifyFilters.CreationTime
                                  | NotifyFilters.DirectoryName

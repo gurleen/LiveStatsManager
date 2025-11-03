@@ -9,6 +9,13 @@ public class LiveStatsSettings
     public bool LogIncomingData { get; set; } = false;
 }
 
+public class StatCrewSettings
+{
+    public bool Enabled { get; set; } = false;
+    public string WatchDirectory { get; set; } = string.Empty;
+    public string XmlFileName { get; set; } = string.Empty;
+}
+
 public class DatabaseSettings
 {
     public string DBFilename { get; set; } = string.Empty;
@@ -35,6 +42,7 @@ public class SettingsProvider
     public readonly DatabaseSettings DatabaseSettings = new();
     public readonly AllSportSettings AllSportSettings = new();
     public readonly FileWriterSettings FileWriterSettings = new();
+    public readonly StatCrewSettings StatCrewSettings = new();
     public readonly string LiveDataDirectory;
     
     public SettingsProvider(IConfiguration config)
@@ -43,6 +51,7 @@ public class SettingsProvider
         config.GetRequiredSection(nameof(DatabaseSettings)).Bind(DatabaseSettings);
         config.GetRequiredSection(nameof(AllSportSettings)).Bind(AllSportSettings);
         config.GetRequiredSection(nameof(FileWriterSettings)).Bind(FileWriterSettings);
+        config.GetRequiredSection(nameof(StatCrewSettings)).Bind(StatCrewSettings);
         LiveDataDirectory = config.GetValue<string>("LiveDataDirectory") ?? string.Empty;
     }
 }

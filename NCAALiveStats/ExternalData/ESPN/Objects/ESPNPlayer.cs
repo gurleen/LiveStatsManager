@@ -23,9 +23,9 @@ public class ESPNPlayer
     [JsonPropertyName("id")]
     public required string Id { get; set; }
     [JsonPropertyName("firstName")]
-    public required string FirstName { get; set; }
+    public string FirstName { get; set; }
     [JsonPropertyName("lastName")]
-    public required string LastName { get; set; }
+    public string LastName { get; set; }
     [JsonPropertyName("displayName")]
     public required string DisplayName { get; set; }
     [JsonPropertyName("shortName")]
@@ -45,11 +45,11 @@ public class ESPNPlayer
 public class ESPNPlayerBirthPlace
 {
     [JsonPropertyName("city")]
-    public required string City { get; set; }
+    public string City { get; set; }
     [JsonPropertyName("state")]
     public string? State { get; set; }
     [JsonPropertyName("country")]
-    public required string Country { get; set; }
+    public string Country { get; set; }
 }
 
 public class ESPNPlayerPosition

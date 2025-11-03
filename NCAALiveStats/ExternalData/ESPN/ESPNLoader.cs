@@ -17,6 +17,7 @@ public class ESPNLoader
     private string BaseUrl => $"https://site.api.espn.com/apis/site/v2/sports/basketball/{SportSlug}";
     private string BaseUrlV3 => $"https://site.api.espn.com/apis/common/v3/sports/basketball/{SportSlug}";
     private string BaseUrlSports => $"https://site.api.espn.com/apis/v2/sports/basketball/{SportSlug}";
+    private const string UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36";
     
     private string BaseUrlByVersion(bool useV3) => useV3 ? BaseUrlV3 : BaseUrl;
     private Url BuildUrl(string path, bool useV3 = false) => BaseUrlByVersion(useV3).AppendPathSegment(path);
@@ -78,12 +79,14 @@ public class ESPNLoader
         var cached = await CheckForCachedDataAsync<List<ESPNPlayer>>(cacheFileName, 
             TimeSpan.FromDays(7));
         if(cached != null) return cached;
-        
+
         var response = await Routes.PlayersUrl(SelectedSport)
             .AppendQueryParam("limit", "20000")
             .AppendQueryParam("active", "true")
+            .WithHeader("User-Agent", UserAgent)
             .GetJsonAsync<ESPNPlayerResponse>();
         
+
         await SaveDataToCacheAsync(cacheFileName, response.Players);
         return response.Players;
     }
