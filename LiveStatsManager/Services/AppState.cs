@@ -13,7 +13,7 @@ namespace LiveStatsManager.Services;
 
 public class AppState
 {
-    private readonly CurrentGameState currentGameState;
+    private readonly TypedDataStore typedDataStore;
     private readonly TeamDataRepository teamRepo;
     private readonly DatabaseRepository dbRepo;
     private readonly IDataStore store;
@@ -54,6 +54,7 @@ public class AppState
         SaveState(() => HomeTeam = team);
         HomeFullTeam = teamRepo.GetFullTeam(Sport, team.Id);
         PushHomeTeamData();
+
     }
 
     private void PushHomeTeamData()
@@ -94,7 +95,10 @@ public class AppState
     public void SetSport(Sport sport)
     {
         SaveState(() => Sport = sport);
-        currentGameState.Sport = sport;
+        typedDataStore.GameState = typedDataStore.GameState with
+        {
+            Sport = sport
+        };
     }
 
     private async Task<List<PlayerHeadshot>> GetHeadshots(Team team)
@@ -114,7 +118,7 @@ public class AppState
         teamRepo = services.GetRequiredService<TeamDataRepository>();
         dbRepo = services.GetRequiredService<DatabaseRepository>();
         store = services.GetRequiredService<IDataStore>();
-        currentGameState = services.GetRequiredService<CurrentGameState>();
+        typedDataStore = services.GetRequiredService<TypedDataStore>();
 
         var savedState = dbRepo.GetSingleton<SavedAppState>();
         savedState.Match(SetTeamsFromDb, SetDefaultTeams);
