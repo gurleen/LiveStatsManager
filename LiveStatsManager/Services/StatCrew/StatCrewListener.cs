@@ -8,7 +8,7 @@ public class StatCrewListener : BackgroundService
     private readonly bool Enabled;
     private readonly string StatsFileDir;
     private StatCrewDataService statCrewDataService;
-    private FileSystemWatcher? fileSystemWatcher;
+    private readonly FileSystemWatcher? fileSystemWatcher;
 
     public StatCrewListener(StatCrewDataService dataService, SettingsProvider settings)
     {
@@ -18,6 +18,7 @@ public class StatCrewListener : BackgroundService
         if (Enabled)
         {
             fileSystemWatcher = new FileSystemWatcher(StatsFileDir, settings.StatCrewSettings.XmlFileName);
+            ParseFile(Path.Join(StatsFileDir, settings.StatCrewSettings.XmlFileName));
         }
     }
 
@@ -39,7 +40,12 @@ public class StatCrewListener : BackgroundService
 
     private void OnChanged(object sender, FileSystemEventArgs e)
     {
-        var parser = new StatCrewBasketballParser(e.FullPath);
+        ParseFile(e.FullPath);
+    }
+    
+    private void ParseFile(string path)
+    {
+        var parser = new StatCrewBasketballParser(path);
         Task.Run(async () =>
         {
             var data = await parser.Load();

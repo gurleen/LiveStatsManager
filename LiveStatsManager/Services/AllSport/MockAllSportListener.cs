@@ -41,10 +41,12 @@ public class MockAllSportListener(TypedDataStore typedDataStore, CurrentGameStat
         if (rand.NextDouble() < 0.3)
         {
             HomeScore += 2;
+            if(HomeScore > 100) { HomeScore = 0; }
         }
         else if (rand.NextDouble() < 0.3)
         {
             AwayScore += 2;
+            if(AwayScore > 100) { AwayScore = 0; }
         }
     }
 
