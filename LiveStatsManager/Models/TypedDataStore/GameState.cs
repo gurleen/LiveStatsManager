@@ -13,6 +13,8 @@ public record struct TeamGameState
     public int Timeouts { get; set; } = 4;
     public int Fouls { get; set; }
     public bool Bonus { get; set; } = false;
+    public int LastScoreTime { get; set; }
+    public int LastFieldGoalTime { get; set; }
 }
 
 public record struct SliderState

@@ -18,7 +18,8 @@ public class StatCrewBasketballParser(string filePath)
         {
             Venue = ParseVenue(document),
             HomeTeam = StatCrewBasketballTeam.FromXml(document.Descendants("team").Where(x => x.GetStringAttr("vh") == "H").First()),
-            AwayTeam = StatCrewBasketballTeam.FromXml(document.Descendants("team").Where(x => x.GetStringAttr("vh") == "V").First())
+            AwayTeam = StatCrewBasketballTeam.FromXml(document.Descendants("team").Where(x => x.GetStringAttr("vh") == "V").First()),
+            Plays = ParsePlays(document)
         };
     }
 
@@ -29,6 +30,19 @@ public class StatCrewBasketballParser(string filePath)
         "Q" => PeriodType.Quarters,
         _ => PeriodType.Periods
     };
+
+    private static List<StatCrewBasketballPlay> ParsePlays(XElement document)
+    {
+        var plays = new List<StatCrewBasketballPlay>();
+        var periods = document.Descendants("plays").Descendants("period");
+        foreach(var period in periods)
+        {
+            var periodNum = period.GetIntAttr("number");
+            var parsedPlays = period.Descendants("play").Select(x => StatCrewBasketballPlay.FromXml(x, periodNum));
+            plays.AddRange(parsedPlays);
+        }
+        return plays;
+    }
 
     private static StatCrewBasketballVenue ParseVenue(XElement document)
     {

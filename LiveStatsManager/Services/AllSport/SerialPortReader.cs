@@ -66,7 +66,7 @@ public class SerialPortReader : IDisposable
                         }
                     }
                 }
-                catch (TimeoutException)
+                catch (Exception)
                 {
                     // Ignore timeout, continue reading
                 }

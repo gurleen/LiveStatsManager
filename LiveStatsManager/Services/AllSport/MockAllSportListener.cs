@@ -52,6 +52,8 @@ public class MockAllSportListener(TypedDataStore typedDataStore, CurrentGameStat
 
     private void Update()
     {
+        var homeScoreDiff = typedDataStore.GameState.HomeTeam.Score - HomeScore;
+        var awayScoreDiff = typedDataStore.GameState.AwayTeam.Score - AwayScore;
         typedDataStore.GameState = typedDataStore.GameState with
         {
             Period = Period,
@@ -60,11 +62,15 @@ public class MockAllSportListener(TypedDataStore typedDataStore, CurrentGameStat
             ShotClock = ShotClock,
             HomeTeam = typedDataStore.GameState.HomeTeam with
             {
-                Score = HomeScore
+                Score = HomeScore,
+                LastScoreTime = (homeScoreDiff > 0) ? Clock : typedDataStore.GameState.HomeTeam.LastScoreTime,
+                LastFieldGoalTime = (homeScoreDiff > 1) ? Clock : typedDataStore.GameState.HomeTeam.LastFieldGoalTime
             },
             AwayTeam = typedDataStore.GameState.AwayTeam with
             {
-                Score = AwayScore
+                Score = AwayScore,
+                LastScoreTime = (awayScoreDiff > 0) ? Clock : typedDataStore.GameState.AwayTeam.LastScoreTime,
+                LastFieldGoalTime = (awayScoreDiff > 1) ? Clock : typedDataStore.GameState.AwayTeam.LastFieldGoalTime
             }
         };
         gameState.Period = Period;

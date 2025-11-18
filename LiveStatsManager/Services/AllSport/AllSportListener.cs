@@ -6,18 +6,42 @@ public class AllSportListener(
     SettingsProvider settingsProvider,
     IDataStore store,
     AppState appState,
-    TypedDataStore typedDataStore) : BackgroundService
+    TypedDataStore typedDataStore,
+    ILogger<AllSportListener> logger) : BackgroundService
 {
+    private int Retries = 5;
+
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
         var settings = settingsProvider.AllSportSettings;
         if (settings.Enabled == false) return;
-        using var reader = new SerialPortReader(settings.ComPort, settings.BaudRate, lineTerminator: "\x04");
-        reader.Open();
-        while (!stoppingToken.IsCancellationRequested)
+        while (true)
         {
-            await reader.ReadAsync(HandleLine);
-            await Task.Delay(100, stoppingToken);
+            try
+            {
+                using var reader = new SerialPortReader(settings.ComPort, settings.BaudRate, lineTerminator: "\x04");
+                reader.Open();
+                logger.LogInformation("Connected to AllSport CG.");
+                while (!stoppingToken.IsCancellationRequested)
+                {
+                    await reader.ReadAsync(HandleLine);
+                    await Task.Delay(100, stoppingToken);
+                }
+            }
+            catch (Exception exc)
+            {
+                logger.LogError(exc, "Exception in AllSportListener");
+                if(Retries > 0)
+                {
+                    await Task.Delay(1000, stoppingToken);
+                    logger.LogCritical("Attempting to re-connect to AllSport CG...");
+                    Retries -= 1;
+                }
+                else
+                {
+                    logger.LogError("AllSportListener will not attempt to re-connect.");
+                }
+            }
         }
     }
 
@@ -39,9 +63,11 @@ public class AllSportListener(
 
         return Task.CompletedTask;
     }
-    
+
     private void UpdateTypedStore(AllSportData data)
     {
+        var homeScoreDiff = typedDataStore.GameState.HomeTeam.Score - data.HomeScoreInt;
+        var awayScoreDiff = typedDataStore.GameState.AwayTeam.Score - data.AwayScoreInt;
         typedDataStore.GameState = typedDataStore.GameState with
         {
             Clock = data.ClockSeconds,
@@ -50,11 +76,15 @@ public class AllSportListener(
             Period = data.PeriodInt,
             HomeTeam = typedDataStore.GameState.HomeTeam with
             {
-                Score = data.HomeScoreInt
+                Score = data.HomeScoreInt,
+                LastScoreTime = (homeScoreDiff > 0) ? data.ClockSeconds : typedDataStore.GameState.HomeTeam.LastScoreTime,
+                LastFieldGoalTime = (homeScoreDiff > 1) ? data.ClockSeconds : typedDataStore.GameState.HomeTeam.LastFieldGoalTime
             },
             AwayTeam = typedDataStore.GameState.AwayTeam with
             {
-                Score = data.AwayScoreInt
+                Score = data.AwayScoreInt,
+                LastScoreTime = (awayScoreDiff > 0) ? data.ClockSeconds : typedDataStore.GameState.AwayTeam.LastScoreTime,
+                LastFieldGoalTime = (awayScoreDiff > 1) ? data.ClockSeconds : typedDataStore.GameState.AwayTeam.LastFieldGoalTime
             }
         };
     }

@@ -29,7 +29,6 @@ public class DataStore(IHubContext<LiveDataHub, ILiveDataHub> hubContext) : IDat
         if(key.StartsWith('#')) return false;
         if (_dataStore.TryGetValue(key, out var existingValue) && existingValue == value) return false;
         _dataStore[key] = value;
-        Console.WriteLine($"{key} = {value}");
         hubContext.Clients.All.DataUpdate(key, value);
         try
         {

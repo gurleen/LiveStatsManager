@@ -1,4 +1,6 @@
 using System;
+using System.Security.Cryptography.X509Certificates;
+using Shared.Enums;
 
 namespace NCAALiveStats.ExternalData.StatCrew.Objects;
 
@@ -34,4 +36,5 @@ public readonly record struct StatCrewBasketballVenue
     public bool IsPostseason { get; init; }
     public List<string> Officials { get; init; }
     public StatCrewBasketballRules Rules { get; init; }
+    public Sport Sport => Rules.PeriodType == PeriodType.Halves ? Sport.MensBasketball : Sport.WomensBasketball;
 }
