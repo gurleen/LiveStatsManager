@@ -56,7 +56,7 @@ public class AllSportData
         Clock = GetRange(1, 8);
         if(Clock.StartsWith("0:"))
             Clock = Clock[2..];
-        else if(Clock.StartsWith('0'))
+        else if(Clock.StartsWith('0') && !Clock.StartsWith("0."))
             Clock = Clock[1..];
         ShotClock = GetRange(9, 11);
         HomeScore = GetRange(13, 16);
