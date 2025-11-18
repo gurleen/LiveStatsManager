@@ -403,3 +403,5 @@ FodyWeavers.xsd
 launch.vscode
 
 .DS_Store
+
+Build/
